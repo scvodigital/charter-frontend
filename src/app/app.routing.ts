@@ -2,16 +2,11 @@ import { Routes } from '@angular/router';
 
 import { HomeComponent } from './components/home/home.component';
 import { PageComponent } from './components/page/page.component';
-// import { SearchResultsComponent } from './components/search-results/search-results.component';
-// import { LoginComponent } from './components/login/login.component';
-// import { LogoutComponent } from './components/logout/logout.component';
-// import { ProfileComponent } from './components/profile/profile.component';
-// import { RegisterComponent } from './components/register/register.component';
-// import { ShortlistComponent } from './components/shortlist/shortlist.component';
-// import { ChangeCountryComponent } from './components/change-country/change-country.component';
-// import { VacancyDetailsComponent } from './components/vacancy-details/vacancy-details.component';
-// import { OrganisationsComponent } from './components/organisations/organisations.component';
-// import { OrganisationComponent } from './components/organisation/organisation.component';
+import { SignUpComponent } from './components/signup/signup.component';
+import { LoginComponent } from './components/login/login.component';
+import { SkillUpComponent } from './components/static/skillup.component';
+import { CharterComponent } from './components/static/charter.component';
+import { ResourcesComponent } from './components/resources/resources.component';
 //import { MenuEditorIndexComponent } from './admin/menu-editor/menu-editor-index.component';
 //import { MenuEditorComponent } from './admin/menu-editor/menu-editor.component';
 //import { PageEditorIndexComponent } from './admin/page-editor/page-editor-index.component';
@@ -23,16 +18,11 @@ import { PageComponent } from './components/page/page.component';
 
 export const rootRouterConfig: Routes = [
     { path: '',                         component: HomeComponent,           pathMatch: 'full'   },
-    // { path: 'search',                   component: SearchResultsComponent   },
-    // { path: 'login',                    component: LoginComponent           },
-    // { path: 'logout',                   component: LogoutComponent          },
-    // { path: 'profile',                  component: ProfileComponent         },
-    // { path: 'register',                 component: RegisterComponent        },
-    // { path: 'shortlist',                component: ShortlistComponent       },
-    // { path: 'change-country',           component: ChangeCountryComponent   },
-    // { path: 'saved-searches',           component: ShortlistComponent       },
-    // { path: 'vacancy/:slug',            component: VacancyDetailsComponent  },
-    // { path: 'organisations',            component: OrganisationsComponent    },
+    { path: 'sign-up',                  component: SignUpComponent          },
+    { path: 'login',                    component: LoginComponent           },
+    { path: 'skill-up',                 component: SkillUpComponent         },
+    { path: 'the-charter',              component: CharterComponent         },
+    { path: 'resources',                component: ResourcesComponent       },
     // { path: 'organisation/:slug',       component: OrganisationComponent    },
     // {
     //     path: 'admin',

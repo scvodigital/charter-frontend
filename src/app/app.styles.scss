@@ -10,28 +10,29 @@
     src: url("/app/assets/fonts/GilroyExtraBold.otf") format("opentype");
 }
 
+// Brand colours
+
+$brand-typography:                  #022347;
+$brand-primary:                     #a8b7ff;
+$brand-charter:                     #ffa8b8;
+$brand-signup:                      #6dede5;
+$brand-other:                       #fce882;
+$brand-skills:                      #6beda0;
+
+$scvo-background:                   #263238;
+
 // Base variables
 
-$base-font-family:                "Roboto", Helvetica, Arial, sans-serif;
-$base-font-size:                  1rem;
-$base-font-weight:                300;
-$base-font-color:                 #022246;
+$base-font-family:                  "Roboto", Helvetica, Arial, sans-serif;
+$base-font-size:                    1rem;
+$base-font-weight:                  300;
 
-$base-line-height:                1.5;
+$base-line-height:                  1.5;
 
-$heading-font-family:             "Gilroy", Helvetica, Arial, sans-serif;
-$heading-font-size:               3rem;
-$heading-font-weight:             700;
-$heading-font-color:              #000000;
-
-$brand-color:                     #022246;
-$brand-color-hover:               #33B1AD;
-
-$brand-color-button:              #022246;
-$brand-color-button-border:       #008E8A;
-
-$brand-color-button-hover:        #022246;
-$brand-color-button-border-hover: #006F6B;
+$heading-font-family:               "Gilroy", Helvetica, Arial, sans-serif;
+$heading-font-size:                 3rem;
+$heading-font-weight:               700;
+$heading-font-color:                #000000;
 
 // Base styles
 
@@ -47,8 +48,8 @@ body {
     font-family: $base-font-family;
     font-size: $base-font-size;
     font-weight: $base-font-weight;
-    color: $base-font-color;
-    background-color: #263238;
+    color: $brand-typography;
+    background-color: $scvo-background;
 }
 
 h1, h2, h3, h4, h5 {
@@ -68,7 +69,9 @@ h1, h2, h3, h4, h5 {
 
 hr {
     background: transparent;
-    border-bottom: 0.2rem solid $base-font-color;
+    border: none;
+    border-bottom: 0.2rem solid $brand-typography;
+    margin: 0;
 }
 
 nav {
@@ -82,7 +85,7 @@ nav {
     box-shadow: none;
     .nav-wrapper {
         height: 7rem;
-        border-bottom: 0.2rem solid $base-font-color;
+        border-bottom: 0.2rem solid $brand-typography;
     }
     h1 {
         margin: 0;
@@ -90,7 +93,7 @@ nav {
     .brand-logo {
         display: block;
         font-size: 1.5rem;
-        color: $base-font-color;
+        color: $brand-typography;
         span {
             display: block;
             line-height: 1.5rem;
@@ -112,7 +115,7 @@ nav {
         }
         .participation {
             background: white;
-            border: 0.2rem solid $base-font-color;
+            border: 0.2rem solid $brand-typography;
             border-radius: 0.15rem;
             padding: 0.1rem 0.5rem;
         }
@@ -123,31 +126,165 @@ nav {
     ul li a.active,
     ul li a:hover {
         background: white;
-        border: 0.2rem solid $base-font-color;
+        border: 0.2rem solid $brand-typography;
         border-radius: 0.15rem;
         padding: 0.1rem 0.5rem;
     }
     ul li a {
-        color: $base-font-color;
+        color: $brand-typography;
         padding: 0.3rem 0.7rem;
         font-size: 1.5rem;
         margin-left: 0.2rem;
     }
 }
 
-#site-content {
-    background: rgba(255,234,114,1);
-    background: -moz-linear-gradient(top, rgba(255,234,114,1) 0%, rgba(255,168,183,1) 100%);
-    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,234,114,1)), color-stop(100%, rgba(255,168,183,1)));
-    background: -webkit-linear-gradient(top, rgba(255,234,114,1) 0%, rgba(255,168,183,1) 100%);
-    background: -o-linear-gradient(top, rgba(255,234,114,1) 0%, rgba(255,168,183,1) 100%);
-    background: -ms-linear-gradient(top, rgba(255,234,114,1) 0%, rgba(255,168,183,1) 100%);
-    background: linear-gradient(to bottom, rgba(255,234,114,1) 0%, rgba(255,168,183,1) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffea72', endColorstr='#ffa8b7', GradientType=0 );
+#content {
+    padding-bottom: 4rem;
+}
+
+#content.primary {
+    background: $brand-primary;
+}
+#content.primary-gradient {
+    background: $brand-primary;
+    background: -moz-linear-gradient(top, $brand-primary 0%, $brand-charter 100%);
+    background: -webkit-linear-gradient(top, $brand-primary 0%,$brand-charter 100%);
+    background: linear-gradient(to bottom, $brand-primary 0%,$brand-charter 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-primary', endColorstr='$brand-charter',GradientType=0 );
+}
+#content.charter {
+    background: $brand-charter;
+}
+#content.charter-gradient {
+    background: $brand-charter;
+    background: -moz-linear-gradient(top, $brand-charter 0%, $brand-other 100%);
+    background: -webkit-linear-gradient(top, $brand-charter 0%,$brand-other 100%);
+    background: linear-gradient(to bottom, $brand-charter 0%,$brand-other 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-charter', endColorstr='$brand-other',GradientType=0 );
+}
+#content.signup {
+    background: $brand-signup;
+}
+#content.signup-gradient {
+    background: $brand-signup;
+    background: -moz-linear-gradient(top, $brand-signup 0%, $brand-primary 100%);
+    background: -webkit-linear-gradient(top, $brand-signup 0%,$brand-primary 100%);
+    background: linear-gradient(to bottom, $brand-signup 0%,$brand-primary 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-signup', endColorstr='$brand-primary',GradientType=0 );
+}
+#content.other {
+    background: $brand-other;
+}
+#content.other-gradient {
+    background: $brand-other;
+    background: -moz-linear-gradient(top, $brand-other 0%, $brand-skills 100%);
+    background: -webkit-linear-gradient(top, $brand-other 0%,$brand-skills 100%);
+    background: linear-gradient(to bottom, $brand-other 0%,$brand-skills 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-other', endColorstr='$brand-skills',GradientType=0 );
+}
+#content.skills {
+    background: $brand-skills;
+}
+#content.skills-gradient {
+    background: $brand-skills;
+    background: -moz-linear-gradient(top, $brand-skills 0%, $brand-primary 100%);
+    background: -webkit-linear-gradient(top, $brand-skills 0%,$brand-primary 100%);
+    background: linear-gradient(to bottom, $brand-skills 0%,$brand-primary 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-skills', endColorstr='$brand-primary',GradientType=0 );
+}
+
+
+main {
+    .title {
+        h1 {
+            font-size: 5.8rem;
+            line-height: 5.9rem;
+            letter-spacing: -0.1rem;
+            margin: 3rem 0;
+            padding-right: 2rem;
+        }
+        img {
+            margin-top: 2rem;
+        }
+    }
+    .description {
+        margin-bottom: 0;
+        h2 {
+            font-size: 3.2rem;
+            margin: 5rem 0;
+        }
+        .btn {
+            position: relative;
+            margin: 6rem auto;
+            padding: 0.8rem 5rem;
+            height: auto;
+            display: block;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.6rem;
+            line-height: normal;
+            border-radius: 0;
+            background-color: white;
+            color: $brand-typography;
+            border: 0.2rem solid $brand-typography;
+            box-shadow: -0.5rem 0.5rem 0 $brand-typography;
+        }
+        // .btn:hover {
+        //     background-color: $brand-typography;
+        //     border-color: white;
+        //     color: white;
+        //     box-shadow: -0.5rem 0.5rem 0 white;
+        // }
+    }
+    .title,
+    .signup {
+        p {
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+    }
+    .signup {
+        margin-bottom: 0;
+        h1 {
+            font-size: 5rem;
+        }
+        img {
+            margin: 0 auto;
+            padding: 1.5rem 8rem 0;
+            margin-bottom: -6px;
+        }
+        h4 {
+            margin: 0;
+            position: relative;
+            a {
+                padding: 1rem 0;
+                display: block;
+                color: $brand-typography;
+                font-weight: bold;
+                font-size: 1.5rem;
+                .text {
+                    width: 77%;
+                }
+                .material-icons {
+                    font-weight: bold;
+                    position: absolute;
+                    top: 1rem;
+                    right: 0.3rem;
+                    font-size: 2.7rem;
+                }
+            }
+        }
+    }
+    h3 {
+        font-size: 2.5rem;
+    }
 }
 
 .footer {
+    margin-top: 2rem;
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    font-weight: 400;
     .copyright {
         font-size: 95%;
         p a {
@@ -155,8 +292,11 @@ nav {
             text-decoration: underline;
         }
         p {
-            margin-top: 1.5em;
+            margin-top: 1.5rem;
         }
+    }
+    .logo.digital-scotland {
+        margin-left: 1.5rem;
     }
     .menu ul {
         margin-top: 0;

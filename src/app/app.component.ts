@@ -20,6 +20,7 @@ export class AppComponent {
     appRoutes: string[][];
     date = new Date();
     showCurrentlyRecruiting: boolean;
+    contentType: string;
 
     constructor(private router: Router, private route: ActivatedRoute, private titleService: Title, private angularFire: AngularFire, private appService: AppService) {
         router.events.subscribe(event => {
@@ -30,6 +31,22 @@ export class AppComponent {
                 // Get page title from Title Service (not yet written)
                 this.setTitle("Scotland's Digital Participation Charter ");
                 this.slideout();
+
+                if (event.url === '/') {
+                    this.contentType = 'primary-gradient';
+                } else if (event.url.startsWith('/sign-up')) {
+                    this.contentType = 'signup-gradient';
+                } else if (event.url.startsWith('/skill-up')) {
+                    this.contentType = 'skills-gradient';
+                } else if (event.url.startsWith('/the-charter')) {
+                    this.contentType = 'charter-gradient';
+                } else if (event.url.startsWith('/resources')) {
+                    this.contentType = 'other-gradient';
+                } else if (event.url.startsWith('/login')) {
+                    this.contentType = 'signup-gradient';
+                } else {
+                    this.contentType = 'primary';
+                }
             }
         });
     }

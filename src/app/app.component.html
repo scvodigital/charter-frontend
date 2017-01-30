@@ -1,4 +1,4 @@
-<div id="site-content">
+<div id="content" [ngClass]="contentType">
     <div class="header-container">
     	<header>
             <nav id="header">
@@ -23,9 +23,6 @@
                     					<div class="col s3 hide-on-large-only">
                     						<a (click)="slidein('menu')" data-activates="mobile-menu" class="button-collapse">
                     							<i class="material-icons">menu</i>
-                    						</a>
-                    						<a (click)="slidein('search')" data-activates="mobile-search" class="button-collapse">
-                    							<i class="material-icons">search</i>
                     						</a>
                     					</div>
                     				</div>
@@ -60,26 +57,24 @@
             <!-- <h2>Menu</h2> -->
     		<ul menu="mobile"></ul>
     	</div>
-    	<div id="mobile-search" class="side-nav side-panel">
-    		<h2>Search</h2>
-    		<div class="container">
-    		</div>
-    	</div>
     </main>
 </div>
 <footer>
     <div class="footer">
         <div class="container-fluid">
             <div class="row">
-                <div class="col s12 m9 l10 white-text copyright">
+                <div class="col s12 white-text copyright">
                     <a href="http://scvo.org.uk">
-                        <img src="/app/assets/images/scvo-inverse.png" alt="SCVO" class="logo scvo" height="45" />
+                        <img src="/app/assets/images/logos/scvo.png" alt="Scottish Council for Voluntary Organisations" class="logo scvo" height="45" />
+                    </a>
+                    <a href="http://www.gov.scot/Topics/Economy/digital">
+                        <img src="/app/assets/images/logos/digital-scotland.png" alt="Digital Scotland" class="logo digital-scotland" height="45" />
                     </a>
                     <p>&copy; {{date | date:'yyyy'}}. The Scottish Council for Voluntary Organisations (SCVO) is a Scottish Charitable Incorporated Organisation. Registration number <a href="http://www.oscr.org.uk/charities/search-scottish-charity-register/charity-details?number=SC003558">SC003558</a>.
                 </div>
-                <div class="col s12 m3 l2 menu">
+                <!-- <div class="col s12 m3 l2 menu">
                     <ul class="list-inline right menu-footer" menu="footer"></ul>
-                </div>
+                </div> -->
             </div>
         </div>
 	</div>
