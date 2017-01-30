@@ -1,0 +1,88 @@
+<div id="site-content">
+    <div class="header-container">
+    	<header>
+            <nav id="header">
+                <div class="container-fluid">
+                    <div class="row">
+        				<div class="col s12">
+                    		<div class="page-header hidden-xs bg-primary">
+                    			<div class="container-fluid">
+                    				<div class="row nav-wrapper">
+                    					<div class="col s9 l4 brand">
+                    						<h1>
+                                                <a [routerLink]="['/']" class="brand-logo">
+                                                    <span class="digital">Digital</span>
+                                                    <span class="participation">Participation</span>
+                                                    <span class="charter">Charter</span>
+                                                </a>
+                                            </h1>
+                    					</div>
+                    					<div class="col l8 menu-top hide-on-med-and-down">
+                    						<ul menu="top" class="list-inline right menu-top"></ul>
+                    					</div>
+                    					<div class="col s3 hide-on-large-only">
+                    						<a (click)="slidein('menu')" data-activates="mobile-menu" class="button-collapse">
+                    							<i class="material-icons">menu</i>
+                    						</a>
+                    						<a (click)="slidein('search')" data-activates="mobile-search" class="button-collapse">
+                    							<i class="material-icons">search</i>
+                    						</a>
+                    					</div>
+                    				</div>
+                                </div>
+                    		</div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+    	</header>
+    	<!-- <nav class="hide-on-med-and-down">
+    		<div class="container-fluid">
+    			<div class="row">
+    				<div class="col s12">
+    					<div class="nav-wrapper">
+    						<ul menu="main" class="nav navbar-nav left menu-main"></ul>
+    						<ul menu="user" class="right menu-user"></ul>
+    					</div>
+    				</div>
+    			</div>
+    		</div>
+    	</nav> -->
+    </div>
+    <main>
+    	<div class="main">
+    		<div class="container-fluid">
+    			<router-outlet></router-outlet>
+    		</div>
+    	</div>
+    	<div class="clearfix"></div>
+    	<div id="mobile-menu" class="side-nav side-panel">
+            <!-- <h2>Menu</h2> -->
+    		<ul menu="mobile"></ul>
+    	</div>
+    	<div id="mobile-search" class="side-nav side-panel">
+    		<h2>Search</h2>
+    		<div class="container">
+    		</div>
+    	</div>
+    </main>
+</div>
+<footer>
+    <div class="footer">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col s12 m9 l10 white-text copyright">
+                    <a href="http://scvo.org.uk">
+                        <img src="/app/assets/images/scvo-inverse.png" alt="SCVO" class="logo scvo" height="45" />
+                    </a>
+                    <p>&copy; {{date | date:'yyyy'}}. The Scottish Council for Voluntary Organisations (SCVO) is a Scottish Charitable Incorporated Organisation. Registration number <a href="http://www.oscr.org.uk/charities/search-scottish-charity-register/charity-details?number=SC003558">SC003558</a>.
+                </div>
+                <div class="col s12 m3 l2 menu">
+                    <ul class="list-inline right menu-footer" menu="footer"></ul>
+                </div>
+            </div>
+        </div>
+	</div>
+</footer>
+
+<div id="sidenav-overlay" (click)="slideout()" style="display:none;"></div>

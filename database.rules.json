@@ -1,0 +1,63 @@
+{
+    "rules": {
+        ".read": true,
+        ".write": "auth !== null && root.child('roles/' + auth.uid + '/Administrator').exists()",
+        "config": {
+            ".write": "auth !== null && root.child('roles/' + auth.uid + '/Administrator').exists()",
+            ".validate": "newData.child('languages').exists() && newData.child('domains').exists() && newData.child('roles').exists()",
+            "domains": {
+                "$domain": {
+                    ".validate": "root.child('sites/').hasChild(newData.val())"
+                }
+            }
+        },
+        "users": {
+            ".write": "auth !== null && root.child('roles/' + auth.uid + '/Administrator').exists()",
+            "$userId": {
+                ".read": "auth !== null && auth.uid === $userId",
+                ".write": "auth !== null && (root.child('roles/' + auth.uid + '/Administrator').exists() || auth.uid === $userId)",
+                ".validate": "newData.child('name').isString() && newData.child('email').isString() && newData.child('address').isString() && newData.child('postcode').isString() && newData.child('country').isString() && newData.child('phone').isString() && newData.child('mobile').isString()"
+            }
+        },
+        "roles": {
+            ".read": "auth !== null && root.child('roles/' + auth.uid + '/Administrator').exists()",
+            ".write": "auth !== null && root.child('roles/' + auth.uid + '/Administrator').exists()",
+            "$userId": {
+                ".read": "auth !== null && root.child('roles/' + auth.uid).exists()"
+            }
+        },
+        "salts": {
+            ".read": true,
+            ".write": "auth !== null && root.child('roles/' + auth.uid + '/Administrator').exists()"
+        },
+        "sites": {
+            "$site": {
+                ".write": "auth !== null && root.child('roles/' + auth.uid + '/Administrator').exists()",
+                ".read": true,
+                ".validate": "newData.hasChildren(['menus', 'pages'])",
+                "config": {
+                    ".validate": "newData.child('default-domain').isString() && newData.child('default-language').isString() && newData.child('layout').isString()"
+                },
+                "pages": {
+                    "$page": {
+                        "$translation": {
+                            ".validate": "newData.isString()"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/*
+RULE TEMPLATES:
+
+Only Authenticated
+auth !== null
+
+Only Administrator
+auth !== null && root.child('users/' + auth.uid + '/roles').hasChild('Administrator')
+
+Only Administrator or Current user
+auth !== null && (root.child('users/' + auth.uid + '/roles').hasChild('Administrator') || auth.uid === $userId)
+*/

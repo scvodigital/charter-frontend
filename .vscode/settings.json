@@ -1,0 +1,8 @@
+{
+  "terminal.integrated.shell.windows": "C:\\WINDOWS\\system32\\cmd.exe /k c:\\windows\\system32\\bash.exe wait",
+  "editor.tabSize": 4,
+  "editor.renderIndentGuides": true,
+  "editor.insertSpaces": true,
+  "typescript.check.workspaceVersion": false,
+  "explorerExcludedFiles.show": true
+}

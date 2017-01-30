@@ -1,0 +1,167 @@
+@charset "utf-8";
+
+@import url(//fonts.googleapis.com/css?family=Open+Sans:300,400,700|Roboto:300,400,700);
+@import url(//fonts.googleapis.com/icon?family=Material+Icons);
+@import url(//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
+
+@font-face {
+    font-family: "Gilroy";
+    font-weight: bold;
+    src: url("/app/assets/fonts/GilroyExtraBold.otf") format("opentype");
+}
+
+// Base variables
+
+$base-font-family:                "Roboto", Helvetica, Arial, sans-serif;
+$base-font-size:                  1rem;
+$base-font-weight:                300;
+$base-font-color:                 #022246;
+
+$base-line-height:                1.5;
+
+$heading-font-family:             "Gilroy", Helvetica, Arial, sans-serif;
+$heading-font-size:               3rem;
+$heading-font-weight:             700;
+$heading-font-color:              #000000;
+
+$brand-color:                     #022246;
+$brand-color-hover:               #33B1AD;
+
+$brand-color-button:              #022246;
+$brand-color-button-border:       #008E8A;
+
+$brand-color-button-hover:        #022246;
+$brand-color-button-border-hover: #006F6B;
+
+// Base styles
+
+html, body {
+    height: 100%;
+}
+
+html {
+    overflow-y: scroll;
+}
+
+body {
+    font-family: $base-font-family;
+    font-size: $base-font-size;
+    font-weight: $base-font-weight;
+    color: $base-font-color;
+    background-color: #263238;
+}
+
+h1, h2, h3, h4, h5 {
+    font-family: $heading-font-family;
+    font-weight: $heading-font-weight;
+}
+
+.container-fluid {
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.centre {
+    text-align: center;
+}
+
+hr {
+    background: transparent;
+    border-bottom: 0.2rem solid $base-font-color;
+}
+
+nav {
+    height: 9rem;
+    padding-top: 2rem;
+    font-family: $heading-font-family;
+    font-weight: $heading-font-weight;
+    text-transform: uppercase;
+    line-height: 1.5rem;
+    background-color: transparent;
+    box-shadow: none;
+    .nav-wrapper {
+        height: 7rem;
+        border-bottom: 0.2rem solid $base-font-color;
+    }
+    h1 {
+        margin: 0;
+    }
+    .brand-logo {
+        display: block;
+        font-size: 1.5rem;
+        color: $base-font-color;
+        span {
+            display: block;
+            line-height: 1.5rem;
+        }
+        .digital, .charter {
+            margin-left: 0.5rem;
+        }
+        .participation::after {
+            font-family: FontAwesome;
+            font-weight: normal;
+            font-style: normal;
+            display: inline-block;
+            text-decoration: inherit;
+            position: absolute;
+            bottom: 0.4rem;
+            right: 3.3rem;
+            font-size: 1.7rem;
+            content: "\f245";
+        }
+        .participation {
+            background: white;
+            border: 0.2rem solid $base-font-color;
+            border-radius: 0.15rem;
+            padding: 0.1rem 0.5rem;
+        }
+    }
+    ul {
+        margin-top: 1.2rem;
+    }
+    ul li.active,
+    ul li:hover {
+        background-color: transparent;
+        a {
+            background: white;
+            border: 0.2rem solid $base-font-color;
+            border-radius: 0.15rem;
+            padding: 0.1rem 0.5rem;
+        }
+    }
+    ul li a {
+        color: $base-font-color;
+        padding: 0.3rem 0.7rem;
+        font-size: 1.5rem;
+        margin-left: 0.2rem;
+    }
+}
+
+#site-content {
+    background: rgba(255,234,114,1);
+    background: -moz-linear-gradient(top, rgba(255,234,114,1) 0%, rgba(255,168,183,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,234,114,1)), color-stop(100%, rgba(255,168,183,1)));
+    background: -webkit-linear-gradient(top, rgba(255,234,114,1) 0%, rgba(255,168,183,1) 100%);
+    background: -o-linear-gradient(top, rgba(255,234,114,1) 0%, rgba(255,168,183,1) 100%);
+    background: -ms-linear-gradient(top, rgba(255,234,114,1) 0%, rgba(255,168,183,1) 100%);
+    background: linear-gradient(to bottom, rgba(255,234,114,1) 0%, rgba(255,168,183,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffea72', endColorstr='#ffa8b7', GradientType=0 );
+}
+
+.footer {
+    font-family: "Open Sans", Helvetica, Arial, sans-serif;
+    .copyright {
+        font-size: 95%;
+        p a {
+            color: white !important;
+            text-decoration: underline;
+        }
+        p {
+            margin-top: 1.5em;
+        }
+    }
+    .menu ul {
+        margin-top: 0;
+    }
+}
