@@ -24,10 +24,10 @@ import { MarkdownToHtmlPipe } from 'markdown-to-html-pipe';
 /* Directives */
 
 export const firebaseConfig = {
-  apiKey: "AIzaSyAuGAacoIdUgbtfI42UXTHDosMS4pP5Teg",
-  authDomain: "charter-frontend.firebaseapp.com",
-  databaseURL: "https://charter-frontend.firebaseio.com",
-  storageBucket: "charter-frontend.appspot.com"
+  apiKey: "AIzaSyDMb8TAHk494HqI19vXo1M49Gm_t5GNowg",
+  authDomain: "digital-participation-charter.firebaseapp.com",
+  databaseURL: "https://digital-participation-charter.firebaseio.com",
+  storageBucket: "digital-participation-charter.appspot.com"
 }
 
 @NgModule({
