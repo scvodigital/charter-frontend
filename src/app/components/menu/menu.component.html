@@ -1,3 +1,21 @@
-<li *ngFor="let menuItem of menuItems">
+<!-- <li *ngFor="let menuItem of menuItems">
     <a [routerLink]="[menuItem.name]" [innerHTML]="menuItem.label"></a>
+</li> -->
+<li>
+    <a [routerLink]="['/']" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }" [innerHTML]="['Home']"></a>
+</li>
+<li>
+    <a [routerLink]="['/sign-up']" [routerLinkActive]="['active']" [innerHTML]="['Sign Up']"></a>
+</li>
+<li>
+    <a [routerLink]="['/skill-up']" [routerLinkActive]="['active']" [innerHTML]="['Skill Up']"></a>
+</li>
+<li>
+    <a [routerLink]="['/the-charter']" [routerLinkActive]="['active']" [innerHTML]="['The Charter']"></a>
+</li>
+<li>
+    <a [routerLink]="['/resources']" [routerLinkActive]="['active']" [innerHTML]="['Resources']"></a>
+</li>
+<li>
+    <a [routerLink]="['/login']" [routerLinkActive]="['active']" [innerHTML]="['Login']"></a>
 </li>

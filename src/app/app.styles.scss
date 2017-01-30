@@ -120,15 +120,12 @@ nav {
     ul {
         margin-top: 1.2rem;
     }
-    ul li.active,
-    ul li:hover {
-        background-color: transparent;
-        a {
-            background: white;
-            border: 0.2rem solid $base-font-color;
-            border-radius: 0.15rem;
-            padding: 0.1rem 0.5rem;
-        }
+    ul li a.active,
+    ul li a:hover {
+        background: white;
+        border: 0.2rem solid $base-font-color;
+        border-radius: 0.15rem;
+        padding: 0.1rem 0.5rem;
     }
     ul li a {
         color: $base-font-color;
