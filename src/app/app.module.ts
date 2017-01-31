@@ -18,7 +18,6 @@ import { HomeComponent } from './components/home/home.component';
 import { PageComponent } from './components/page/page.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { SignUpComponent } from './components/signup/signup.component';
-import { LoginComponent } from './components/login/login.component';
 import { SkillUpComponent } from './components/static/skillup.component';
 import { CharterComponent } from './components/static/charter.component';
 import { ResourcesComponent } from './components/resources/resources.component';
@@ -42,7 +41,6 @@ export const firebaseConfig = {
     PageComponent,
     MenuComponent,
     SignUpComponent,
-    LoginComponent,
     SkillUpComponent,
     CharterComponent,
     ResourcesComponent,

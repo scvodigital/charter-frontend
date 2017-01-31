@@ -34,6 +34,8 @@ $heading-font-size:                 3rem;
 $heading-font-weight:               700;
 $heading-font-color:                #000000;
 
+$brand-border-width:                0.2rem;
+
 // Base styles
 
 html, body {
@@ -62,7 +64,6 @@ h1, h2, h3, h4, h5 {
     width: 100%;
     margin: 0 auto;
 }
-
 .centre {
     text-align: center;
 }
@@ -70,8 +71,16 @@ h1, h2, h3, h4, h5 {
 hr {
     background: transparent;
     border: none;
-    border-bottom: 0.2rem solid $brand-typography;
+    border-bottom: $brand-border-width solid $brand-typography;
+    margin: 3rem 0;
+}
+
+.nomargin {
     margin: 0;
+}
+.margin-bottom {
+    margin-top: 0;
+    margin-bottom: 3rem;
 }
 
 nav {
@@ -85,7 +94,7 @@ nav {
     box-shadow: none;
     .nav-wrapper {
         height: 7rem;
-        border-bottom: 0.2rem solid $brand-typography;
+        border-bottom: $brand-border-width solid $brand-typography;
     }
     h1 {
         margin: 0;
@@ -115,7 +124,7 @@ nav {
         }
         .participation {
             background: white;
-            border: 0.2rem solid $brand-typography;
+            border: $brand-border-width solid $brand-typography;
             border-radius: 0.15rem;
             padding: 0.1rem 0.5rem;
         }
@@ -126,7 +135,7 @@ nav {
     ul li a.active,
     ul li a:hover {
         background: white;
-        border: 0.2rem solid $brand-typography;
+        border: $brand-border-width solid $brand-typography;
         border-radius: 0.15rem;
         padding: 0.1rem 0.5rem;
     }
@@ -134,7 +143,7 @@ nav {
         color: $brand-typography;
         padding: 0.3rem 0.7rem;
         font-size: 1.5rem;
-        margin-left: 0.2rem;
+        margin-left: $brand-border-width;
     }
 }
 
@@ -147,9 +156,9 @@ nav {
 }
 #content.primary-gradient {
     background: $brand-primary;
-    background: -moz-linear-gradient(top, $brand-primary 0%, $brand-charter 100%);
-    background: -webkit-linear-gradient(top, $brand-primary 0%,$brand-charter 100%);
-    background: linear-gradient(to bottom, $brand-primary 0%,$brand-charter 100%);
+    background: -moz-linear-gradient(top, $brand-primary 0%, $brand-charter 90%);
+    background: -webkit-linear-gradient(top, $brand-primary 0%,$brand-charter 90%);
+    background: linear-gradient(to bottom, $brand-primary 0%,$brand-charter 90%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-primary', endColorstr='$brand-charter',GradientType=0 );
 }
 #content.charter {
@@ -157,9 +166,9 @@ nav {
 }
 #content.charter-gradient {
     background: $brand-charter;
-    background: -moz-linear-gradient(top, $brand-charter 0%, $brand-other 100%);
-    background: -webkit-linear-gradient(top, $brand-charter 0%,$brand-other 100%);
-    background: linear-gradient(to bottom, $brand-charter 0%,$brand-other 100%);
+    background: -moz-linear-gradient(top, $brand-charter 0%, $brand-other 70%);
+    background: -webkit-linear-gradient(top, $brand-charter 0%,$brand-other 70%);
+    background: linear-gradient(to bottom, $brand-charter 0%,$brand-other 70%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-charter', endColorstr='$brand-other',GradientType=0 );
 }
 #content.signup {
@@ -167,9 +176,9 @@ nav {
 }
 #content.signup-gradient {
     background: $brand-signup;
-    background: -moz-linear-gradient(top, $brand-signup 0%, $brand-primary 100%);
-    background: -webkit-linear-gradient(top, $brand-signup 0%,$brand-primary 100%);
-    background: linear-gradient(to bottom, $brand-signup 0%,$brand-primary 100%);
+    background: -moz-linear-gradient(top, $brand-signup 0%, $brand-primary 90%);
+    background: -webkit-linear-gradient(top, $brand-signup 0%,$brand-primary 90%);
+    background: linear-gradient(to bottom, $brand-signup 0%,$brand-primary 90%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-signup', endColorstr='$brand-primary',GradientType=0 );
 }
 #content.other {
@@ -177,9 +186,9 @@ nav {
 }
 #content.other-gradient {
     background: $brand-other;
-    background: -moz-linear-gradient(top, $brand-other 0%, $brand-skills 100%);
-    background: -webkit-linear-gradient(top, $brand-other 0%,$brand-skills 100%);
-    background: linear-gradient(to bottom, $brand-other 0%,$brand-skills 100%);
+    background: -moz-linear-gradient(top, $brand-other 0%, $brand-skills 70%);
+    background: -webkit-linear-gradient(top, $brand-other 0%,$brand-skills 70%);
+    background: linear-gradient(to bottom, $brand-other 0%,$brand-skills 70%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-other', endColorstr='$brand-skills',GradientType=0 );
 }
 #content.skills {
@@ -187,20 +196,26 @@ nav {
 }
 #content.skills-gradient {
     background: $brand-skills;
-    background: -moz-linear-gradient(top, $brand-skills 0%, $brand-primary 100%);
-    background: -webkit-linear-gradient(top, $brand-skills 0%,$brand-primary 100%);
-    background: linear-gradient(to bottom, $brand-skills 0%,$brand-primary 100%);
+    background: -moz-linear-gradient(top, $brand-skills 0%, $brand-primary 80%);
+    background: -webkit-linear-gradient(top, $brand-skills 0%,$brand-primary 80%);
+    background: linear-gradient(to bottom, $brand-skills 0%,$brand-primary 80%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-skills', endColorstr='$brand-primary',GradientType=0 );
 }
 
 
 main {
+    h3 {
+        font-size: 2.5rem;
+    }
+    h4 {
+        font-size: 2rem;
+    }
     .title {
         h1 {
             font-size: 5.8rem;
             line-height: 5.9rem;
             letter-spacing: -0.1rem;
-            margin: 3rem 0;
+            margin: 2rem 0 2rem;
             padding-right: 2rem;
         }
         img {
@@ -211,7 +226,7 @@ main {
         margin-bottom: 0;
         h2 {
             font-size: 3.2rem;
-            margin: 5rem 0;
+            margin: 4rem 0;
         }
         .btn {
             position: relative;
@@ -226,7 +241,7 @@ main {
             border-radius: 0;
             background-color: white;
             color: $brand-typography;
-            border: 0.2rem solid $brand-typography;
+            border: $brand-border-width solid $brand-typography;
             box-shadow: -0.5rem 0.5rem 0 $brand-typography;
         }
         // .btn:hover {
@@ -237,14 +252,14 @@ main {
         // }
     }
     .title,
-    .signup {
+    .expand {
         p {
             font-size: 1.4rem;
             font-weight: 400;
             margin-bottom: 1rem;
         }
     }
-    .signup {
+    .expand {
         margin-bottom: 0;
         h1 {
             font-size: 5rem;
@@ -253,6 +268,9 @@ main {
             margin: 0 auto;
             padding: 1.5rem 8rem 0;
             margin-bottom: -6px;
+        }
+        hr {
+            margin: 0;
         }
         h4 {
             margin: 0;
@@ -275,9 +293,50 @@ main {
                 }
             }
         }
+        h3 {
+            margin: 0;
+            a {
+                padding: 2.5rem 0;
+                display: block;
+                color: $brand-typography;
+                font-weight: bold;
+                .material-icons {
+                    font-weight: bold;
+                    font-size: 2.7rem;
+                    float: right;
+                }
+                .number {
+                    display: block;
+                    text-align: center;
+                    background: #fff;
+                    border-radius: 3rem;
+                    height: 4.5rem;
+                    line-height: 4rem;
+                    border: $brand-border-width solid $brand-typography;
+                    margin-top: -1rem;
+                    width: 4.5rem;
+                }
+            }
+        }
+        p {
+            margin: 0;
+            a {
+                padding: 2.5rem 0;
+                display: block;
+                color: $brand-typography;
+                font-weight: normal;
+            }
+        }
     }
-    h3 {
-        font-size: 2.5rem;
+    .resources {
+        h4 a {
+            color: $brand-typography;
+            opacity: 0.6;
+            .material-icons {
+                font-weight: bold;
+                font-size: 1.5rem;
+            }
+        }
     }
 }
 
