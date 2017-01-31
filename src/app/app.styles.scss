@@ -149,6 +149,9 @@ nav {
 .header-container {
     margin-bottom: 2rem;
 }
+.button-collapse {
+    float: right;
+}
 
 #content {
     padding-bottom: 4rem;
@@ -171,7 +174,7 @@ nav {
             }
             .participation::after {
                 color: white;
-                text-shadow: 1px 0 0 $brand-typography, 0 -1px 0 $brand-typography, 0 1px 0 $brand-typography, -1px 0 0 $brand-typography;
+                text-shadow: 0.1rem 0 0 $brand-typography, 0 -0.1rem 0 $brand-typography, 0 0.1rem 0 $brand-typography, -0.1rem 0 0 $brand-typography;
             }
         }
         ul li a {
