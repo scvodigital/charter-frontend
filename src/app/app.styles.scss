@@ -154,6 +154,36 @@ nav {
     padding-bottom: 4rem;
 }
 
+#content.detail {
+    background: $brand-typography;
+    hr {
+        border-bottom-color: white;
+    }
+    h1, h2, h3, h4, p {
+        color: white;
+    }
+    nav {
+        .brand-logo {
+            color: white;
+            .participation {
+                background-color: $brand-typography;
+                border-color: white;
+            }
+            .participation::after {
+                color: white;
+                text-shadow: 1px 0 0 $brand-typography, 0 -1px 0 $brand-typography, 0 1px 0 $brand-typography, -1px 0 0 $brand-typography;
+            }
+        }
+        ul li a {
+            color: white;
+        }
+        ul li a:hover,
+        ul li a.active {
+            background-color: $brand-typography;
+            border-color: white;
+        }
+    }
+}
 #content.primary {
     background: $brand-primary;
 }

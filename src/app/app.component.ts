@@ -37,9 +37,17 @@ export class AppComponent {
                 } else if (event.url.startsWith('/sign-up')) {
                     this.contentType = 'signup-gradient';
                 } else if (event.url.startsWith('/skill-up')) {
-                    this.contentType = 'skills-gradient';
+                    if (event.url === '/skill-up') {
+                        this.contentType = 'skills-gradient';
+                    } else {
+                        this.contentType = 'detail';
+                    }
                 } else if (event.url.startsWith('/the-charter')) {
-                    this.contentType = 'charter-gradient';
+                    if (event.url === '/the-charter') {
+                        this.contentType = 'charter-gradient';
+                    } else {
+                        this.contentType = 'detail';
+                    }
                 } else if (event.url.startsWith('/resources')) {
                     this.contentType = 'other-gradient';
                 } else if (event.url.startsWith('/login')) {
