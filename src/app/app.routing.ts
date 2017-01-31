@@ -1,11 +1,13 @@
 import { Routes } from '@angular/router';
 
-import { HomeComponent } from './components/home/home.component';
-import { PageComponent } from './components/page/page.component';
-import { SignUpComponent } from './components/signup/signup.component';
-import { SkillUpComponent } from './components/static/skillup.component';
-import { CharterComponent } from './components/static/charter.component';
-import { ResourcesComponent } from './components/resources/resources.component';
+import { HomeComponent } from './components/content/home/home.component';
+import { SignUpComponent } from './components/content/signup/signup.component';
+import { SignUpCompleteComponent } from './components/content/signup/signup-complete.component';
+import { SkillUpComponent } from './components/content/skillup/skillup.component';
+import { SkillUpDetailComponent } from './components/content/skillup/skillup-detail.component';
+import { CharterComponent } from './components/content/charter/charter.component';
+import { CharterDetailComponent } from './components/content/charter/charter-detail.component';
+import { ResourcesComponent } from './components/content/resources/resources.component';
 //import { MenuEditorIndexComponent } from './admin/menu-editor/menu-editor-index.component';
 //import { MenuEditorComponent } from './admin/menu-editor/menu-editor.component';
 //import { PageEditorIndexComponent } from './admin/page-editor/page-editor-index.component';
@@ -18,8 +20,11 @@ import { ResourcesComponent } from './components/resources/resources.component';
 export const rootRouterConfig: Routes = [
     { path: '',                         component: HomeComponent,           pathMatch: 'full'   },
     { path: 'sign-up',                  component: SignUpComponent          },
+    { path: 'sign-up/complete',         component: SignUpCompleteComponent  },
     { path: 'skill-up',                 component: SkillUpComponent         },
+    { path: 'skill-up/:slug',           component: SkillUpDetailComponent   },
     { path: 'the-charter',              component: CharterComponent         },
+    { path: 'the-charter/:slug',        component: CharterDetailComponent   },
     { path: 'resources',                component: ResourcesComponent       },
     // { path: 'organisation/:slug',       component: OrganisationComponent    },
     // {
@@ -35,5 +40,5 @@ export const rootRouterConfig: Routes = [
     //         { path: 'translations',         component: TranslationsComponent    }
     //     ]
     // },
-    { path: '**',                       component: PageComponent            }
+    { path: '**',                       component: HomeComponent            }
 ];

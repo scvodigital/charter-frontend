@@ -93,8 +93,8 @@ nav {
     background-color: transparent;
     box-shadow: none;
     .nav-wrapper {
-        height: 7rem;
-        border-bottom: $brand-border-width solid $brand-typography;
+        height: 5.5rem;
+        // border-bottom: $brand-border-width solid $brand-typography;
     }
     h1 {
         margin: 0;
@@ -143,8 +143,11 @@ nav {
         color: $brand-typography;
         padding: 0.3rem 0.7rem;
         font-size: 1.5rem;
-        margin-left: $brand-border-width;
+        margin-left: $brand-border-width * 2;
     }
+}
+.header-container {
+    margin-bottom: 2rem;
 }
 
 #content {
@@ -231,7 +234,7 @@ main {
         .btn {
             position: relative;
             margin: 6rem auto;
-            padding: 0.8rem 5rem;
+            padding: 0.8rem 0;
             height: auto;
             display: block;
             text-align: center;

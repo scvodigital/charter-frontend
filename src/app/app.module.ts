@@ -14,13 +14,15 @@ import { MaterializeDirective, MaterializeModule } from 'angular2-materialize';
 import { AppService } from './services/app.service';
 
 /* Components */
-import { HomeComponent } from './components/home/home.component';
-import { PageComponent } from './components/page/page.component';
 import { MenuComponent } from './components/menu/menu.component';
-import { SignUpComponent } from './components/signup/signup.component';
-import { SkillUpComponent } from './components/static/skillup.component';
-import { CharterComponent } from './components/static/charter.component';
-import { ResourcesComponent } from './components/resources/resources.component';
+import { HomeComponent } from './components/content/home/home.component';
+import { SignUpComponent } from './components/content/signup/signup.component';
+import { SignUpCompleteComponent } from './components/content/signup/signup-complete.component';
+import { SkillUpComponent } from './components/content/skillup/skillup.component';
+import { SkillUpDetailComponent } from './components/content/skillup/skillup-detail.component';
+import { CharterComponent } from './components/content/charter/charter.component';
+import { CharterDetailComponent } from './components/content/charter/charter-detail.component';
+import { ResourcesComponent } from './components/content/resources/resources.component';
 
 /* Pipes */
 import { MarkdownToHtmlPipe } from 'markdown-to-html-pipe';
@@ -38,11 +40,13 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     HomeComponent,
-    PageComponent,
     MenuComponent,
     SignUpComponent,
+    SignUpCompleteComponent,
     SkillUpComponent,
+    SkillUpDetailComponent,
     CharterComponent,
+    CharterDetailComponent,
     ResourcesComponent,
     MarkdownToHtmlPipe
   ],
