@@ -22,6 +22,8 @@ import { SkillUpComponent } from './components/content/skillup/skillup.component
 import { SkillUpDetailComponent } from './components/content/skillup/skillup-detail.component';
 import { CharterComponent } from './components/content/charter/charter.component';
 import { CharterDetailComponent } from './components/content/charter/charter-detail.component';
+import { SignatoriesComponent } from './components/content/signatories/signatories.component';
+import { SignatoryDetailComponent } from './components/content/signatories/signatory-detail.component';
 import { ResourcesComponent } from './components/content/resources/resources.component';
 
 /* Pipes */
@@ -47,6 +49,8 @@ export const firebaseConfig = {
     SkillUpDetailComponent,
     CharterComponent,
     CharterDetailComponent,
+    SignatoriesComponent,
+    SignatoryDetailComponent,
     ResourcesComponent,
     MarkdownToHtmlPipe
   ],

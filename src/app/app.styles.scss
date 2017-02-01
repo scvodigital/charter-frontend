@@ -16,7 +16,8 @@ $brand-typography:                  #022347;
 $brand-primary:                     #a8b7ff;
 $brand-charter:                     #ffa8b8;
 $brand-signup:                      #6dede5;
-$brand-other:                       #fce882;
+// $brand-other:                       #fce882; // Brand Guidelines - too light
+$brand-other:                       #fee972; // Templates-Desktop PDF
 $brand-skills:                      #6beda0;
 
 $scvo-background:                   #263238;
@@ -81,6 +82,10 @@ hr {
 .margin-bottom {
     margin-top: 0;
     margin-bottom: 3rem;
+}
+.margin-top {
+    margin-top: 3rem;
+    margin-bottom: 0;
 }
 
 nav {
@@ -305,9 +310,9 @@ main {
             padding: 1.5rem 8rem 0;
             margin-bottom: -6px;
         }
-        hr {
-            margin: 0;
-        }
+        // hr {
+        //     margin: 0;
+        // }
         h4 {
             margin: 0;
             position: relative;
@@ -330,28 +335,27 @@ main {
             }
         }
         h3 {
-            margin: 0;
             a {
                 padding: 2.5rem 0;
                 display: block;
                 color: $brand-typography;
                 font-weight: bold;
-                .material-icons {
-                    font-weight: bold;
-                    font-size: 2.7rem;
-                    float: right;
-                }
-                .number {
-                    display: block;
-                    text-align: center;
-                    background: #fff;
-                    border-radius: 3rem;
-                    height: 4.5rem;
-                    line-height: 4rem;
-                    border: $brand-border-width solid $brand-typography;
-                    margin-top: -1rem;
-                    width: 4.5rem;
-                }
+            }
+            .material-icons {
+                font-weight: bold;
+                font-size: 2.7rem;
+                float: right;
+            }
+            .number {
+                display: block;
+                text-align: center;
+                background: #fff;
+                border-radius: 3rem;
+                height: 4.5rem;
+                line-height: 4rem;
+                border: $brand-border-width solid $brand-typography;
+                margin-top: -1rem;
+                width: 4.5rem;
             }
         }
         p {
@@ -364,6 +368,15 @@ main {
             }
         }
     }
+    .pledge h3 {
+        margin: 1.75rem 0;
+    }
+    .pledge p {
+        margin: 1.5rem 0;
+    }
+    .skills h3 {
+        margin: 0;
+    }
     .resources {
         h4 a {
             color: $brand-typography;
@@ -371,6 +384,79 @@ main {
             .material-icons {
                 font-weight: bold;
                 font-size: 1.5rem;
+            }
+        }
+    }
+    .signatories {
+        margin: 0;
+        .col.s6, .col.m4, .col.l3,
+        img {
+            height: 8rem;
+        }
+        img {
+            width: 100%;
+            // visibility: hidden;
+        }
+        .inner {
+            margin: 0 -0.75rem;
+            border-top: $brand-border-width solid $brand-typography;
+        }
+        .col.s6, .col.m4, .col.l3 {
+            border-right: $brand-border-width solid $brand-typography;
+        }
+        .col:nth-child(4n + 1) .inner {
+            margin-left: 0;
+        }
+        .col:nth-child(4n + 4) {
+            border-right: none;
+            .inner {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    main .signatories {
+        .col:nth-child(4n + 1) .inner {
+            margin-left: -0.75rem;
+        }
+        .col:nth-child(3n + 1) .inner {
+            margin-left: 0;
+        }
+        .col:nth-child(4n + 4) {
+            border-right: $brand-border-width solid $brand-typography;
+            .inner {
+                margin-right: -0.75rem;
+            }
+        }
+        .col:nth-child(3n + 3) {
+            border-right: none;
+            .inner {
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    main .signatories {
+        .col:nth-child(3n + 1) .inner {
+            margin-left: -0.75rem;
+        }
+        .col:nth-child(2n + 1) .inner {
+            margin-left: 0;
+        }
+        .col:nth-child(3n + 3) {
+            border-right: $brand-border-width solid $brand-typography;
+            .inner {
+                margin-right: -0.75rem;
+            }
+        }
+        .col:nth-child(2n + 2) {
+            border-right: none;
+            .inner {
+                margin-right: 0;
             }
         }
     }
@@ -396,4 +482,13 @@ main {
     .menu ul {
         margin-top: 0;
     }
+}
+
+::-moz-selection {
+    color: white;
+    background: $brand-typography;
+}
+::selection {
+    color: white;
+    background: $brand-typography;
 }
