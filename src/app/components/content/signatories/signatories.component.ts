@@ -39,10 +39,8 @@ export class SignatoriesComponent {
     }
 
     onSiteLoaded() {
-        console.log('loaded');
         var that = this;
         this.appService.es.getSignatories().then((results) => {
-            console.log(results);
             that.signatories = results.hits;
         }).catch(err => {
             console.error('Error searching signatories', err);

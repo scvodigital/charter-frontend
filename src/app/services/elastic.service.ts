@@ -31,6 +31,34 @@ export class ElasticService {
         });
     }
 
+    public getTermCounts() {
+        return new Promise((resolve, reject) => {
+            this.getClient().then((client: any) => {
+                var payload = {
+                    "size": 0,
+                    "aggs": {
+                        "sectors": {
+                            "terms": {
+                                "field": "sectors",
+                                "size": 0
+                            }
+                        },
+                        "categories": {
+                            "terms": {
+                                "field": "categories",
+                                "size": 0
+                            }
+                        },
+                    }
+                };
+
+                this.search(payload, { size: 0 }).then(response => {
+                    resolve(response);
+                });
+            });
+        });
+    }
+
     search(body: any, overrides: any = {}): Promise<any> {
         return new Promise<any>((resolve, reject) => {
             this.getClient().then((client: any) => {

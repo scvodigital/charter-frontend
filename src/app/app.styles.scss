@@ -260,10 +260,13 @@ main {
 
     form {
         input[type=text],
+        input[type=text].valid,
+        input[type=text].invalid,
         input[type=text]:focus:not([readonly]),
         input[type=search],
         select,
         select:focus {
+            font-weight: bold;
             background: white;
             border: $brand-border-width solid $brand-typography;
             box-shadow: none;
@@ -546,11 +549,11 @@ main {
     background: $brand-typography;
 }
 ::-webkit-input-placeholder {
-    color: #444;
+    color: #777;
 }
 ::-ms-input-placeholder {
-    color: #444;
+    color: #777;
 }
 ::-moz-placeholder {
-    color: #444;
+    color: #777;
 }
