@@ -12,6 +12,8 @@ import { ElasticService, IHits, ISignatory, IHit, SearchParameters, ISearchParam
 })
 export class SignatoriesComponent {
     searchForm: FormGroup;
+    public hits: IHit<ISignatory>[] = [];
+    public parameters: SearchParameters = new SearchParameters({});
 
     public signatories: IHit<ISignatory>[];
 
@@ -45,5 +47,20 @@ export class SignatoriesComponent {
         }).catch(err => {
             console.error('Error searching signatories', err);
         });
+
+        this.route.params.subscribe((params: any) => {
+            // this.loading = true;
+            this.parameters = new SearchParameters(params);
+            this.appService.es.doSearch(this.parameters).then((results) => {
+                this.signatories = results.hits;
+                // this.resultsTotal = results.total;
+                // this.pageTotal = Math.ceil(this.resultsTotal / this.perPage);
+                // this.loading = false;
+            }).catch(err => {
+                console.error('Error searching', params, err);
+                // this.loading = false;
+            });
+        });
+
     }
 }

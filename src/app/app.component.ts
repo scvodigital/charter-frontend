@@ -51,11 +51,11 @@ export class AppComponent {
                 } else if (event.url.startsWith('/resources')) {
                     this.contentType = 'other-gradient';
                 } else if (event.url.startsWith('/signatories')) {
-                    if (event.url === '/signatories') {
-                        this.contentType = 'other-gradient';
-                    } else {
-                        this.contentType = 'other';
-                    }
+                    this.contentType = 'other-gradient';
+                    // if (event.url === '/signatories') {
+                    // } else {
+                    //     this.contentType = 'other';
+                    // }
                 } else if (event.url.startsWith('/login')) {
                     this.contentType = 'signup-gradient';
                 } else {
