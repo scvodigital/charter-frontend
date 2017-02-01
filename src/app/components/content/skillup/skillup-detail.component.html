@@ -1,18 +1,39 @@
 <div class="row title">
-    <div class="col hide-on-small-only m6">
+    <div class="col hide-on-small-only m5">
         <p>[illustration]</p>
     </div>
-    <div class="col s12 m6">
+    <div class="col s12 m7">
         <h1>[0] [title]</h1>
-        <h3>&mdash; [heading]</h3>
-        <h3>&mdash; [heading]</h3>
-        <h3>&mdash; [heading]</h3>
         <hr class="nomargin" />
+        <h3>&mdash; [heading]</h3>
         <p>[content]</p>
         <hr class="nomargin" />
+        <h3>&mdash; [heading]</h3>
         <p>[content]</p>
         <hr class="nomargin" />
+        <h3>&mdash; [heading]</h3>
         <p>[content]</p>
         <hr class="nomargin" />
+    </div>
+</div>
+<div class="row expand paging">
+    <div class="col s12 offset-m3 m6 offset-l4 l4">
+        <h3 class="margin-top">
+            <a [routerLink]="['/skill-up/managing-info']" [routerLinkActive]="['active']">
+                <span class="number">1</span>
+            </a>
+            <a [routerLink]="['/skill-up/communicating']" [routerLinkActive]="['active']">
+                <span class="number">2</span>
+            </a>
+            <a [routerLink]="['/skill-up/transacting']" [routerLinkActive]="['active']">
+                <span class="number">3</span>
+            </a>
+            <a [routerLink]="['/skill-up/problem-solving']" [routerLinkActive]="['active']">
+                <span class="number">4</span>
+            </a>
+            <a [routerLink]="['/skill-up/creating']" [routerLinkActive]="['active']">
+                <span class="number">5</span>
+            </a>
+        </h3>
     </div>
 </div>

@@ -369,8 +369,8 @@ main {
             }
         }
         h3 {
+            padding: 2.5rem 0;
             a {
-                padding: 2.5rem 0;
                 display: block;
                 color: $brand-typography;
                 font-weight: bold;
@@ -394,11 +394,28 @@ main {
         }
         p {
             margin: 0;
+            padding: 2.5rem 0;
             a {
-                padding: 2.5rem 0;
                 display: block;
                 color: $brand-typography;
                 font-weight: normal;
+            }
+        }
+    }
+    .paging {
+        h3 {
+            text-align: center;
+            a {
+                display: inline-block;
+                .number {
+                    border-color: white;
+                }
+            }
+            a:hover .number,
+            a.active .number {
+                background-color: $brand-typography;
+                color: white;
+                border-color: white;
             }
         }
     }
