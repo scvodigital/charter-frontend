@@ -14,12 +14,30 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
 
     <link rel="shortcut icon" href="/app/assets/images/icons/favicon.ico">
+
+    <style type="text/css">
+        html {
+            overflow-y: scroll;
+        }
+		#loader {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+            background-color: #fff;
+			align-items: center;
+            justify-content: center;
+			z-index: 9999;
+        }
+    </style>
 </head>
 
 <body>
 	<charter></charter>
 
-	<!-- Begin Cookie Consent plugin -->
+    <div id="loader"></div>
+
 	<script type="text/javascript">
         window.cookieconsent_options = {"message":"This website uses cookies to anonymously track visitor numbers","dismiss":"Continue","learnMore":"Read more","link":"/privacy","theme":"dark-floating"};
 
@@ -52,6 +70,10 @@
             ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
             var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
         })();
+
+        function loaded() {
+            $('#loader').fadeOut();
+        }
     </script>
 </body>
 </html>

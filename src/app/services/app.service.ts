@@ -8,5 +8,12 @@ declare function loaded();
 
 @Injectable()
 export class AppService {
-    constructor() {}
+    constructor() {
+        this.loadSiteData();
+    }
+
+    private loadSiteData(){
+        loaded();
+    }
+
 }
