@@ -12,6 +12,8 @@ import { MaterializeDirective, MaterializeModule } from 'angular2-materialize';
 
 /* Services */
 import { AppService } from './services/app.service';
+import { ElasticService } from './services/elastic.service';
+import { SearchService } from './services/search.service';
 
 /* Components */
 import { MenuComponent } from './components/menu/menu.component';
@@ -23,11 +25,12 @@ import { SkillUpDetailComponent } from './components/content/skillup/skillup-det
 import { CharterComponent } from './components/content/charter/charter.component';
 import { CharterDetailComponent } from './components/content/charter/charter-detail.component';
 import { SignatoriesComponent } from './components/content/signatories/signatories.component';
-import { SignatoryDetailComponent } from './components/content/signatories/signatory-detail.component';
+import { SignatoriesDetailComponent } from './components/content/signatories/signatories-detail.component';
 import { ResourcesComponent } from './components/content/resources/resources.component';
 
 /* Pipes */
 import { MarkdownToHtmlPipe } from 'markdown-to-html-pipe';
+import { SlugifyPipe } from './pipes/slugify.pipe';
 
 /* Directives */
 
@@ -50,9 +53,10 @@ export const firebaseConfig = {
     CharterComponent,
     CharterDetailComponent,
     SignatoriesComponent,
-    SignatoryDetailComponent,
+    SignatoriesDetailComponent,
     ResourcesComponent,
-    MarkdownToHtmlPipe
+    MarkdownToHtmlPipe,
+    SlugifyPipe
   ],
   imports: [
     BrowserModule,
@@ -66,7 +70,9 @@ export const firebaseConfig = {
   providers: [
     FormBuilder,
     Title,
-    AppService
+    AppService,
+    ElasticService,
+    SearchService
   ],
   bootstrap: [AppComponent]
 })

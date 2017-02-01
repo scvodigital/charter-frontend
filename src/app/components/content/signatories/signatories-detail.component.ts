@@ -5,8 +5,8 @@ import { AppService } from '../../../services/app.service';
 
 @Component({
     selector: 'main-container.content',
-    templateUrl: './signatory-detail.component.html'
+    templateUrl: './signatories-detail.component.html'
 })
-export class SignatoryDetailComponent {
+export class SignatoriesDetailComponent {
     constructor() {}
 }

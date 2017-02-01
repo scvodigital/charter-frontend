@@ -75,7 +75,12 @@ hr {
     border-bottom: $brand-border-width solid $brand-typography;
     margin: 3rem 0;
 }
+label {
+    font-size: inherit;
+    color: inherit;
+}
 
+.row,
 .nomargin {
     margin: 0;
 }
@@ -98,7 +103,7 @@ nav {
     background-color: transparent;
     box-shadow: none;
     .nav-wrapper {
-        height: 5.5rem;
+        height: 7rem;
         // border-bottom: $brand-border-width solid $brand-typography;
     }
     h1 {

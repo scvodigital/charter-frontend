@@ -16,4 +16,28 @@ export class AppService {
         loaded();
     }
 
+    private _searchFields: ISearchFields = {};
+    public get searchFields(): ISearchFields {
+        return this._searchFields;
+    }
+    public set searchFields(value: ISearchFields) {
+        this._searchFields = value;
+    }
+
+    public getTerms(field: string): ISearchTerm[] {
+        if (this.searchFields.hasOwnProperty(field)) {
+            return this.searchFields[field];
+        } else {
+            return [];
+        }
+    }
+}
+
+export interface ISearchFields {
+    [field: string]: ISearchTerm[];
+}
+
+export interface ISearchTerm {
+    term: string;
+    count: number;
 }
