@@ -31,8 +31,16 @@
         </div>
     </div>
 </form>
+
 <div class="row signatories">
-    <div class="col s6 m4 l3">
+    <div *ngFor="let signatory of signatories" class="col s6 m4 l3">
+        <div class="inner">
+            <a [routerLink]="['/signatories', signatory._source.Organisation_Name__r.Name | slugify]">
+                <img src="#" alt="{{signatory._source.Organisation_Name__r.Name}}" />
+            </a>
+        </div>
+    </div>
+    <!-- <div class="col s6 m4 l3">
         <div class="inner">
             <a [routerLink]="['/signatories/id']">
                 <img src="#" alt="[alt]"/>
@@ -108,14 +116,7 @@
                 <img src="#" alt="[alt]"/>
             </a>
         </div>
-    </div>
-    <div class="col s6 m4 l3">
-        <div class="inner">
-            <a [routerLink]="['/signatories/id']">
-                <img src="#" alt="[alt]"/>
-            </a>
-        </div>
-    </div>
+    </div> -->
     <div class="col s12">
         <hr class="nomargin" />
     </div>

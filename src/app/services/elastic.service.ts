@@ -36,8 +36,8 @@ export class ElasticService {
             this.getClient().then((client: any) => {
                 var payload = {
                     index: 'digitalcharter',
-                    type: 'charter',
-                    size: 10,
+                    type: 'signatory',
+                    size: 12,
                     body: body
                 };
 
@@ -80,6 +80,7 @@ export class ElasticService {
             }
 
             this.search(body, overrides).then(response => {
+                console.log(response.hits);
                 resolve(response.hits);
             }).catch(reject);
         });
@@ -97,7 +98,32 @@ export class ElasticService {
                 if (results.hits.total !== 1) {
                     return reject(new Error('Signatory not found'));
                 }
+                console.log(results.hits);
                 resolve(results.hits.hits[0]._source);
+            }).catch(reject);
+        });
+    }
+
+    public getSignatories<T>(): Promise<IHits<ISignatory>> {
+        return new Promise((resolve, reject) => {
+            var body: any = {
+                query: {
+                    bool: {
+                        must: []
+                    }
+                }
+            };
+
+            var overrides = {
+                size: 1000,
+            }
+
+            this.search(body, overrides).then(response => {
+                while (response.hits.hits.length > 12) {
+                    var i = Math.floor(Math.random() * response.hits.hits.length);
+                    response.hits.hits.splice(i, 1);
+                }
+                resolve(response.hits);
             }).catch(reject);
         });
     }

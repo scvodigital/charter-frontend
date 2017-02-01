@@ -75,10 +75,6 @@ hr {
     border-bottom: $brand-border-width solid $brand-typography;
     margin: 3rem 0;
 }
-label {
-    font-size: inherit;
-    color: inherit;
-}
 
 .row,
 .nomargin {
@@ -256,6 +252,39 @@ main {
     h4 {
         font-size: 2rem;
     }
+
+    label {
+        font-size: inherit;
+        color: inherit;
+    }
+
+    form {
+        input[type=text],
+        input[type=text]:focus:not([readonly]),
+        input[type=search],
+        select,
+        select:focus {
+            background: white;
+            border: $brand-border-width solid $brand-typography;
+            box-shadow: none;
+            border-radius: 0.15rem;
+            padding: 0.2rem 0.5rem;
+            outline: none;
+            // height: 2rem;
+            -ms-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        // select,
+        // select:focus {
+        //     -ms-box-sizing: content-box;
+        //     -moz-box-sizing: content-box;
+        //     -webkit-box-sizing: content-box;
+        //     box-sizing: content-box;
+        // }
+    }
+
     .title {
         h1 {
             font-size: 5.8rem;
@@ -394,17 +423,19 @@ main {
     }
     .signatories {
         margin: 0;
-        .col.s6, .col.m4, .col.l3,
-        img {
-            height: 8rem;
-        }
-        img {
-            width: 100%;
-            // visibility: hidden;
-        }
         .inner {
             margin: 0 -0.75rem;
             border-top: $brand-border-width solid $brand-typography;
+            a {
+                height: 10rem;
+                width: 100%;
+                display: block;
+                padding: 1rem 3rem;
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
         }
         .col.s6, .col.m4, .col.l3 {
             border-right: $brand-border-width solid $brand-typography;
@@ -496,4 +527,13 @@ main {
 ::selection {
     color: white;
     background: $brand-typography;
+}
+::-webkit-input-placeholder {
+    color: #444;
+}
+::-ms-input-placeholder {
+    color: #444;
+}
+::-moz-placeholder {
+    color: #444;
 }
