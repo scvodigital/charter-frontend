@@ -35,7 +35,11 @@ export class AppComponent {
                 if (event.url === '/') {
                     this.contentType = 'primary-gradient';
                 } else if (event.url.startsWith('/sign-up')) {
-                    this.contentType = 'signup-gradient';
+                    if (event.url === '/sign-up') {
+                        this.contentType = 'signup-gradient';
+                    } else {
+                        this.contentType = 'signup';
+                    }
                 } else if (event.url.startsWith('/skill-up')) {
                     if (event.url === '/skill-up') {
                         this.contentType = 'skills-gradient';
@@ -51,7 +55,7 @@ export class AppComponent {
                 } else if (event.url.startsWith('/resources')) {
                     this.contentType = 'other-gradient';
                 } else if (event.url.startsWith('/signatories')) {
-                    this.contentType = 'other-gradient';
+                    this.contentType = 'other';
                     // if (event.url === '/signatories') {
                     // } else {
                     //     this.contentType = 'other';

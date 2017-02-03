@@ -13,6 +13,7 @@ npm i
 ```
 npm start
 ```
+Navigate to [localhost:9000](http://localhost:9000). The app will automatically reload if you change any of the source files.
 
 ## Running unit tests
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
@@ -26,7 +27,7 @@ Before running the tests make sure you are serving the app via `ng serve` or `np
 ```
 npm run deploy
 ```
-Navigate to [localhost:9000](http://localhost:9000). The app will automatically reload if you change any of the source files.
+This builds minified code and deploys via Firebase.
 
 ## Information
 The repository [wiki](https://github.com/scvodigital/charter-frontend/wiki) will contain project documentation.

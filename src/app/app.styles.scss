@@ -198,9 +198,9 @@ nav {
 }
 #content.primary-gradient {
     background: $brand-primary;
-    background: -moz-linear-gradient(top, $brand-primary 0%, $brand-charter 90%);
-    background: -webkit-linear-gradient(top, $brand-primary 0%,$brand-charter 90%);
-    background: linear-gradient(to bottom, $brand-primary 0%,$brand-charter 90%);
+    background: -moz-linear-gradient(top, $brand-primary 10%, $brand-charter 90%);
+    background: -webkit-linear-gradient(top, $brand-primary 10%, $brand-charter 90%);
+    background: linear-gradient(to bottom, $brand-primary 10%, $brand-charter 90%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-primary', endColorstr='$brand-charter',GradientType=0 );
 }
 #content.charter {
@@ -208,9 +208,9 @@ nav {
 }
 #content.charter-gradient {
     background: $brand-charter;
-    background: -moz-linear-gradient(top, $brand-charter 0%, $brand-other 70%);
-    background: -webkit-linear-gradient(top, $brand-charter 0%,$brand-other 70%);
-    background: linear-gradient(to bottom, $brand-charter 0%,$brand-other 70%);
+    background: -moz-linear-gradient(top, $brand-charter 10%, $brand-other 70%);
+    background: -webkit-linear-gradient(top, $brand-charter 10%, $brand-other 70%);
+    background: linear-gradient(to bottom, $brand-charter 10%, $brand-other 70%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-charter', endColorstr='$brand-other',GradientType=0 );
 }
 #content.signup {
@@ -218,9 +218,9 @@ nav {
 }
 #content.signup-gradient {
     background: $brand-signup;
-    background: -moz-linear-gradient(top, $brand-signup 0%, $brand-primary 90%);
-    background: -webkit-linear-gradient(top, $brand-signup 0%,$brand-primary 90%);
-    background: linear-gradient(to bottom, $brand-signup 0%,$brand-primary 90%);
+    background: -moz-linear-gradient(top, $brand-signup 10%, $brand-primary 90%);
+    background: -webkit-linear-gradient(top, $brand-signup 10%, $brand-primary 90%);
+    background: linear-gradient(to bottom, $brand-signup 10%, $brand-primary 90%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-signup', endColorstr='$brand-primary',GradientType=0 );
 }
 #content.other {
@@ -228,9 +228,9 @@ nav {
 }
 #content.other-gradient {
     background: $brand-other;
-    background: -moz-linear-gradient(top, $brand-other 0%, $brand-skills 70%);
-    background: -webkit-linear-gradient(top, $brand-other 0%,$brand-skills 70%);
-    background: linear-gradient(to bottom, $brand-other 0%,$brand-skills 70%);
+    background: -moz-linear-gradient(top, $brand-other 10%, $brand-skills 70%);
+    background: -webkit-linear-gradient(top, $brand-other 10%, $brand-skills 70%);
+    background: linear-gradient(to bottom, $brand-other 10%, $brand-skills 70%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-other', endColorstr='$brand-skills',GradientType=0 );
 }
 #content.skills {
@@ -238,9 +238,9 @@ nav {
 }
 #content.skills-gradient {
     background: $brand-skills;
-    background: -moz-linear-gradient(top, $brand-skills 0%, $brand-primary 80%);
-    background: -webkit-linear-gradient(top, $brand-skills 0%,$brand-primary 80%);
-    background: linear-gradient(to bottom, $brand-skills 0%,$brand-primary 80%);
+    background: -moz-linear-gradient(top, $brand-skills 10%, $brand-primary 80%);
+    background: -webkit-linear-gradient(top, $brand-skills 10%, $brand-primary 80%);
+    background: linear-gradient(to bottom, $brand-skills 10%, $brand-primary 80%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-skills', endColorstr='$brand-primary',GradientType=0 );
 }
 
@@ -305,6 +305,10 @@ main {
         h2 {
             font-size: 3.2rem;
             margin: 4rem 0;
+        }
+        p {
+            font-size: 1.4rem;
+            font-weight: 400;
         }
         .btn {
             position: relative;
@@ -377,6 +381,7 @@ main {
                 display: block;
                 color: $brand-typography;
                 font-weight: bold;
+                float: right;
             }
             .material-icons {
                 font-weight: bold;
@@ -405,10 +410,52 @@ main {
             }
         }
     }
+    .detail {
+        h3 {
+            padding-bottom: 0;
+            .number {
+                display: inline-block;
+                border-color: white;
+                background-color: $brand-typography;
+            }
+        }
+        .expand {
+            h3 {
+                padding: 0;
+            }
+            a {
+                color: white;
+            }
+        }
+    }
+    .detail .collapsible {
+        border: none;
+        box-shadow: none;
+        .collapsible-header {
+            opacity: 0.5;
+            background-color: inherit;
+            border: none;
+            padding: 1.5rem 0 0.5rem;
+        }
+        .collapsible-header.active {
+            opacity: 1;
+        }
+        .collapsible-body {
+            color: white;
+            // margin-bottom: 1rem !important;
+            border: none;
+            p {
+                padding: 0.5rem 0;
+                border-top: $brand-border-width solid white;
+                border-bottom: $brand-border-width solid white;
+            }
+        }
+    }
     .paging {
         h3 {
             text-align: center;
             a {
+                float: none;
                 display: inline-block;
                 .number {
                     border-color: white;
@@ -423,10 +470,10 @@ main {
         }
     }
     .pledge h3 {
-        margin: 1.75rem 0;
+        margin: 0.75rem 0;
     }
     .pledge p {
-        margin: 1.5rem 0;
+        margin: 0.5rem 0;
     }
     .skills h3 {
         margin: 0;

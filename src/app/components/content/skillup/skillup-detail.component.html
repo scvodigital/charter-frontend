@@ -1,19 +1,31 @@
-<div class="row title">
+<div class="row expand detail">
     <div class="col hide-on-small-only m5">
         <p>[illustration]</p>
     </div>
     <div class="col s12 m7">
-        <h1>[0] [title]</h1>
-        <hr class="nomargin" />
-        <h3>&mdash; [heading]</h3>
-        <p>[content]</p>
-        <hr class="nomargin" />
-        <h3>&mdash; [heading]</h3>
-        <p>[content]</p>
-        <hr class="nomargin" />
-        <h3>&mdash; [heading]</h3>
-        <p>[content]</p>
-        <hr class="nomargin" />
+        <div class="pull-right expand">
+            <h3>
+                <a [routerLink]="['/skill-up']">
+                    <i class="fa fa-times-circle" aria-hidden="true"></i>
+                </a>
+            </h3>
+        </div>
+        <h3><span class="number">{{number}}</span> {{title}}</h3>
+        <!-- <hr class="nomargin" /> -->
+        <ul materialize="collapsible" class="collapsible" data-collapsible="accordion">
+            <li>
+                <div class="collapsible-header active"><h4>&mdash; Organisations</h4></div>
+                <div class="collapsible-body"><p>{{content_organisations}}</p></div>
+            </li>
+            <li>
+                <div class="collapsible-header"><h4>&mdash; Individuals</h4></div>
+                <div class="collapsible-body"><p>{{content_individuals}}</p></div>
+            </li>
+            <li>
+                <div class="collapsible-header"><h4>&mdash; Safety &amp; Security</h4></div>
+                <div class="collapsible-body"><p>{{content_safety}}</p></div>
+            </li>
+        </ul>
     </div>
 </div>
 <div class="row expand paging">

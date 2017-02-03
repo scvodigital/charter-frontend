@@ -19,6 +19,7 @@ import { SearchService } from './services/search.service';
 import { MenuComponent } from './components/menu/menu.component';
 import { HomeComponent } from './components/content/home/home.component';
 import { SignUpComponent } from './components/content/signup/signup.component';
+import { SignUpFormComponent } from './components/content/signup/signup-form.component';
 import { SignUpCompleteComponent } from './components/content/signup/signup-complete.component';
 import { SkillUpComponent } from './components/content/skillup/skillup.component';
 import { SkillUpDetailComponent } from './components/content/skillup/skillup-detail.component';
@@ -47,6 +48,7 @@ export const firebaseConfig = {
     HomeComponent,
     MenuComponent,
     SignUpComponent,
+    SignUpFormComponent,
     SignUpCompleteComponent,
     SkillUpComponent,
     SkillUpDetailComponent,

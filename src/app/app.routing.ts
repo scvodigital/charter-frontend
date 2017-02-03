@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 
 import { HomeComponent } from './components/content/home/home.component';
 import { SignUpComponent } from './components/content/signup/signup.component';
+import { SignUpFormComponent } from './components/content/signup/signup-form.component';
 import { SignUpCompleteComponent } from './components/content/signup/signup-complete.component';
 import { SkillUpComponent } from './components/content/skillup/skillup.component';
 import { SkillUpDetailComponent } from './components/content/skillup/skillup-detail.component';
@@ -14,6 +15,7 @@ import { ResourcesComponent } from './components/content/resources/resources.com
 export const rootRouterConfig: Routes = [
     { path: '', component: HomeComponent, pathMatch: 'full' },
     { path: 'sign-up', component: SignUpComponent },
+    { path: 'sign-up/form', component: SignUpFormComponent },
     { path: 'sign-up/complete', component: SignUpCompleteComponent },
     { path: 'skill-up', component: SkillUpComponent },
     { path: 'skill-up/:slug', component: SkillUpDetailComponent },
