@@ -7,7 +7,7 @@ export class SlugifyPipe implements PipeTransform {
         var all = new AllHtmlEntities();
 
         str = all.decode(str);
-        str = str.toLowerCase().replace(/[^a-z0-9\s-]/ig, '');
+        str = str.toLowerCase().replace(/[^a-z0-9.\s-]/ig, '');
         str = str.replace(/^\s+|\s+$|\s+(?=\s)/ig, '');
         str = str.replace(/\s/ig, '-');
         str = str.replace(/(-){2,}/ig, '-');

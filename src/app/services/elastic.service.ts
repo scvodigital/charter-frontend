@@ -124,17 +124,22 @@ export class ElasticService {
                 }
             };
 
-            body.query.bool.must.push({ "simple_query_string": { "query": slug } });
+            body.query.bool.must.push({
+                "query_string": {
+                    "default_field": 'Organisation_Name__r.Name',
+                    "query": slug
+                }
+            });
 
             var overrides: any = {
                 size: 1
             }
 
             this.search(body, overrides).then(results => {
+                // console.log(results);
                 if (results.hits.total < 1) {
                     return reject(new Error('Signatory not found'));
                 }
-                // console.log(results.hits);
                 resolve(results.hits);
             }).catch(reject);
         });
