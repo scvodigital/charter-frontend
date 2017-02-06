@@ -35,8 +35,10 @@
 <div class="row signatories">
     <div *ngFor="let signatory of signatories" class="col s6 m4 l3">
         <div class="inner">
-            <a [routerLink]="['/signatories', signatory._source.Organisation_Name__r.Name | slugify]">
-                <img src="#" alt="{{signatory._source.Organisation_Name__r.Name}}" />
+            <a [routerLink]="['/signatories', signatory._source.Organisation_Name__r.Name | slugify]" title="{{signatory._source.Organisation_Name__r.Name}}">
+                 <!-- style="background-image:url('/app/assets/images/logos/digital-scotland.png');" -->
+                <!-- <img src="" alt="{{signatory._source.Organisation_Name__r.Name}}" /> -->
+                <span class="name">{{signatory._source.Organisation_Name__r.Name}}</span>
             </a>
         </div>
     </div>
