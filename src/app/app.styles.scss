@@ -301,7 +301,18 @@ main {
         }
     }
     .description {
+        position: relative;
         margin-bottom: 0;
+        .align-bottom {
+            position: absolute;
+            bottom: 0.5rem;
+            left: 0.75rem;
+        }
+        img {
+            margin: 0 auto;
+            padding: 1.5rem 8rem 0;
+            margin-bottom: -6px;
+        }
         h2 {
             font-size: 3.2rem;
             margin: 4rem 0;
@@ -346,14 +357,6 @@ main {
         h1 {
             font-size: 5rem;
         }
-        img {
-            margin: 0 auto;
-            padding: 1.5rem 8rem 0;
-            margin-bottom: -6px;
-        }
-        // hr {
-        //     margin: 0;
-        // }
         h4 {
             margin: 0;
             position: relative;

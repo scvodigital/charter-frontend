@@ -1,8 +1,10 @@
-<div class="row title">
+<div *ngFor="let signatory of signatories" class="row title">
     <div class="col s12 m9">
-        <h3>[organisation]</h3>
-        <p>[statement]</p>
-        <p>[commitment]</p>
+        <h3>{{signatory._source.Organisation_Name__r.Name}}</h3>
+        <p *ngIf="signatory._source.ResourceOffered"><strong>Resource offered:</strong> {{signatory._source.ResourceOffered}}</p>
+        <p *ngIf="signatory._source.Sector"><strong>Sector:</strong> {{signatory._source.Sector}}</p>
+        <p *ngIf="signatory._source.SubSector"><strong>Category:</strong> {{signatory._source.SubSector}}</p>
+        <!-- <small><pre>{{signatory._source | json}}</pre></small> -->
     </div>
     <div class="col hide-on-small-only m3">
         <p>[logo]</p>

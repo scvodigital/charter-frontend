@@ -108,26 +108,34 @@ export class ElasticService {
             }
 
             this.search(body, overrides).then(response => {
-                console.log(response.hits);
+                // console.log(response.hits);
                 resolve(response.hits);
             }).catch(reject);
         });
     }
 
-    public getSignatory(slug: string): Promise<ISignatory> {
-        return new Promise<ISignatory>((resolve, reject) => {
-            var body = {
-                filter: {
-                    term: { slug: slug }
+    public getSignatory(slug: String, parameters: ISearchParameters): Promise<IHits<ISignatory>> {
+        return new Promise((resolve, reject) => {
+            var body: any = {
+                query: {
+                    bool: {
+                        must: []
+                    }
                 }
             };
 
-            this.search(body, { size: 1 }).then(results => {
-                if (results.hits.total !== 1) {
+            body.query.bool.must.push({ "simple_query_string": { "query": slug } });
+
+            var overrides: any = {
+                size: 1
+            }
+
+            this.search(body, overrides).then(results => {
+                if (results.hits.total < 1) {
                     return reject(new Error('Signatory not found'));
                 }
-                console.log(results.hits);
-                resolve(results.hits.hits[0]._source);
+                // console.log(results.hits);
+                resolve(results.hits);
             }).catch(reject);
         });
     }
