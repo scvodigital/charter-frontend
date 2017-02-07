@@ -38,7 +38,7 @@ export class AppComponent {
                     if (event.url === '/sign-up') {
                         this.contentType = 'signup-gradient';
                     } else {
-                        this.contentType = 'signup';
+                        this.contentType = 'signup-gradient';
                     }
                 } else if (event.url.startsWith('/skill-up')) {
                     if (event.url === '/skill-up') {
