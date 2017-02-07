@@ -1,7 +1,7 @@
 <div *ngFor="let signatory of signatories" class="row title">
     <div class="col s12 m9">
         <h3>{{signatory._source.Organisation_Name__r.Name}}</h3>
-        <p *ngIf="signatory._source.DescriptionOfOffer"><strong>Description of offer:</strong> {{signatory._source.DescriptionOfOffer}}</p>
+        <p *ngIf="signatory._source.DescriptionOfOffer"><strong>Description of offer:</strong> <span [innerHTML]="signatory._source.DescriptionOfOffer | MarkdownToHtml"></span></p>
         <p *ngIf="signatory._source.ResourceOffered"><strong>Resource offered:</strong> {{signatory._source.ResourceOffered}}</p>
         <p *ngIf="signatory._source.ReachAcrossScotland"><strong>Reach across Scotland:</strong> {{signatory._source.ReachAcrossScotland}}</p>
         <p *ngIf="signatory._source.Sector"><strong>Sector:</strong> {{signatory._source.Sector}}</p>

@@ -25,14 +25,8 @@ export class SignatoriesDetailComponent {
                     this.parameters = new SearchParameters(params);
                     this.appService.es.getSignatory(slug, this.parameters).then((results) => {
                         this.signatories = results.hits;
-                        // console.log(this.signatories[0]._source);
-                        //
-                        // this.organisation_name = this.signatories[0]._source.Organisation_Name__r.Name;
-                        // this.signatory = results.hits;
-                        // this.loading = false;
                     }).catch(err => {
                         console.error('Error searching', slug, err);
-                        // this.loading = false;
                     });
                 }
             }
