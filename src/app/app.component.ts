@@ -69,22 +69,7 @@ export class AppComponent {
         });
     }
 
-    ngOnInit() {
-        var headroom = new Headroom(jQuery("header")[0]);
-        headroom.init();
-        this.headerPadding();
-        jQuery(window).on('resize', this.headerPadding);
-    }
-
-    public headerPadding() {
-        if (jQuery(window).width() < 992) {
-            jQuery('body').css('padding-top', jQuery('header').outerHeight());
-            jQuery('header').css('margin-top', 0 - jQuery('header').outerHeight());
-        } else {
-            jQuery('body').css('padding-top', 0);
-            jQuery('header').css('margin-top', 0);
-        }
-    }
+    ngOnInit() {}
 
     public setTitle(newTitle: string) {
         this.titleService.setTitle(newTitle);

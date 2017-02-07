@@ -76,6 +76,7 @@ export class ElasticService {
                 }
 
                 client.search(payload).then(response => {
+                    // console.log(response);
                     resolve(response);
                 }).catch(err => {
                     console.error('Error searching', payload, err);
