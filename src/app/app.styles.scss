@@ -604,21 +604,36 @@ main {
     margin-top: 2rem;
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     font-weight: 400;
-    .copyright {
-        font-size: 95%;
-        p a {
-            color: white !important;
-            text-decoration: underline;
-        }
+    font-size: 1.03rem;
+    .container-fluid {
+        padding-top: 0.5rem;
+        margin-bottom: 3rem;
+        position: relative;
         p {
-            margin-top: 1.5rem;
+            color: white;
+            margin-bottom: 0;
+            small {
+                font-size: 88%;
+            }
+            a {
+                color: white !important;
+                text-decoration: underline;
+            }
         }
-    }
-    .logo.digital-scotland {
-        margin-left: 1.5rem;
-    }
-    .menu ul {
-        margin-top: 0;
+        .logo.scvo {
+            position: absolute;
+            bottom: 8px;
+            right: 0.75rem;
+        }
+        .logo.digital-scotland {
+            height: 50px;
+            position: absolute;
+            bottom: 6px;
+            right: 160px;
+        }
+        .menu ul {
+            margin-top: 0;
+        }
     }
 }
 
