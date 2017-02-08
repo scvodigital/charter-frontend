@@ -63,7 +63,7 @@ export class ElasticService {
         return new Promise<any>((resolve, reject) => {
             this.getClient().then((client: any) => {
                 var payload = {
-                    index: 'digitalcharter',
+                    index: 'charter-test',
                     type: 'signatory',
                     size: 12,
                     body: body
@@ -127,7 +127,7 @@ export class ElasticService {
 
             body.query.bool.must.push({
                 "query_string": {
-                    "default_field": 'Organisation_Name__r.Name',
+                    "default_field": 'organisation',
                     "query": slug
                 }
             });

@@ -367,6 +367,7 @@ main {
             margin-top: 2rem;
         }
     }
+
     .description {
         position: relative;
         margin-bottom: 0;
@@ -563,21 +564,24 @@ main {
         .inner {
             margin: 0 -0.75rem;
             border-top: $brand-border-width solid $brand-typography;
-            height: 10rem;
             padding: 1rem;
+            vertical-align: middle;
             a {
-                background-color: $brand-other;
-                background-blend-mode: overlay;
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: contain;
+                // background-color: $brand-other;
+                // background-blend-mode: overlay;
+                // background-position: center;
+                // background-repeat: no-repeat;
+                // background-size: contain;
                 display: inline-block;
                 vertical-align: middle;
-                height: 100%;
-                width: 100%;
+                height: 12rem;
+                line-height: 12rem;
                 display: block;
-                padding: 1rem 3rem 5rem;
+                padding: 0;
+                vertical-align: middle;
                 position: relative;
+                text-align: center;
+                overflow: hidden;
                 span {
                     position: absolute;
                     bottom: 0;
@@ -590,15 +594,25 @@ main {
                     font-size: 1.1rem;
                     color: $brand-typography;
                 }
-                // img {
-                //     vertical-align: middle;
-                //     width: 100%;
-                // }
+                img.resize-fit-center {
+                    max-width:100%;
+                    max-height:100%;
+                    vertical-align: middle;
+                }
             }
-            a:hover {
-                background-blend-mode: normal;
-            }
+            // a::after {
+            //     content: "";
+            //     display: block;
+            //     position: absolute;
+            //     top: 0;
+            //     bottom: 0;
+            //     left: 0;
+            //     right: 0;
+            //     background-color: $brand-other;
+            //     background-blend-mode: screen, multiply;
+            // }
         }
+
         .col.s6, .col.m4, .col.l3 {
             border-right: $brand-border-width solid $brand-typography;
         }
@@ -618,6 +632,9 @@ main {
             margin: 0 auto;
         }
     }
+}
+.other main .title img {
+    margin: 0;
 }
 
 .footer {
