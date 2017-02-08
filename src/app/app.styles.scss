@@ -159,6 +159,70 @@ nav {
     float: right;
 }
 
+// Sidenav ====================================================================
+
+@keyframes slide-in {
+    0% {
+        transform: translateX(105%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes slide-out{
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(105%);
+    }
+}
+
+.slide-in {
+    transform: translateX(0%);
+    animation: slide-in 0.4s;
+}
+
+.slide-out {
+    transform: translateX(105%);
+    animation: slide-out 0.4s;
+}
+
+.side-nav {
+    left: auto;
+    right: 0;
+}
+
+.side-panel {
+    .close {
+        color: $brand-typography;
+        font-size: 2rem;
+        padding: 1rem;
+        .fa {
+            display: block;
+        }
+    }
+    .close:hover {
+        text-decoration: none;
+        background: transparent;
+    }
+    .close:focus {
+        outline: none;
+    }
+}
+nav .button-collapse {
+    color: $brand-typography;
+    margin: 0.2rem 0 0 2rem;
+    float: right;
+    line-height: 1em;
+    i {
+        height: 1rem;
+        line-height: 1rem;
+        font-size: 2rem;
+    }
+}
+
 #content {
     padding-bottom: 4rem;
 }
@@ -182,6 +246,9 @@ nav {
                 color: white;
                 text-shadow: 0.1rem 0 0 $brand-typography, 0 -0.1rem 0 $brand-typography, 0 0.1rem 0 $brand-typography, -0.1rem 0 0 $brand-typography;
             }
+        }
+        .button-collapse {
+            color: white;
         }
         ul li a {
             color: white;
@@ -243,7 +310,6 @@ nav {
     background: linear-gradient(to bottom, $brand-skills 10%, $brand-primary 80%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-skills', endColorstr='$brand-primary',GradientType=0 );
 }
-
 
 main {
     h3 {
@@ -594,7 +660,71 @@ main {
     }
 }
 
+@media only screen and (max-width: 1245px) {
+    nav ul li a {
+        font-size: 1.4rem;
+    }
+}
+@media only screen and (max-width: 1138px) {
+    nav ul li a {
+        font-size: 1.3rem;
+    }
+}
+@media only screen and (max-width: 1076px) {
+    nav ul li a {
+        font-size: 1.2rem;
+    }
+}
+@media only screen and (max-width: 1014px) {
+    nav ul li a {
+        font-size: 1.1rem;
+    }
+}
 @media only screen and (max-width: 992px) {
+    hr {
+        margin: 2rem 0;
+    }
+    main {
+        .title {
+            h1 {
+                font-size: 3.5rem;
+                line-height: 3.5rem;
+            }
+            img {
+                margin: 0;
+            }
+        }
+        .description {
+            h1 {
+                margin: 0;
+            }
+            h2 {
+                font-size: 2.2rem;
+                margin: 0;
+            }
+            img {
+                padding: 0 1rem 0;
+            }
+            .btn {
+                margin: 3rem 0;
+            }
+        }
+        .expand {
+            h1 {
+                font-size: 3rem;
+            }
+            h3 .number {
+                height: 4rem;
+                width: 4rem;
+            }
+        }
+        h1 {
+            font-size: 3rem;
+        }
+        h3 {
+            font-size: 2rem;
+        }
+    }
     main .signatories {
         .col:nth-child(4n + 1) .inner {
             margin-left: -0.75rem;
@@ -618,6 +748,75 @@ main {
 }
 
 @media only screen and (max-width: 600px) {
+    hr {
+        margin: 1rem 0;
+    }
+    main {
+        .title {
+            h1 {
+                font-size: 2.2rem;
+                line-height: 2.2rem;
+                letter-spacing: inherit;
+                margin: 0;
+            }
+            p {
+                font-size: 1.1rem;
+                margin-bottom: 0;
+            }
+        }
+        .description {
+            h1 {
+                font-size: 2.6rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+            }
+            p {
+                font-size: 1.1rem;
+            }
+            .btn {
+                margin: 0 auto 0.5rem;
+                font-size: 1.3rem;
+                width: 90%;
+            }
+        }
+        .expand {
+            h1 {
+                font-size: 2.6rem;
+                margin-top: 0.5rem;
+            }
+            h3 {
+                padding: 1.5rem 0 0;
+                .number {
+                    height: 3rem;
+                    width: 3rem;
+                    line-height: 3rem;
+                    margin-top: -0.5rem;
+                }
+            }
+            h4 {
+                font-size: 1.2rem;
+                a {
+                    font-size: 1.2rem;
+                }
+            }
+            p {
+                padding: 0.5rem 0 1rem;
+                font-size: 1.1rem;
+            }
+        }
+        .pledge {
+            h3,
+            p {
+                margin: 0;
+            }
+        }
+        .resources {
+            h3 {
+                font-size: 1.3rem;
+            }
+        }
+    }
     main .signatories {
         .col:nth-child(3n + 1) .inner {
             margin-left: -0.75rem;
