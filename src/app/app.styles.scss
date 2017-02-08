@@ -358,27 +358,6 @@ main {
         h1 {
             font-size: 5rem;
         }
-        h4 {
-            margin: 0;
-            position: relative;
-            a {
-                padding: 1rem 0;
-                display: block;
-                color: $brand-typography;
-                font-weight: bold;
-                font-size: 1.5rem;
-                .text {
-                    width: 77%;
-                }
-                .material-icons {
-                    font-weight: bold;
-                    position: absolute;
-                    top: 1rem;
-                    right: 0.3rem;
-                    font-size: 2.7rem;
-                }
-            }
-        }
         h3 {
             padding: 2.5rem 0;
             a {
@@ -402,6 +381,27 @@ main {
                 border: $brand-border-width solid $brand-typography;
                 margin-top: -1rem;
                 width: 4.5rem;
+            }
+        }
+        h4 {
+            margin: 0;
+            position: relative;
+            a {
+                padding: 1rem 0;
+                display: block;
+                color: $brand-typography;
+                font-weight: bold;
+                font-size: 1.5rem;
+                .text {
+                    width: 77%;
+                }
+                .material-icons {
+                    font-weight: bold;
+                    position: absolute;
+                    top: 0.8rem;
+                    right: 0.05rem;
+                    font-size: 2.7rem;
+                }
             }
         }
         p {
@@ -573,6 +573,9 @@ main {
                 color: white !important;
                 text-decoration: underline;
             }
+        }
+        .description p {
+            margin: 0 0 1rem;
         }
         .logo.scvo {
             position: absolute;
