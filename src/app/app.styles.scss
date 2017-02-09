@@ -217,8 +217,8 @@ nav .button-collapse {
     float: right;
     line-height: 1em;
     i {
-        height: 1rem;
-        line-height: 1rem;
+        height: 1rem !important;
+        line-height: 1rem !important;
         font-size: 2rem;
     }
 }
@@ -346,13 +346,6 @@ main {
             -webkit-box-sizing: border-box;
             box-sizing: border-box;
         }
-        // select,
-        // select:focus {
-        //     -ms-box-sizing: content-box;
-        //     -moz-box-sizing: content-box;
-        //     -webkit-box-sizing: content-box;
-        //     box-sizing: content-box;
-        // }
     }
 
     .title {
@@ -405,12 +398,6 @@ main {
             border: $brand-border-width solid $brand-typography;
             box-shadow: -0.5rem 0.5rem 0 $brand-typography;
         }
-        // .btn:hover {
-        //     background-color: $brand-typography;
-        //     border-color: white;
-        //     color: white;
-        //     box-shadow: -0.5rem 0.5rem 0 white;
-        // }
     }
     .title,
     .expand {
@@ -688,6 +675,9 @@ main {
     }
 }
 @media only screen and (max-width: 1076px) {
+    nav {
+        padding-top: 0.8rem;
+    }
     nav ul li a {
         font-size: 1.2rem;
     }
@@ -701,14 +691,23 @@ main {
     hr {
         margin: 2rem 0;
     }
+    nav {
+        .brand-logo {
+            left: 0.75rem;
+            transform: none !important;
+        }
+    }
     main {
         .title {
             h1 {
                 font-size: 3.5rem;
                 line-height: 3.5rem;
             }
+            p {
+                font-size: 1.25rem;
+            }
             img {
-                margin: 0;
+                margin: 1rem 0 0;
             }
         }
         .description {
@@ -719,8 +718,12 @@ main {
                 font-size: 2.2rem;
                 margin: 0;
             }
+            p {
+                font-size: 1.25rem;
+            }
             img {
                 padding: 0 1rem 0;
+                margin-bottom: -7px;
             }
             .btn {
                 margin: 3rem 0;
@@ -734,12 +737,20 @@ main {
                 height: 4rem;
                 width: 4rem;
             }
+            p {
+                font-size: 1.25rem;
+            }
+        }
+        .pledge {
+            p {
+                font-size: 1.25rem;
+            }
         }
         h1 {
             font-size: 3rem;
         }
         h3 {
-            font-size: 2rem;
+            font-size: 1.8rem;
         }
     }
     main .signatories {
@@ -765,6 +776,9 @@ main {
 }
 
 @media only screen and (max-width: 600px) {
+    .header-container {
+        margin-bottom: 0;
+    }
     hr {
         margin: 1rem 0;
     }
@@ -805,9 +819,9 @@ main {
             h3 {
                 padding: 1.5rem 0 0;
                 .number {
-                    height: 3rem;
-                    width: 3rem;
-                    line-height: 3rem;
+                    height: 2.9rem;
+                    width: 2.9rem;
+                    line-height: 2.75rem;
                     margin-top: -0.5rem;
                 }
             }
@@ -832,6 +846,9 @@ main {
             h3 {
                 font-size: 1.3rem;
             }
+        }
+        .detail .collapsible .collapsible-body {
+            padding: 0.5rem 0 0 1.2rem;
         }
     }
     main .signatories {

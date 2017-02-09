@@ -1,3 +1,24 @@
+<div class="row expand paging hide-on-med-and-up">
+    <div class="col s12">
+        <h3 class="nomargin">
+            <a [routerLink]="['/skill-up/managing-info']" [routerLinkActive]="['active']">
+                <span class="number">1</span>
+            </a>
+            <a [routerLink]="['/skill-up/communicating']" [routerLinkActive]="['active']">
+                <span class="number">2</span>
+            </a>
+            <a [routerLink]="['/skill-up/transacting']" [routerLinkActive]="['active']">
+                <span class="number">3</span>
+            </a>
+            <a [routerLink]="['/skill-up/problem-solving']" [routerLinkActive]="['active']">
+                <span class="number">4</span>
+            </a>
+            <a [routerLink]="['/skill-up/creating']" [routerLinkActive]="['active']">
+                <span class="number">5</span>
+            </a>
+        </h3>
+    </div>
+</div>
 <div class="row expand detail">
     <div class="col hide-on-small-only m4">
         <img src="/app/assets/images/illustrations/{{illustration}}" alt="{{title}} illustration" class="responsive-img margin-top" />
@@ -29,7 +50,7 @@
         </ul>
     </div>
 </div>
-<div class="row expand paging">
+<div class="row expand paging hide-on-small-only">
     <div class="col s12">
         <h3 class="margin-top">
             <a [routerLink]="['/skill-up/managing-info']" [routerLinkActive]="['active']">
