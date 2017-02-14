@@ -57,7 +57,7 @@ export class SignatoriesComponent {
             this.appService.es.doSearch(this.parameters).then((results) => {
                 this.signatories = results.hits;
                 this.signatories.forEach(function(element) {
-                    console.log(element);
+                    // console.log(element);
                     // element.logo_url = instance.sanitization.bypassSecurityTrustStyle('url(' + element._source.logo.Url + ')');
                 });
                 this.resultsTotal = results.total;

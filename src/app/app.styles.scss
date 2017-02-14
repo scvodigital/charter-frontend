@@ -60,6 +60,11 @@ h1, h2, h3, h4, h5 {
     font-weight: $heading-font-weight;
 }
 
+p a {
+    color: $brand-typography;
+    text-decoration: underline;
+}
+
 .container-fluid {
     max-width: 1280px;
     width: 100%;
@@ -358,6 +363,19 @@ main {
         }
         img {
             margin-top: 2rem;
+        }
+        li {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            font-size: 1.4rem;
+            font-weight: 400;
+        }
+        th {
+            font-size: 1.4rem;
+        }
+        td {
+            font-size: 1.4rem;
+            font-weight: 400;
         }
     }
 
@@ -703,7 +721,7 @@ main {
                 font-size: 3.5rem;
                 line-height: 3.5rem;
             }
-            p {
+            p, li, th, td {
                 font-size: 1.25rem;
             }
             img {
@@ -790,7 +808,7 @@ main {
                 letter-spacing: inherit;
                 margin: 0;
             }
-            p {
+            p, li, th, td {
                 font-size: 1.1rem;
                 margin-bottom: 0;
             }
