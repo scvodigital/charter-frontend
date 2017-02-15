@@ -28,6 +28,7 @@ import { CharterDetailComponent } from './components/content/charter/charter-det
 import { SignatoriesComponent } from './components/content/signatories/signatories.component';
 import { SignatoriesDetailComponent } from './components/content/signatories/signatories-detail.component';
 import { ResourcesComponent } from './components/content/resources/resources.component';
+import { ContactUsComponent } from './components/content/static/contact.component';
 import { AccessibilityComponent } from './components/content/static/accessibility.component';
 import { PrivacyComponent } from './components/content/static/privacy.component';
 import { TermsConditionsComponent } from './components/content/static/terms.component';
@@ -60,6 +61,7 @@ export const firebaseConfig = {
     SignatoriesComponent,
     SignatoriesDetailComponent,
     ResourcesComponent,
+    ContactUsComponent,
     AccessibilityComponent,
     PrivacyComponent,
     TermsConditionsComponent,

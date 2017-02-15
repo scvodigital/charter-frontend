@@ -3,6 +3,7 @@
         <h1>Signatories</h1>
     </div>
 </div>
+
 <form role="form" [formGroup]="searchForm" (submit)="search()">
     <div class="row search margin-bottom">
         <div class="col s12 m4 l6">
@@ -36,94 +37,10 @@
     <div *ngFor="let signatory of signatories" class="col s6 m4 l3">
         <div class="inner">
             <a [routerLink]="['/signatories', signatory._source.organisation | slugify]" title="{{signatory._source.organisation}}" *ngIf="signatory._source.logo">
-                <!-- <a [routerLink]="['/signatories', signatory._source.organisation | slugify]" title="{{signatory._source.organisation}}" *ngIf="signatory._source.logo.Url" [style.background-image]="image" style="background-image:url('{{signatory._source.logo.Url}}');"> -->
-                 <!-- style="background-image:url('/app/assets/images/logos/digital-scotland.png');" -->
-                <!-- <img src="" alt="{{signatory._source.Organisation_Name__r.Name}}" /> -->
                 <img src="{{signatory._source.logo.Url}}" alt="{{signatory._source.organisation}}" class="responsive-img resize-fit-center" />
-                <!-- <span class="name">{{signatory._source.Organisation_Name__r.Name}}</span> -->
             </a>
         </div>
     </div>
-    <!-- <div *ngIf="resultsTotal > ">
-
-    </div> -->
-    <!-- <div class="col s6 m4 l3">
-        <div class="inner">
-            <a [routerLink]="['/signatories/id']">
-                <img src="#" alt="[alt]"/>
-            </a>
-        </div>
-    </div>
-    <div class="col s6 m4 l3">
-        <div class="inner">
-            <a [routerLink]="['/signatories/id']">
-                <img src="#" alt="[alt]"/>
-            </a>
-        </div>
-    </div>
-    <div class="col s6 m4 l3">
-        <div class="inner">
-            <a [routerLink]="['/signatories/id']">
-                <img src="#" alt="[alt]"/>
-            </a>
-        </div>
-    </div>
-    <div class="col s6 m4 l3">
-        <div class="inner">
-            <a [routerLink]="['/signatories/id']">
-                <img src="#" alt="[alt]"/>
-            </a>
-        </div>
-    </div>
-    <div class="col s6 m4 l3">
-        <div class="inner">
-            <a [routerLink]="['/signatories/id']">
-                <img src="#" alt="[alt]"/>
-            </a>
-        </div>
-    </div>
-    <div class="col s6 m4 l3">
-        <div class="inner">
-            <a [routerLink]="['/signatories/id']">
-                <img src="#" alt="[alt]"/>
-            </a>
-        </div>
-    </div>
-    <div class="col s6 m4 l3">
-        <div class="inner">
-            <a [routerLink]="['/signatories/id']">
-                <img src="#" alt="[alt]"/>
-            </a>
-        </div>
-    </div>
-    <div class="col s6 m4 l3">
-        <div class="inner">
-            <a [routerLink]="['/signatories/id']">
-                <img src="#" alt="[alt]"/>
-            </a>
-        </div>
-    </div>
-    <div class="col s6 m4 l3">
-        <div class="inner">
-            <a [routerLink]="['/signatories/id']">
-                <img src="#" alt="[alt]"/>
-            </a>
-        </div>
-    </div>
-    <div class="col s6 m4 l3">
-        <div class="inner">
-            <a [routerLink]="['/signatories/id']">
-                <img src="#" alt="[alt]"/>
-            </a>
-        </div>
-    </div>
-    <div class="col s6 m4 l3">
-        <div class="inner">
-            <a [routerLink]="['/signatories/id']">
-                <img src="#" alt="[alt]"/>
-            </a>
-        </div>
-    </div> -->
     <div class="col s12">
         <hr class="nomargin" />
     </div>

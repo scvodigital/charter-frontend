@@ -6,7 +6,7 @@
 
 @font-face {
     font-family: "Gilroy";
-    font-weight: bold;
+    font-weight: 700;
     src: url("/app/assets/fonts/GilroyExtraBold.otf") format("opentype");
 }
 
@@ -518,12 +518,17 @@ main {
         }
         .collapsible-body {
             color: white;
-            // margin-bottom: 1rem !important;
+            padding: 1rem 2rem;
             border: none;
-            p {
+            ul {
                 padding: 0.5rem 0;
                 border-top: $brand-border-width solid white;
                 border-bottom: $brand-border-width solid white;
+                li {
+                    font-size: 1.4rem;
+                    list-style-type: disc;
+                    margin-left: 1.5rem;
+                }
             }
         }
     }
@@ -759,6 +764,9 @@ main {
                 font-size: 1.25rem;
             }
         }
+        .detail .collapsible .collapsible-body ul li {
+            font-size: 1.25rem;
+        }
         .pledge {
             p {
                 font-size: 1.25rem;
@@ -867,6 +875,9 @@ main {
         }
         .detail .collapsible .collapsible-body {
             padding: 0.5rem 0 0 1.2rem;
+            ul li {
+                font-size: 1.1rem;
+            }
         }
     }
     main .signatories {

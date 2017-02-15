@@ -1,7 +1,7 @@
 <div class="row expand paging hide-on-med-and-up">
     <div class="col s12">
         <h3 class="nomargin">
-            <a [routerLink]="['/skill-up/managing-info']" [routerLinkActive]="['active']">
+            <a [routerLink]="['/skill-up/managing-information']" [routerLinkActive]="['active']">
                 <span class="number">1</span>
             </a>
             <a [routerLink]="['/skill-up/communicating']" [routerLinkActive]="['active']">
@@ -33,19 +33,18 @@
             </h3>
         </div>
         <h3><span class="number">{{number}}</span> {{title}}</h3>
-        <!-- <hr class="nomargin" /> -->
         <ul materialize="collapsible" class="collapsible" data-collapsible="accordion">
             <li>
                 <div class="collapsible-header active"><h4>&mdash; Organisations</h4></div>
-                <div class="collapsible-body"><p>{{content_organisations}}</p></div>
+                <div class="collapsible-body" [innerHTML]="content_organisations"></div>
             </li>
             <li>
                 <div class="collapsible-header"><h4>&mdash; Individuals</h4></div>
-                <div class="collapsible-body"><p>{{content_individuals}}</p></div>
+                <div class="collapsible-body" [innerHTML]="content_individuals"></div>
             </li>
             <li>
                 <div class="collapsible-header"><h4>&mdash; Safety &amp; Security</h4></div>
-                <div class="collapsible-body"><p>{{content_safety}}</p></div>
+                <div class="collapsible-body" [innerHTML]="content_safety"></div>
             </li>
         </ul>
     </div>
@@ -53,7 +52,7 @@
 <div class="row expand paging hide-on-small-only">
     <div class="col s12">
         <h3 class="margin-top">
-            <a [routerLink]="['/skill-up/managing-info']" [routerLinkActive]="['active']">
+            <a [routerLink]="['/skill-up/managing-information']" [routerLinkActive]="['active']">
                 <span class="number">1</span>
             </a>
             <a [routerLink]="['/skill-up/communicating']" [routerLinkActive]="['active']">
