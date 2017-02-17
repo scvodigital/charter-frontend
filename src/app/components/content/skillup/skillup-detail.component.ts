@@ -20,7 +20,7 @@ export class SkillUpDetailComponent {
             if (event instanceof NavigationEnd) {
                 if (event.url == '/skill-up/managing-information') {
                     this.number = 1;
-                    this.title = 'Managing Information';
+                    this.title = 'Managing Info';
                     this.illustration = 'WEB-Skill-Up-(Managing-Info).png';
                     this.content_organisations = '<ul><li>Store digital information on suppliers and customers</li><li>Search for new suppliers to find the best deals</li><li>Understand who uses your website</li><li>Discover potential growth opportunities for your organisation</li></ul>';
                     this.content_individuals = '<ul><li>Use a search engine to find the information you need</li><li>Search for deals on comparison websites</li><li>Bookmark useful websites and services</li><li>Store data on a device or in the cloud</li></ul>';

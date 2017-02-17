@@ -6,19 +6,27 @@
         <hr />
     </div>
 </div>
-<div class="row expand">
+<div class="row expand detail">
     <div class="col s12 m6">
-        <h3>"Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."</h3>
-        <p>Employee Name, <strong>Supporter Company Name</strong></p>
+        <h3>{{pull_quote}}</h3>
+        <p>&#8212; <strong>{{organisation}}</strong></p>
     </div>
-    <div class="col hide-on-small-only m6">
-        <img src="/app/assets/images/illustrations/Creating-RGB-04.png" alt="Creating illustration" class="responsive-img" />
+    <div class="col hide-on-small-only offset-m1 m5">
+        <div class="pull-right expand">
+            <h3>
+                <a [routerLink]="['/the-charter']">
+                    <i class="fa fa-times-circle" aria-hidden="true"></i>
+                </a>
+            </h3>
+        </div>
+        <img src="/app/assets/images/illustrations/{{illustration}}" alt="{{organisation}} story page illustration" class="responsive-img margin-top" />
     </div>
     <div class="col s12">
-        <hr />
+        <div class="content" [innerHTML]="longer_text"></div>
+        <hr class="margin-top" />
     </div>
 </div>
-<div class="row expand paging">
+<!-- <div class="row expand paging">
     <div class="col s12">
         <h3 class="margin-top">
             <a [routerLink]="['/the-charter/story-1']" [routerLinkActive]="['active']">
@@ -32,4 +40,4 @@
             </a>
         </h3>
     </div>
-</div>
+</div> -->
