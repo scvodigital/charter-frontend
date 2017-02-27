@@ -2,7 +2,7 @@
     <div class="col s12 m9">
         <h3>{{signatory._source.organisation}}</h3>
         <p *ngIf="signatory._source.description"><strong>Description:</strong> <span [innerHTML]="signatory._source.description | MarkdownToHtml"></span></p>
-        <p *ngIf="signatory._source.missionStatement"><strong>Statement:</strong> {{signatory._source.missionStatement}}</p>
+        <p *ngIf="signatory._source.missionStatement"><strong>Statement:</strong> <span [innerHTML]="signatory._source.missionStatement | MarkdownToHtml"></span></p>
         <p *ngIf="signatory._source.sector"><strong>Sector:</strong> {{signatory._source.sector}}</p>
         <p *ngIf="signatory._source.category"><strong>Category:</strong> {{signatory._source.category}}</p>
         <p *ngIf="signatory._source.website"><strong>Website:</strong> <a href="{{signatory._source.website}}">{{signatory._source.website}}</a></p>
@@ -11,8 +11,13 @@
         <p *ngIf="signatory._source.facebook"><strong>Facebook:</strong> <a href="{{signatory._source.facebook}}">{{signatory._source.facebook}}</a></p>
         <!-- <small><pre>{{signatory._source | json}}</pre></small> -->
     </div>
-    <div class="col hide-on-small-only m3">
-        <p *ngIf="signatory._source.logo"><img src="{{signatory._source.logo.Url}}" alt="{{signatory._source.organisation}}" class="responsive-img" /></p>
+    <div class="col hide-on-small-only m3 signatory-logo-background">
+        <p *ngIf="signatory._source.logo">
+            <a *ngIf="signatory._source.website" href="{{signatory._source.website}}">
+                <img src="{{signatory._source.logo.Url}}" alt="{{signatory._source.organisation}}" class="responsive-img" />
+            </a>
+            <img *ngIf="!signatory._source.website" src="{{signatory._source.logo.Url}}" alt="{{signatory._source.organisation}}" class="responsive-img" />
+        </p>
     </div>
     <div class="col s12">
         <hr />
