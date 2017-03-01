@@ -9,7 +9,7 @@ declare function loaded();
 
 @Injectable()
 export class AppService {
-    constructor(@Inject(ElasticService) public es: ElasticService) {
+    constructor(@Inject(AngularFire) public af: AngularFire, @Inject(ElasticService) public es: ElasticService) {
         this.loadSiteData();
     }
 

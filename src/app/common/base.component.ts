@@ -1,7 +1,9 @@
 // Experimental base component class to allow for an ngOnConfigLoaded event in all child components
 import { Inject, Component } from '@angular/core';
-import { AppService } from '../services/app.service';
+
 import { Subscription } from 'rxjs/Rx';
+
+import { AppService } from '../services/app.service';
 
 @Component({
     template: ''

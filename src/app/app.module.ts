@@ -16,6 +16,7 @@ import { ElasticService } from './services/elastic.service';
 import { SearchService } from './services/search.service';
 
 /* Components */
+import { SiteComponent } from './common/base.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { HomeComponent } from './components/content/static/home.component';
 import { SignUpComponent } from './components/content/signup/signup.component';
@@ -35,7 +36,7 @@ import { PrivacyComponent } from './components/content/static/privacy.component'
 import { TermsConditionsComponent } from './components/content/static/terms.component';
 
 /* Pipes */
-import { MarkdownToHtmlPipe } from 'markdown-to-html-pipe';
+import { MarkdownToHtmlModule } from 'markdown-to-html-pipe';
 import { SlugifyPipe } from './pipes/slugify.pipe';
 
 /* Directives */
@@ -50,6 +51,7 @@ export const firebaseConfig = {
 @NgModule({
   declarations: [
     AppComponent,
+    SiteComponent,
     HomeComponent,
     MenuComponent,
     SignUpComponent,
@@ -67,7 +69,6 @@ export const firebaseConfig = {
     AccessibilityComponent,
     PrivacyComponent,
     TermsConditionsComponent,
-    MarkdownToHtmlPipe,
     SlugifyPipe
   ],
   imports: [
@@ -77,6 +78,7 @@ export const firebaseConfig = {
     RouterModule.forRoot(rootRouterConfig),
     AngularFireModule.initializeApp(firebaseConfig),
     ReactiveFormsModule,
+    MarkdownToHtmlModule,
     MaterializeModule
   ],
   providers: [
