@@ -6,8 +6,9 @@ import { SignUpFormComponent } from './components/content/signup/signup-form.com
 import { SignUpCompleteComponent } from './components/content/signup/signup-complete.component';
 import { SkillUpComponent } from './components/content/skillup/skillup.component';
 import { SkillUpDetailComponent } from './components/content/skillup/skillup-detail.component';
-import { CharterComponent } from './components/content/charter/charter.component';
-import { CharterDetailComponent } from './components/content/charter/charter-detail.component';
+import { CharterComponent } from './components/content/static/charter.component';
+import { StoriesComponent } from './components/content/stories/stories.component';
+import { StoriesDetailComponent } from './components/content/stories/stories-detail.component';
 import { SignatoriesComponent } from './components/content/signatories/signatories.component';
 import { SignatoriesDetailComponent } from './components/content/signatories/signatories-detail.component';
 import { ResourcesComponent } from './components/content/resources/resources.component';
@@ -24,7 +25,8 @@ export const rootRouterConfig: Routes = [
     { path: 'skill-up', component: SkillUpComponent },
     { path: 'skill-up/:slug', component: SkillUpDetailComponent },
     { path: 'the-charter', component: CharterComponent },
-    { path: 'the-charter/:slug', component: CharterDetailComponent },
+    { path: 'stories', component: StoriesComponent },
+    { path: 'stories/:slug', component: StoriesDetailComponent },
     { path: 'signatories', component: SignatoriesComponent },
     { path: 'signatories/:slug', component: SignatoriesDetailComponent },
     { path: 'resources', component: ResourcesComponent },

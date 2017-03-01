@@ -153,7 +153,7 @@ nav {
     ul li a {
         color: $brand-typography;
         padding: 0.3rem 0.7rem;
-        font-size: 1.5rem;
+        font-size: 1.45rem;
         margin-left: $brand-border-width * 2;
     }
 }
@@ -382,11 +382,11 @@ main {
     .description {
         position: relative;
         margin-bottom: 0;
-        .align-bottom {
-            position: absolute;
-            bottom: 0.5rem;
-            left: 0.75rem;
-        }
+        // .align-bottom {
+        //     position: absolute;
+        //     bottom: 0.5rem;
+        //     left: 0.75rem;
+        // }
         img {
             margin: 0 auto;
             padding: 1.5rem 8rem 0;
@@ -485,6 +485,9 @@ main {
                 font-weight: normal;
             }
         }
+    }
+    .pledges h1 {
+        margin-top: 10.4rem;
     }
     .detail {
         h3 {
@@ -703,12 +706,12 @@ main {
 
 @media only screen and (max-width: 1245px) {
     nav ul li a {
-        font-size: 1.4rem;
+        font-size: 1.35rem;
     }
 }
 @media only screen and (max-width: 1138px) {
     nav ul li a {
-        font-size: 1.3rem;
+        font-size: 1.25rem;
     }
 }
 @media only screen and (max-width: 1076px) {
@@ -716,12 +719,16 @@ main {
         padding-top: 0.8rem;
     }
     nav ul li a {
-        font-size: 1.2rem;
+        font-size: 1.15rem;
+    }
+    main .title h1 {
+        font-size: 4.7rem;
+        line-height: 5rem;
     }
 }
 @media only screen and (max-width: 1014px) {
     nav ul li a {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
     }
 }
 @media only screen and (max-width: 992px) {

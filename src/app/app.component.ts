@@ -47,15 +47,17 @@ export class AppComponent {
                         this.contentType = 'detail';
                     }
                 } else if (event.url.startsWith('/the-charter')) {
-                    if (event.url === '/the-charter') {
-                        this.contentType = 'charter-gradient';
+                    this.contentType = 'charter-gradient';
+                } else if (event.url.startsWith('/stories')) {
+                    if (event.url === '/stories') {
+                        this.contentType = 'charter';
                     } else {
                         this.contentType = 'detail';
                     }
                 } else if (event.url.startsWith('/resources')) {
-                    this.contentType = 'other-gradient';
-                } else if (event.url.startsWith('/signatories')) {
                     this.contentType = 'other';
+                } else if (event.url.startsWith('/signatories')) {
+                    this.contentType = 'other-gradient';
                     // if (event.url === '/signatories') {
                     // } else {
                     //     this.contentType = 'other';

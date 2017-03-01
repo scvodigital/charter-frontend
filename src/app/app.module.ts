@@ -23,8 +23,9 @@ import { SignUpFormComponent } from './components/content/signup/signup-form.com
 import { SignUpCompleteComponent } from './components/content/signup/signup-complete.component';
 import { SkillUpComponent } from './components/content/skillup/skillup.component';
 import { SkillUpDetailComponent } from './components/content/skillup/skillup-detail.component';
-import { CharterComponent } from './components/content/charter/charter.component';
-import { CharterDetailComponent } from './components/content/charter/charter-detail.component';
+import { CharterComponent } from './components/content/static/charter.component';
+import { StoriesComponent } from './components/content/stories/stories.component';
+import { StoriesDetailComponent } from './components/content/stories/stories-detail.component';
 import { SignatoriesComponent } from './components/content/signatories/signatories.component';
 import { SignatoriesDetailComponent } from './components/content/signatories/signatories-detail.component';
 import { ResourcesComponent } from './components/content/resources/resources.component';
@@ -57,7 +58,8 @@ export const firebaseConfig = {
     SkillUpComponent,
     SkillUpDetailComponent,
     CharterComponent,
-    CharterDetailComponent,
+    StoriesComponent,
+    StoriesDetailComponent,
     SignatoriesComponent,
     SignatoriesDetailComponent,
     ResourcesComponent,
