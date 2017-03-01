@@ -9,6 +9,9 @@ declare function loaded();
 
 @Injectable()
 export class AppService {
+    public ready: boolean = false;
+    public readySub: Subject<void> = new Subject<void>();
+
     constructor(@Inject(AngularFire) public af: AngularFire, @Inject(ElasticService) public es: ElasticService) {
         this.loadSiteData();
     }
