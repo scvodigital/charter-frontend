@@ -579,11 +579,21 @@ main {
             }
         }
     }
-    .signatory-logo-background p {
-        padding: 1rem 1rem 0.25rem;
-        background: white;
-        text-align: center;
-        border: $brand-border-width solid $brand-typography;
+    .signatory-logo-background {
+        p {
+            padding: 1rem 1rem 0.25rem;
+            background: white;
+            text-align: center;
+            border: $brand-border-width solid $brand-typography;
+        }
+        img {
+            margin: 0;
+        }
+    }
+    .signatory-detail {
+        p {
+            margin: 0 0 1rem;
+        }
     }
     .signatories {
         margin: 0;

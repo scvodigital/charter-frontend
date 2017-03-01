@@ -1,10 +1,17 @@
-<div *ngFor="let signatory of signatories" class="row title">
+<div *ngFor="let signatory of signatories" class="row title signatory-detail">
     <div class="col s12 m9">
         <h3>{{signatory._source.organisation}}</h3>
-        <p *ngIf="signatory._source.description"><strong>Description:</strong> <span [innerHTML]="signatory._source.description | MarkdownToHtml"></span></p>
-        <p *ngIf="signatory._source.missionStatement"><strong>Statement:</strong> <span [innerHTML]="signatory._source.missionStatement | MarkdownToHtml"></span></p>
-        <p *ngIf="signatory._source.sector"><strong>Sector:</strong> {{signatory._source.sector}}</p>
-        <p *ngIf="signatory._source.category"><strong>Category:</strong> {{signatory._source.category}}</p>
+        <p *ngIf="signatory._source.missionStatement"><strong>Organisation statement:</strong> <span [innerHTML]="signatory._source.missionStatement | MarkdownToHtml"></span></p>
+        <p *ngIf="signatory._source.description"><strong>Commitment to digital participation:</strong> <span [innerHTML]="signatory._source.description | MarkdownToHtml"></span></p>
+        <div *ngIf="signatory._source.sector && signatory._source.category">
+            <p><strong>{{signatory._source.sector}} Category:</strong> {{signatory._source.category}}</p>
+        </div>
+        <div *ngIf="signatory._source.sector && !signatory._source.category">
+            <p *ngIf="signatory._source.sector"><strong>Sector:</strong> {{signatory._source.sector}}</p>
+        </div>
+        <div *ngIf="!signatory._source.sector && signatory._source.category">
+            <p *ngIf="signatory._source.category"><strong>Category:</strong> {{signatory._source.category}}</p>
+        </div>
         <p *ngIf="signatory._source.website"><strong>Website:</strong> <a href="{{signatory._source.website}}">{{signatory._source.website}}</a></p>
         <p *ngIf="signatory._source.blog"><strong>Blog:</strong> <a href="{{signatory._source.blog}}">{{signatory._source.blog}}</a></p>
         <p *ngIf="signatory._source.twitter"><strong>Twitter:</strong> <a href="{{signatory._source.twitter}}">{{signatory._source.twitter}}</a></p>
