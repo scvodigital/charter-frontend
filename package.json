@@ -2,6 +2,9 @@
     "name": "charter-frontend",
     "version": "1.0.0",
     "license": "MIT",
+    "contributors": [
+        "Calum MacÙisdean <calum.macuisdean@scvo.org.uk>"
+    ],
     "angular-cli": {},
     "scripts": {
         "ng": "ng",
@@ -14,7 +17,6 @@
         "pree2e": "webdriver-manager update --standalone false --gecko false",
         "e2e": "protractor"
     },
-    "private": true,
     "dependencies": {
         "@angular/common": "^2.4.6",
         "@angular/compiler": "^2.4.6",
@@ -64,5 +66,13 @@
         "ts-node": "2.0.0",
         "tslint": "^4.4.2",
         "typescript": "^2.1.5"
-    }
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/scvodigital/charter-frontend.git"
+    },
+    "bugs": {
+        "url": "https://github.com/scvodigital/charter-frontend/issues"
+    },
+    "homepage": "https://github.com/scvodigital/charter-frontend#readme"
 }
