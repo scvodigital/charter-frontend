@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+  - "6.2"
+
+before_script:
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+  - npm install -g typescript@2.1.4 firebase-tools @angular/cli
+  - npm install
+  - echo -e "Host github.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+
+script:
+  - npm run build
+  - firebase deploy --token ${FIREBASE_TOKEN}
+
+notifications:
+  slack: scvodigital:FIHvGycOWT1igQcfo1xwAEyj
