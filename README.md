@@ -8,7 +8,7 @@ This is the repository for the website of Scotland's Digital Participation Chart
 ```
 git clone https://github.com/scvodigital/charter-frontend
 cd charter-frontend
-sudo npm i -g typescript@2.1.4 firebase-tools @angular/cli
+sudo npm i -g typescript firebase-tools @angular/cli
 npm i
 ```
 

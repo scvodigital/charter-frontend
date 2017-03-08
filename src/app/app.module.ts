@@ -1,13 +1,13 @@
-import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from "@angular/router";
+import { BrowserModule, Title } from '@angular/platform-browser';
+import { FormsModule, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 
-import { AppComponent } from './app.component';
 import { rootRouterConfig } from "./app.routing";
 
 import { AngularFireModule } from 'angularfire2';
+// import { Angulartics2 } from 'angulartics2';
 import { MaterializeDirective, MaterializeModule } from 'angular2-materialize';
 
 /* Services */
@@ -16,6 +16,7 @@ import { ElasticService } from './services/elastic.service';
 import { SearchService } from './services/search.service';
 
 /* Components */
+import { AppComponent } from './app.component';
 import { SiteComponent } from './common/base.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { HomeComponent } from './components/content/static/home.component';
@@ -41,6 +42,8 @@ import { SlugifyPipe } from './pipes/slugify.pipe';
 
 /* Directives */
 
+
+/* Firebase */
 export const firebaseConfig = {
   apiKey: "AIzaSyDMb8TAHk494HqI19vXo1M49Gm_t5GNowg",
   authDomain: "digital-participation-charter.firebaseapp.com",
