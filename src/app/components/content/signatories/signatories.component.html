@@ -1,47 +1,81 @@
 <div class="row title">
     <div class="col s12">
-        <h1>Signatories</h1>
+        <h1>
+            Signatories
+            <small *ngIf="totalSigned">({{totalSigned}})</small>
+        </h1>
     </div>
 </div>
 
-<form role="form" [formGroup]="searchForm" (submit)="search()">
-    <div class="row search margin-bottom">
-        <div class="col s12 m4 l6">
-            <div class="form-group">
-                <h4><label class="control-label" for="query">Search</label></h4>
-                <input type="text" id="query" class="form-control validate" formControlName="query" placeholder="Search for a charter signatory" />
-            </div>
+<div class="row search margin-bottom">
+    <div class="col s12 m4 l6">
+        <div class="form-group">
+            <h4><label class="control-label" for="query">Search</label></h4>
+            <input type="text" id="query" class="form-control validate" [(ngModel)]="query" placeholder="Search for a charter signatory" (change)="search()" />
         </div>
-        <!-- <div class="col s6 m4 l3">
-            <div class="form-group">
-                <h4><label for="sector" class="control-label">Sector</label></h4>
-                <select class="browser-default" formControlName="sector">
-                    <option disabled="disabled">Choose a sector</option>
-                    <option *ngFor="let term of sectors" [value]="term.term | slugify" [innerHTML]="term.term"></option>
-                </select>
-            </div>
-        </div>
-        <div class="col s6 m4 l3">
-            <div class="form-group">
-                <h4><label for="category" class="control-label">Category</label></h4>
-                <select class="browser-default" formControlName="category">
-                    <option disabled="disabled">Choose a category</option>
-                    <option *ngFor="let term of categories" [value]="term.term | slugify" [innerHTML]="term.term"></option>
-                </select>
-            </div>
-        </div> -->
     </div>
-</form>
+    <div class="col s6 m4 l3">
+        <div class="form-group">
+            <h4><label for="sector" class="control-label">Sector</label></h4>
+            <select class="browser-default" [(ngModel)]="sector">
+                <option value="">All sectors</option>
+                <option *ngFor="let term of sectors" [value]="term.term | slugify" [innerHTML]="term.term + ' [' + term.count + ']'"></option>
+            </select>
+        </div>
+    </div>
+    <div class="col s6 m4 l3">
+        <div class="form-group">
+            <h4><label for="category" class="control-label">Category</label></h4>
+            <select class="browser-default" [(ngModel)]="category">
+                <option value="" *ngIf="categories.length > 0">All categories</option>
+                <option value="" *ngIf="categories.length === 0" disabled>No categories</option>
+                <option *ngFor="let term of categories" [value]="term.term | slugify" [innerHTML]="term.term + ' [' + term.count + ']'"></option>
+            </select>
+        </div>
+    </div>
+</div>
 
-<div class="row signatories">
+<div class="row">
+    <div class="col s12" *ngIf="resultsTotal > 0 && !this.loading">
+        <h4>Total signatories found: {{resultsTotal}}</h4>
+    </div>
+    <div class="col s12" *ngIf="resultsTotal === 0 && !this.loading">
+        <h4>No signatories found</h4>
+    </div>
+    <div class="col s12" *ngIf="this.loading">
+        <h4>Loading signatories <i class="fa fa-fw fa-spinner fa-spin"></i></h4>
+    </div>
+</div>
+
+<div class="row signatories" *ngIf="resultsTotal > 0 && !this.loading">
     <div *ngFor="let signatory of signatories" class="col s6 m4 l3">
         <div class="inner">
-            <a [routerLink]="['/signatories', signatory._source.organisation | slugify]" title="{{signatory._source.organisation}}" *ngIf="signatory._source.logo">
+            <a [routerLink]="['/signatories', signatory._source['organisation-slug']]" title="{{signatory._source.organisation}}" *ngIf="signatory._source.logo">
                 <img src="{{signatory._source.logo.Url}}" alt="{{signatory._source.organisation}}" class="responsive-img resize-fit-center" />
             </a>
         </div>
     </div>
     <div class="col s12">
         <hr class="nomargin" />
+    </div>
+</div>
+
+<div class="row" *ngIf="resultsTotal > 0 && !this.loading">
+    <div class="col s12">
+        <ul class="pagination center">
+            <li [ngClass]="{ disabled: !parameters.page || parameters.page == 1 }">
+                <a (click)="changePage(!parameters.page ? 1 : parameters.page - 1)" role="button">
+                    <i class="fa fa-chevron-left"></i>
+                </a>
+            </li>
+            <li *ngFor="let page of paging" [ngClass]="{ active: parameters.page == page }">
+                <a (click)="changePage(page)" role="button">{{page}}</a>
+            </li>
+            <li [ngClass]="{ disabled: parameters.page == pageTotal }">
+                <a (click)="changePage(!parameters.page ? 2 : (parameters.page - 0) + 1)" role="button">
+                    <i class="fa fa-chevron-right"></i>
+                </a>
+            </li>
+        </ul>
     </div>
 </div>

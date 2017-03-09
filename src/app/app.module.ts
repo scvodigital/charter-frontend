@@ -13,7 +13,6 @@ import { MaterializeDirective, MaterializeModule } from 'angular2-materialize';
 /* Services */
 import { AppService } from './services/app.service';
 import { ElasticService } from './services/elastic.service';
-import { SearchService } from './services/search.service';
 
 /* Components */
 import { AppComponent } from './app.component';
@@ -88,8 +87,7 @@ export const firebaseConfig = {
     FormBuilder,
     Title,
     AppService,
-    ElasticService,
-    SearchService
+    ElasticService
   ],
   bootstrap: [AppComponent]
 })

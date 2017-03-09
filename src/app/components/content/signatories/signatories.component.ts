@@ -1,9 +1,7 @@
 import { Component, ElementRef } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
-import { FormBuilder, Validators, FormGroup, FormControl, Validator, NG_VALIDATORS } from '@angular/forms';
 import { Subscription } from 'rxjs/Rx';
 import { AppService } from '../../../services/app.service';
-import { SearchService } from '../../../services/search.service';
 import { ElasticService, IHits, ISignatory, IHit, SearchParameters, ISearchParameters } from '../../../services/elastic.service';
 
 @Component({
@@ -11,12 +9,44 @@ import { ElasticService, IHits, ISignatory, IHit, SearchParameters, ISearchParam
     templateUrl: './signatories.component.html'
 })
 export class SignatoriesComponent {
-    searchForm: FormGroup;
     public hits: IHit<ISignatory>[] = [];
     public perPage: number = 12;
     public resultsTotal: number = -1;
     public pageTotal: number = 0;
-    public parameters: SearchParameters = new SearchParameters({});
+    public loading: boolean = true;
+    public totalSigned: number = null;
+
+    private _parameters: ISearchParameters = null;
+    public get parameters(): ISearchParameters {
+        return this._parameters;
+    }
+    public set parameters(value: ISearchParameters) {
+        this._parameters = value;
+    }
+
+    public get query(): string {
+        return this.parameters.query;
+    }
+    public set query(value: string) {
+        this.parameters.query = value;
+    }
+
+    public get sector(): string {
+        return this.parameters.sector;
+    }
+    public set sector(value: string) {
+        this.parameters.sector = value;
+        this.parameters.category = '';
+        this.search();
+    }
+
+    public get category(): string {
+        return this.parameters.category;
+    }
+    public set category(value: string) {
+        this.parameters.category = value;
+        this.search();
+    }
 
     public signatories: IHit<ISignatory>[];
 
@@ -24,50 +54,83 @@ export class SignatoriesComponent {
         return this.appService.getTerms('sectors');
     };
     get categories(): any[]{
-        return this.appService.getTerms('categories');
+        if(this.sector){
+            return this.appService.getTerms(this.sector + '-categories')
+        }else{
+            return this.appService.getTerms('categories');
+        }
     };
 
-    constructor(private appService: AppService, private searchService: SearchService, private router: Router, private route: ActivatedRoute, private formBuilder: FormBuilder) {
-        this.searchForm = this.searchService.form;
+    constructor(private appService: AppService, private router: Router, private route: ActivatedRoute) {
         this.onSiteLoaded();
     }
 
-    search(event) {
-        var parameters = {};
-        for (var key in this.searchForm.controls) {
-            if (this.searchForm.controls[key].value) {
-                parameters[key] = this.searchForm.controls[key].value;
-            }
+    search(keepPage: boolean = false) {
+        this.parameters.page = this.parameters.page || 1;
+        var params: ISearchParameters = { };
+        if(keepPage && this.parameters.page && this.parameters.page > 1){
+            params.page = this.parameters.page;
         }
-        parameters['page'] = 1;
-        this.router.navigate(['./signatories', parameters]);
+        if(this.query){
+            params.query = this.query;
+        }
+        if(this.sector){
+            params.sector = this.sector;
+        }
+        if(this.category){
+            params.category = this.category;
+        }
+        this.router.navigate(['./signatories', params]);
     }
 
     onSiteLoaded() {
         var that = this;
-        this.appService.es.getSignatories().then((results) => {
-            that.signatories = results.hits;
-        }).catch(err => {
-            console.error('Error searching signatories', err);
-        });
-
         this.route.params.subscribe((params: any) => {
-            // this.loading = true;
-            this.parameters = new SearchParameters(params);
+            this.appService.es.getCount().then((count) => {
+                this.totalSigned = count;
+            });
+
+            this.loading = true;
+            this.parameters = {
+                query: params.query || '',
+                sector: params.sector || '',
+                category: params.category || '',
+                page: !params.page ? 1 : parseInt(params.page)
+            };
             this.appService.es.doSearch(this.parameters).then((results) => {
                 this.signatories = results.hits;
-                this.signatories.forEach(function(element) {
-                    // console.log(element);
-                    // element.logo_url = instance.sanitization.bypassSecurityTrustStyle('url(' + element._source.logo.Url + ')');
-                });
                 this.resultsTotal = results.total;
                 this.pageTotal = Math.ceil(this.resultsTotal / this.perPage);
-                // this.loading = false;
+                this.loading = false;
             }).catch(err => {
                 console.error('Error searching', params, err);
-                // this.loading = false;
+                this.loading = false;
             });
         });
+    }
 
+    changePage(page: number){
+        this.parameters.page = page;
+        this.search(true);
+    }
+
+    get paging(): number[] {
+        var pages = [1, 2, 3, 4, 5];
+
+        if(pages.length >= this.pageTotal){
+            pages = pages.splice(0, this.pageTotal);
+            return pages;
+        }
+
+        var center = Math.floor(pages.length / 2);
+        if(this.parameters.page <= pages[center]){
+            return pages;
+        }
+
+        while(pages[center] !== this.parameters.page && pages[pages.length - 1] < this.pageTotal){
+            pages = pages.map(page => ++page);
+        }
+
+        return pages;
     }
 }

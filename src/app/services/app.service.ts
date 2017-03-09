@@ -1,9 +1,11 @@
 import { Injectable, Type, Inject } from '@angular/core';
 import { Router, Route } from '@angular/router';
 import { Observable, Subject, Subscription, Observer } from 'rxjs/Rx';
+import * as _ from 'lodash';
 import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
 import { AppComponent } from '../app.component';
 import { ElasticService } from './elastic.service';
+import { SlugifyPipe } from '../pipes/slugify.pipe';
 
 declare function loaded();
 
@@ -36,7 +38,9 @@ export class AppService {
                     return;
                 }
 
-                var fields = {};
+                var fields = { };
+                var slugify = new SlugifyPipe();
+
                 Object.keys(response.aggregations).forEach((field) => {
                     fields[field] = [];
                     response.aggregations[field].buckets.forEach((bucket) => {
@@ -44,6 +48,17 @@ export class AppService {
                             term: bucket.key,
                             count: bucket.doc_count
                         });
+
+                        if(bucket.hasOwnProperty('sector-categories')){
+                            var subKey = slugify.transform(bucket.key) + '-categories';
+                            fields[subKey] = [];
+                            bucket['sector-categories'].buckets.forEach((subBucket) => {
+                                fields[subKey].push({
+                                    term: subBucket.key,
+                                    count: subBucket.doc_count
+                                })
+                            });
+                        }
                     });
                 });
 
