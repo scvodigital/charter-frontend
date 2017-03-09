@@ -67,6 +67,19 @@ export class ElasticService {
         });
     }
 
+    getCount(): Promise<number> {
+        return new Promise<number>((resolve, reject) => {
+            this.getClient().then((client: any) => {
+                client.count({ index: 'charter-test' }).then((response) => {
+                    resolve(response.count);
+                }).catch((err) => {
+                    console.error('Failed to get signatory count', err);
+                    resolve(null);
+                })
+            });
+        });
+    }
+
     search(body: any, overrides: any = {}): Promise<any> {
         return new Promise<any>((resolve, reject) => {
             this.getClient().then((client: any) => {

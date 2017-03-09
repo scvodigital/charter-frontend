@@ -14,6 +14,7 @@ export class SignatoriesComponent {
     public resultsTotal: number = -1;
     public pageTotal: number = 0;
     public loading: boolean = true;
+    public totalSigned: number = null;
 
     private _parameters: ISearchParameters = null;
     public get parameters(): ISearchParameters {
@@ -85,6 +86,10 @@ export class SignatoriesComponent {
     onSiteLoaded() {
         var that = this;
         this.route.params.subscribe((params: any) => {
+            this.appService.es.getCount().then((count) => {
+                this.totalSigned = count;
+            });
+
             this.loading = true;
             this.parameters = {
                 query: params.query || '',
@@ -93,6 +98,7 @@ export class SignatoriesComponent {
                 page: !params.page ? 1 : parseInt(params.page)
             };
             this.appService.es.doSearch(this.parameters).then((results) => {
+                console.log(results);
                 this.signatories = results.hits;
                 this.resultsTotal = results.total;
                 this.pageTotal = Math.ceil(this.resultsTotal / this.perPage);
