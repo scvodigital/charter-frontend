@@ -135,19 +135,10 @@ export class ElasticService {
     public getSignatory(slug: String, parameters: ISearchParameters): Promise<IHits<ISignatory>> {
         return new Promise((resolve, reject) => {
             var body: any = {
-                query: {
-                    bool: {
-                        must: []
-                    }
+                filter: {
+                    term: { "organisation-slug": slug }
                 }
             };
-
-            body.query.bool.must.push({
-                "query_string": {
-                    "default_field": 'organisation',
-                    "query": slug
-                }
-            });
 
             var overrides: any = {
                 size: 1

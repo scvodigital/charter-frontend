@@ -98,7 +98,6 @@ export class SignatoriesComponent {
                 page: !params.page ? 1 : parseInt(params.page)
             };
             this.appService.es.doSearch(this.parameters).then((results) => {
-                console.log(results);
                 this.signatories = results.hits;
                 this.resultsTotal = results.total;
                 this.pageTotal = Math.ceil(this.resultsTotal / this.perPage);

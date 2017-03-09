@@ -50,7 +50,7 @@
 <div class="row signatories" *ngIf="resultsTotal > 0 && !this.loading">
     <div *ngFor="let signatory of signatories" class="col s6 m4 l3">
         <div class="inner">
-            <a [routerLink]="['/signatories', signatory._source.organisation | slugify]" title="{{signatory._source.organisation}}" *ngIf="signatory._source.logo">
+            <a [routerLink]="['/signatories', signatory._source['organisation-slug']]" title="{{signatory._source.organisation}}" *ngIf="signatory._source.logo">
                 <img src="{{signatory._source.logo.Url}}" alt="{{signatory._source.organisation}}" class="responsive-img resize-fit-center" />
             </a>
         </div>
