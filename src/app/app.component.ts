@@ -57,10 +57,10 @@ export class AppComponent {
                 } else if (event.url.startsWith('/resources')) {
                     this.contentType = 'other';
                 } else if (event.url.startsWith('/signatories')) {
-                    if (event.url === '/signatories') {
-                        this.contentType = 'other-gradient';
-                    } else {
+                    if (event.url.startsWith('/signatories/')) {
                         this.contentType = 'other';
+                    } else {
+                        this.contentType = 'other-gradient';
                     }
                 } else if (event.url.startsWith('/login')) {
                     this.contentType = 'signup-gradient';

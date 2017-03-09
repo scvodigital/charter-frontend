@@ -164,6 +164,20 @@ nav {
     float: right;
 }
 
+.pagination li a,
+.pagination li.active a {
+    cursor: pointer;
+    color: $brand-typography;
+    font-weight: 400;
+}
+.pagination li.active {
+    background-color: $brand-primary;
+}
+.pagination li.disabled a {
+    color: inherit;
+    opacity: 0.5;
+}
+
 // Sidenav ====================================================================
 
 @keyframes slide-in {
@@ -265,6 +279,7 @@ nav .button-collapse {
         }
     }
 }
+
 #content.primary {
     background: $brand-primary;
 }
