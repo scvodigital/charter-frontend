@@ -2,7 +2,7 @@ import { Component, ElementRef } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
 import { AppService } from '../../../services/app.service';
-import { ElasticService, IHits, ISignatory, IHit, SearchParameters, ISearchParameters } from '../../../services/elastic.service';
+import { IHit, ISignatory, ISearchParameters } from '../../../services/elastic.service';
 
 @Component({
     selector: 'main-container.content',
@@ -48,6 +48,14 @@ export class SignatoriesComponent {
         this.search();
     }
 
+    public get sort(): string {
+        return this.parameters.sort;
+    }
+    public set sort(value: string) {
+        this.parameters.sort = value;
+        this.search();
+    }
+
     public signatories: IHit<ISignatory>[];
 
     get sectors(): any[]{
@@ -80,6 +88,7 @@ export class SignatoriesComponent {
         if(this.category){
             params.category = this.category;
         }
+        params.sort = this.sort || 'signed';
         this.router.navigate(['./signatories', params]);
     }
 
@@ -95,7 +104,8 @@ export class SignatoriesComponent {
                 query: params.query || '',
                 sector: params.sector || '',
                 category: params.category || '',
-                page: !params.page ? 1 : parseInt(params.page)
+                page: !params.page ? 1 : parseInt(params.page),
+                sort: params.sort || 'signed'
             };
             this.appService.es.doSearch(this.parameters).then((results) => {
                 this.signatories = results.hits;
