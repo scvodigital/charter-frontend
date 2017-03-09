@@ -116,9 +116,25 @@ export class ElasticService {
                 }
             };
 
-            if (parameters.query) { body.query.bool.must.push({ "simple_query_string": { "query": parameters.query } }) }
-            if (parameters.sector) { body.query.bool.must.push({ "term": { "sector-slug": parameters.sector } }); }
-            if (parameters.category) { body.query.bool.must.push({ "term": { "category-slug": parameters.category } }); }
+            if (parameters.query) {
+                body.query.bool.must.push({ "simple_query_string": { "query": parameters.query } })
+            }
+            if (parameters.sector) {
+                body.query.bool.must.push({ "term": { "sector-slug": parameters.sector } });
+            }
+            if (parameters.category) {
+                body.query.bool.must.push({ "term": { "category-slug": parameters.category } });
+            }
+            switch(parameters.sort){
+                case('a-z'):
+                    body.sort = { 'organisation-slug': { order: 'asc' } };
+                    break;
+                case('z-a'):
+                    body.sort = { 'organisation-slug': { order: 'desc' } };
+                    break;
+                default:
+                    body.sort = { 'dateSigned': { order: 'desc' } };
+            }
 
             var overrides: any = {
                 from: (parameters.page - 1) * 12,
@@ -132,7 +148,7 @@ export class ElasticService {
         });
     }
 
-    public getSignatory(slug: String, parameters: ISearchParameters): Promise<IHits<ISignatory>> {
+    public getSignatory(slug: String): Promise<IHits<ISignatory>> {
         return new Promise((resolve, reject) => {
             var body: any = {
                 filter: {
@@ -205,107 +221,10 @@ export interface ISignatory {
     description: string;
 }
 
-// export interface IAsset {
-//     id: number,
-//     title: string,
-//     filename: string,
-//     content_type: string
-// }
-
 export interface ISearchParameters {
     query?: string,
     sector?: string,
     category?: string,
     page?: number;
+    sort?: string;
 }
-
-export class SearchParameters implements ISearchParameters {
-    query: string;
-    sectors: string;
-    categories: string;
-    page: number;
-    sortKey: string;
-
-    get sort(): { [key: string]: string } {
-        if (this.sortKey === null) {
-            return null;
-        }
-        var field = this.sortKey.replace(/(\-)(desc|asc)$/ig, '');
-        var direction = this.sortKey.indexOf('-asc') > -1 ? 'asc' : 'desc';
-        return { [field]: direction };
-    };
-
-    constructor(params: any) {
-        if (!params) return;
-        this.query = params.query || null;
-        this.sectors = params.sectors || null;
-        this.categories = params.categories || null;
-        this.page = params.page || 1;
-        this.sortKey = params.sortKey || null;
-    }
-
-    get stateless(): any {
-        var params: any = {};
-
-        if (this.query) { params.query = this.query; }
-        if (this.sectors) { params.sectors = this.sectors; }
-        if (this.categories) { params.categories = this.categories; }
-
-        return params;
-    }
-
-    get forSearch(): any {
-        var params: any = this.stateless;
-        if (this.page) { params.page = this.page; }
-        if (this.sortKey) { params.sortKey = this.sortKey; }
-        return params;
-    }
-}
-
-// export interface IOrganisationLogo {
-//     id: number;
-//     name: string;
-//     slug: string;
-//     count: number;
-//     website: string;
-// }
-//
-// interface IOrganisationLogoBucket {
-//     key: number;
-//     doc_count: number;
-//     name: { buckets: { key: string, doc_count: number }[] };
-//     slug: { buckets: { key: string, doc_count: number }[] };
-//     website: { buckets: { key: string, doc_count: number }[] };
-// }
-//
-// export class OrganisationLogo implements IOrganisationLogo {
-//     id: number;
-//     name: string;
-//     slug: string;
-//     count: number;
-//     website: string;
-//
-//     get azureUrl(): string {
-//         return "http://goodmoves.blob.core.windows.net/logos/" + this.id + "-logo-thumb.png";
-//     }
-//
-//     get clearbitUrl(): string {
-//         if (this.website === null) {
-//             return null;
-//         }
-//         var url = 'http://logo.clearbit.com/' + this.website;
-//         return url;
-//     }
-//
-//     constructor(bucket: IOrganisationLogoBucket) {
-//         this.id = bucket.key;
-//         this.count = bucket.doc_count;
-//         this.slug = bucket.slug.buckets[0].key;
-//         this.name = bucket.name.buckets[0].key;
-//         if (bucket.website.hasOwnProperty('buckets') && Array.isArray(bucket.website.buckets) && bucket.website.buckets.length > 0) {
-//             this.website = bucket.website.buckets[0].key;
-//         } else {
-//             this.website = 'https://goodmoves.org.uk';
-//         }
-//     }
-// }

@@ -36,8 +36,20 @@
 </div>
 
 <div class="row">
-    <div class="col s12" *ngIf="resultsTotal > 0 && !this.loading">
-        <h4>Total signatories found: {{resultsTotal}}</h4>
+    <div class="col s12 m6 l8" *ngIf="resultsTotal > 0 && !this.loading">
+        <h4 class="margin-bottom">Total signatories found: {{resultsTotal}}</h4>
+    </div>
+    <div class="col s4 m2 l1 right-align" *ngIf="resultsTotal > 0 && !this.loading">
+        <h4 class="margin-bottom"><label for="sort" class="control-label">Sort</label></h4>
+    </div>
+    <div class="col s8 m4 l3" *ngIf="resultsTotal > 0 && !this.loading">
+        <div class="form-group">
+            <select class="browser-default" [(ngModel)]="sort">
+                <option value="signed">Date signed</option>
+                <option value="a-z">Alphabetical (A-Z)</option>
+                <option value="z-a">Alphabetical (Z-A)</option>
+            </select>
+        </div>
     </div>
     <div class="col s12" *ngIf="resultsTotal === 0 && !this.loading">
         <h4>No signatories found</h4>
