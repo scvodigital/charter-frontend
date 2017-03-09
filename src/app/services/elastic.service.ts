@@ -35,21 +35,29 @@ export class ElasticService {
         return new Promise((resolve, reject) => {
             this.getClient().then((client: any) => {
                 var payload = {
-                    "size": 0,
                     "aggs": {
                         "sectors": {
                             "terms": {
-                                "field": "sectors",
+                                "field": "sector-na",
                                 "size": 0
+                            },
+                            "aggs": {
+                                "sector-categories": {
+                                    "terms": {
+                                        "field": "category-na",
+                                        "size": 0
+                                    }
+                                }
                             }
                         },
                         "categories": {
                             "terms": {
-                                "field": "categories",
+                                "field": "category-na",
                                 "size": 0
                             }
-                        },
-                    }
+                        }
+                    },
+                    "size": 0
                 };
 
                 this.search(payload, { size: 0 }).then(response => {
@@ -76,7 +84,6 @@ export class ElasticService {
                 }
 
                 client.search(payload).then(response => {
-                    // console.log(response);
                     resolve(response);
                 }).catch(err => {
                     console.error('Error searching', payload, err);
@@ -97,15 +104,12 @@ export class ElasticService {
             };
 
             if (parameters.query) { body.query.bool.must.push({ "simple_query_string": { "query": parameters.query } }) }
-            if (parameters.sectors) { body.query.bool.must.push({ "term": { "sectors_slugs": parameters.sectors } }); }
-            if (parameters.categories) { body.query.bool.must.push({ "term": { "categories_slug": parameters.categories } }); }
+            if (parameters.sector) { body.query.bool.must.push({ "term": { "sector-slug": parameters.sector } }); }
+            if (parameters.category) { body.query.bool.must.push({ "term": { "category-slug": parameters.category } }); }
 
             var overrides: any = {
-                from: (parameters.page - 1) * 10
-            }
-
-            if (parameters.sort) {
-                body.sort = [parameters.sort];
+                from: (parameters.page - 1) * 12,
+                size: 12
             }
 
             this.search(body, overrides).then(response => {
@@ -205,12 +209,10 @@ export interface ISignatory {
 // }
 
 export interface ISearchParameters {
-    query: string,
-    sectors: string,
-    categories: string,
-    page: number;
-    sortKey: string;
-    sort: { [key: string]: string };
+    query?: string,
+    sector?: string,
+    category?: string,
+    page?: number;
 }
 
 export class SearchParameters implements ISearchParameters {
