@@ -1,9 +1,7 @@
 import { Component, ElementRef } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
-import { FormBuilder, Validators, FormGroup, FormControl, Validator, NG_VALIDATORS } from '@angular/forms';
 import { Subscription } from 'rxjs/Rx';
 import { AppService } from '../../../services/app.service';
-import { SearchService } from '../../../services/search.service';
 import { ElasticService, IHits, ISignatory, IHit, SearchParameters, ISearchParameters } from '../../../services/elastic.service';
 
 @Component({
@@ -62,7 +60,7 @@ export class SignatoriesComponent {
         }
     };
 
-    constructor(private appService: AppService, private searchService: SearchService, private router: Router, private route: ActivatedRoute, private formBuilder: FormBuilder) {
+    constructor(private appService: AppService, private router: Router, private route: ActivatedRoute) {
         this.onSiteLoaded();
     }
 
