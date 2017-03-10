@@ -346,6 +346,15 @@ main {
         font-size: inherit;
         color: inherit;
     }
+    ul li {
+        list-style-type: disc;
+    }
+    ol {
+        padding-left: 1rem;
+        li {
+            list-style-type: decimal;
+        }
+    }
 
     .form-group {
         input[type=text],
@@ -682,10 +691,6 @@ main {
         .col:nth-child(4n+1):nth-last-child(-n+4) ~ .col {
             border-bottom: $brand-border-width solid $brand-typography;
         }
-        // .col:nth-child(3n+1):nth-last-child(-n+4),
-        // .col:nth-child(3n+1):nth-last-child(-n+4) ~ .col {
-        //     border-bottom: $brand-border-width solid red;
-        // }
     }
     .form {
         iframe {

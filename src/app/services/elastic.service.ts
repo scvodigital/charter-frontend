@@ -39,12 +39,14 @@ export class ElasticService {
                         "sectors": {
                             "terms": {
                                 "field": "sector-na",
+                                "order" : { "_term" : "desc" },
                                 "size": 0
                             },
                             "aggs": {
                                 "sector-categories": {
                                     "terms": {
                                         "field": "category-na",
+                                        "order" : { "_term" : "asc" },
                                         "size": 0
                                     }
                                 }
@@ -53,6 +55,7 @@ export class ElasticService {
                         "categories": {
                             "terms": {
                                 "field": "category-na",
+                                "order" : { "_term" : "asc" },
                                 "size": 0
                             }
                         }
