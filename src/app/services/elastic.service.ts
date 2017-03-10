@@ -128,7 +128,8 @@ export class ElasticService {
             if (parameters.category) {
                 body.query.bool.must.push({ "term": { "category-slug": parameters.category } });
             }
-            switch(parameters.sort){
+
+            switch(parameters.sort) {
                 case('a-z'):
                     body.sort = { 'organisation-slug': { order: 'asc' } };
                     break;
@@ -137,6 +138,7 @@ export class ElasticService {
                     break;
                 default:
                     body.sort = { 'dateSigned': { order: 'desc' } };
+                    break;
             }
 
             var overrides: any = {
@@ -145,7 +147,6 @@ export class ElasticService {
             }
 
             this.search(body, overrides).then(response => {
-                // console.log(response.hits);
                 resolve(response.hits);
             }).catch(reject);
         });
@@ -169,30 +170,6 @@ export class ElasticService {
                     return reject(new Error('Signatory not found'));
                 }
                 resolve(results.hits);
-            }).catch(reject);
-        });
-    }
-
-    public getSignatories<T>(): Promise<IHits<ISignatory>> {
-        return new Promise((resolve, reject) => {
-            var body: any = {
-                query: {
-                    bool: {
-                        must: []
-                    }
-                }
-            };
-
-            var overrides = {
-                size: 1000,
-            }
-
-            this.search(body, overrides).then(response => {
-                while (response.hits.hits.length > 12) {
-                    var i = Math.floor(Math.random() * response.hits.hits.length);
-                    response.hits.hits.splice(i, 1);
-                }
-                resolve(response.hits);
             }).catch(reject);
         });
     }

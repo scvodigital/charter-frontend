@@ -43,7 +43,7 @@
         <h4 class="margin-bottom"><label for="sort" class="control-label">Sort</label></h4>
     </div>
     <div class="col s8 m4 l3" *ngIf="resultsTotal > 0 && !this.loading">
-        <div class="form-group">
+        <div class="form-group sort">
             <select class="browser-default" [(ngModel)]="sort">
                 <option value="signed">Date signed</option>
                 <option value="a-z">Alphabetical (A-Z)</option>
