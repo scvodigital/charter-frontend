@@ -65,6 +65,9 @@
             <a [routerLink]="['/signatories', signatory._source['organisation-slug']]" title="{{signatory._source.organisation}}" *ngIf="signatory._source.logo">
                 <img src="{{signatory._source.logo.Url}}" alt="{{signatory._source.organisation}}" class="responsive-img resize-fit-center" />
             </a>
+            <a [routerLink]="['/signatories', signatory._source['organisation-slug']]" title="{{signatory._source.organisation}}" *ngIf="!signatory._source.logo">
+                {{signatory._source.organisation}}
+            </a>
         </div>
     </div>
     <!-- <div class="col s12">

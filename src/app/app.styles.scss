@@ -649,6 +649,9 @@ main {
                 position: relative;
                 text-align: center;
                 overflow: hidden;
+                font-size: 1.8rem;
+                font-weight: bold;
+                color: $brand-typography;
                 span {
                     position: absolute;
                     bottom: 0;
