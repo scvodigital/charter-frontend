@@ -96,13 +96,16 @@ hr {
 
 nav {
     height: 9rem;
-    padding-top: 2rem;
+    margin-top: 0;
     font-family: $heading-font-family;
     font-weight: $heading-font-weight;
     text-transform: uppercase;
     line-height: 1.5rem;
     background-color: transparent;
     box-shadow: none;
+    .page-header {
+        padding-top: 2rem;
+    }
     .nav-wrapper {
         height: 7rem;
         // border-bottom: $brand-border-width solid $brand-typography;
@@ -157,9 +160,9 @@ nav {
         margin-left: $brand-border-width * 2;
     }
 }
-.header-container {
-    margin-bottom: 2rem;
-}
+// .header-container {
+//     margin-bottom: 2rem;
+// }
 .button-collapse {
     float: right;
 }
@@ -235,13 +238,13 @@ nav {
 }
 nav .button-collapse {
     color: $brand-typography;
-    margin: 0.2rem 0 0 2rem;
+    margin: 1rem 0 0 2rem;
     float: right;
     line-height: 1em;
     i {
         height: 1rem !important;
         line-height: 1rem !important;
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 }
 
@@ -285,6 +288,9 @@ nav .button-collapse {
 
 #content.primary {
     background: $brand-primary;
+    .page-header {
+        background: $brand-primary;
+    }
 }
 #content.primary-gradient {
     background: $brand-primary;
@@ -292,9 +298,15 @@ nav .button-collapse {
     background: -webkit-linear-gradient(top, $brand-primary 10%, $brand-charter 90%);
     background: linear-gradient(to bottom, $brand-primary 10%, $brand-charter 90%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-primary', endColorstr='$brand-charter',GradientType=0 );
+    .page-header {
+        background: $brand-primary;
+    }
 }
 #content.charter {
     background: $brand-charter;
+    .page-header {
+        background: $brand-charter;
+    }
 }
 #content.charter-gradient {
     background: $brand-charter;
@@ -302,9 +314,15 @@ nav .button-collapse {
     background: -webkit-linear-gradient(top, $brand-charter 10%, $brand-other 70%);
     background: linear-gradient(to bottom, $brand-charter 10%, $brand-other 70%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-charter', endColorstr='$brand-other',GradientType=0 );
+    .page-header {
+        background: $brand-charter;
+    }
 }
 #content.signup {
     background: $brand-signup;
+    .page-header {
+        background: $brand-signup;
+    }
 }
 #content.signup-gradient {
     background: $brand-signup;
@@ -312,9 +330,15 @@ nav .button-collapse {
     background: -webkit-linear-gradient(top, $brand-signup 10%, $brand-primary 90%);
     background: linear-gradient(to bottom, $brand-signup 10%, $brand-primary 90%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-signup', endColorstr='$brand-primary',GradientType=0 );
+    .page-header {
+        background: $brand-signup;
+    }
 }
 #content.other {
     background: $brand-other;
+    .page-header {
+        background: $brand-other;
+    }
 }
 #content.other-gradient {
     background: $brand-other;
@@ -322,9 +346,15 @@ nav .button-collapse {
     background: -webkit-linear-gradient(top, $brand-other 10%, $brand-skills 70%);
     background: linear-gradient(to bottom, $brand-other 10%, $brand-skills 70%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-other', endColorstr='$brand-skills',GradientType=0 );
+    .page-header {
+        background: $brand-other;
+    }
 }
 #content.skills {
     background: $brand-skills;
+    .page-header {
+        background: $brand-skills;
+    }
 }
 #content.skills-gradient {
     background: $brand-skills;
@@ -332,6 +362,9 @@ nav .button-collapse {
     background: -webkit-linear-gradient(top, $brand-skills 10%, $brand-primary 80%);
     background: linear-gradient(to bottom, $brand-skills 10%, $brand-primary 80%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-skills', endColorstr='$brand-primary',GradientType=0 );
+    .page-header {
+        background: $brand-skills;
+    }
 }
 
 main {
@@ -378,6 +411,9 @@ main {
             -webkit-box-sizing: border-box;
             box-sizing: border-box;
         }
+    }
+    .form-group.sort {
+        margin-top: -0.4rem;
     }
 
     .title {
@@ -761,7 +797,10 @@ main {
 }
 @media only screen and (max-width: 1076px) {
     nav {
-        padding-top: 0.8rem;
+        margin-top: 0;
+        .page-header {
+            padding-top: 0.8rem;
+        }
     }
     nav ul li a {
         font-size: 1.15rem;
@@ -781,6 +820,13 @@ main {
         margin: 2rem 0;
     }
     nav {
+        height: 110px;
+        .page-header {
+            position: fixed;
+            display: block;
+            width: 100%;
+            z-index: 100;
+        }
         .brand-logo {
             left: 0.75rem;
             transform: none !important;
