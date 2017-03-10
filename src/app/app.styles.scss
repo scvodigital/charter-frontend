@@ -522,6 +522,9 @@ main {
         p {
             color: white;
             padding: 1rem 0 0;
+            a {
+                color: white;
+            }
         }
         .expand {
             h3 {
@@ -614,11 +617,11 @@ main {
         }
     }
     .signatories {
-        margin: 0;
+        margin: 0 0.75rem;
         .inner {
             background: white;
             margin: 0 -0.75rem;
-            border-top: $brand-border-width solid $brand-typography;
+            // border-top: $brand-border-width solid $brand-typography;
             padding: 1rem;
             vertical-align: middle;
             a {
@@ -650,36 +653,39 @@ main {
                     color: $brand-typography;
                 }
                 img.resize-fit-center {
-                    max-width:100%;
-                    max-height:100%;
+                    max-width: 90%;
+                    max-height: 90%;
                     vertical-align: middle;
                 }
             }
-            // a::after {
-            //     content: "";
-            //     display: block;
-            //     position: absolute;
-            //     top: 0;
-            //     bottom: 0;
-            //     left: 0;
-            //     right: 0;
-            //     background-color: $brand-other;
-            //     background-blend-mode: screen, multiply;
-            // }
         }
 
         .col.s6, .col.m4, .col.l3 {
-            border-right: $brand-border-width solid $brand-typography;
+            border: $brand-border-width solid $brand-typography;
+            border-right: none;
+            border-bottom: none;
         }
-        .col:nth-child(4n + 1) .inner {
-            margin-left: 0;
+        .col:nth-child(4n + 1) {
+            border-left: none;
+            .inner {
+                padding-left: 0;
+            }
         }
         .col:nth-child(4n + 4) {
             border-right: none;
+            padding-right: 0;
             .inner {
                 margin-right: 0;
             }
         }
+        .col:nth-child(4n+1):nth-last-child(-n+4),
+        .col:nth-child(4n+1):nth-last-child(-n+4) ~ .col {
+            border-bottom: $brand-border-width solid $brand-typography;
+        }
+        // .col:nth-child(3n+1):nth-last-child(-n+4),
+        // .col:nth-child(3n+1):nth-last-child(-n+4) ~ .col {
+        //     border-bottom: $brand-border-width solid red;
+        // }
     }
     .form {
         iframe {
@@ -832,23 +838,48 @@ main {
         }
     }
     main .signatories {
-        .col:nth-child(4n + 1) .inner {
-            margin-left: -0.75rem;
+        .col.s6, .col.m4, .col.l3 {
+            border: $brand-border-width solid $brand-typography;
+            border-right: none;
+            border-bottom: none;
         }
-        .col:nth-child(3n + 1) .inner {
-            margin-left: 0;
+        .col:nth-child(4n + 1) {
+            border-left: $brand-border-width solid $brand-typography;
+            .inner {
+                padding-left: inherit;
+            }
         }
         .col:nth-child(4n + 4) {
-            border-right: $brand-border-width solid $brand-typography;
+            border-right: none;
+            padding-right: inherit;
             .inner {
-                margin-right: -0.75rem;
+                margin-right: inherit;
+            }
+        }
+
+        .col:nth-child(3n + 1) {
+            border-left: none;
+            border-bottom: none;
+            .inner {
+                padding-left: 0;
             }
         }
         .col:nth-child(3n + 3) {
             border-right: none;
+            padding-right: 0;
             .inner {
                 margin-right: 0;
             }
+        }
+
+        .col:nth-child(4n+1):nth-last-child(-n+4),
+        .col:nth-child(4n+1):nth-last-child(-n+4) ~ .col {
+            border-bottom: none;
+        }
+
+        .col:nth-child(3n+1):nth-last-child(-n+3),
+        .col:nth-child(3n+1):nth-last-child(-n+3) ~ .col {
+            border-bottom: $brand-border-width solid $brand-typography;
         }
     }
 }
@@ -936,23 +967,50 @@ main {
         }
     }
     main .signatories {
-        .col:nth-child(3n + 1) .inner {
-            margin-left: -0.75rem;
-        }
-        .col:nth-child(2n + 1) .inner {
-            margin-left: 0;
+        .col:nth-child(3n + 1) {
+            padding-left: 0;
+            padding-right: 0;
+            .inner {
+                margin-left: 0;
+                margin-right: 0;
+            }
         }
         .col:nth-child(3n + 3) {
-            border-right: $brand-border-width solid $brand-typography;
+            // border-left: none;
+            padding-left: 0;
+            padding-right: 0;
             .inner {
-                margin-right: -0.75rem;
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+
+        .col:nth-child(2n + 1) {
+            border-left: none;
+            // margin-right: -0.75rem;
+            padding-left: 0;
+            padding-right: 0;
+            .inner {
+                margin-left: 0;
+                margin-right: 0;
             }
         }
         .col:nth-child(2n + 2) {
-            border-right: none;
+            border-left: $brand-border-width solid $brand-typography;
+            padding-left: 0;
+            padding-right: 0;
             .inner {
+                margin-left: 0;
                 margin-right: 0;
             }
+        }
+        .col:nth-child(3n+1):nth-last-child(-n+3),
+        .col:nth-child(3n+1):nth-last-child(-n+3) ~ .col {
+            border-bottom: none;
+        }
+        .col:nth-child(2n+1):nth-last-child(-n+2),
+        .col:nth-child(2n+1):nth-last-child(-n+2) ~ .col {
+            border-bottom: $brand-border-width solid $brand-typography !important;
         }
     }
     .footer .container-fluid {
