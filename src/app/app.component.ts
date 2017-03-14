@@ -3,6 +3,7 @@ import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { Location } from '@angular/common';
 
+import { Angulartics2GoogleAnalytics } from 'angulartics2';
 import { AngularFire, FirebaseListObservable, AngularFireAuth, AuthProviders, AuthMethods } from 'angularfire2';
 
 import { AppService } from './services/app.service';
@@ -22,7 +23,7 @@ export class AppComponent {
     showCurrentlyRecruiting: boolean;
     contentType: string;
 
-    constructor(private router: Router, private route: ActivatedRoute, private titleService: Title, private angularFire: AngularFire, private appService: AppService) {
+    constructor(private router: Router, private route: ActivatedRoute, private titleService: Title, private angularFire: AngularFire, private angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics, private appService: AppService) {
         router.events.subscribe(event => {
             if (event instanceof NavigationEnd) {
                 // Scroll to top on new route

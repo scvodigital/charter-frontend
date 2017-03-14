@@ -9,6 +9,7 @@ import { rootRouterConfig } from "./app.routing";
 import { AngularFireModule } from 'angularfire2';
 // import { Angulartics2 } from 'angulartics2';
 import { MaterializeDirective, MaterializeModule } from 'angular2-materialize';
+import { Angulartics2Module, Angulartics2GoogleAnalytics } from 'angulartics2';
 
 /* Services */
 import { AppService } from './services/app.service';
@@ -79,6 +80,7 @@ export const firebaseConfig = {
     HttpModule,
     RouterModule.forRoot(rootRouterConfig),
     AngularFireModule.initializeApp(firebaseConfig),
+    Angulartics2Module.forRoot([ Angulartics2GoogleAnalytics ]),
     ReactiveFormsModule,
     MarkdownToHtmlModule,
     MaterializeModule
