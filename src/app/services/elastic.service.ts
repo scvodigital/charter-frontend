@@ -17,7 +17,7 @@ export class ElasticService {
     public getClient() {
         return new Promise((resolve, reject) => {
             try {
-                var connectionString = 'https://readonly:onlyread@4c19757a0460c764d6e4712b0190cc21.eu-west-1.aws.found.io:9243/';
+                var connectionString = 'https://readonly:onlyread@4c19757a0460c764d6e4712b0190cc21.eu-west-1.aws.found.io/';
                 // console.log(connectionString);
 
                 var client = new elasticsearch.Client({
