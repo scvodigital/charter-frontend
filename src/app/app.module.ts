@@ -40,7 +40,7 @@ import { MarkdownToHtmlModule } from 'markdown-to-html-pipe';
 import { SlugifyPipe } from './pipes/slugify.pipe';
 
 /* Directives */
-
+// none
 
 /* Firebase */
 export const firebaseConfig = {
