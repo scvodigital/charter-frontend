@@ -20,6 +20,23 @@
             overflow-y: scroll;
         }
     </style>
+
+    <script type="text/javascript">
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-3467930-19', 'auto');
+    ga('set', 'dimension2', location.hostname);
+    //ga('send', 'pageview', {
+    //    dimension2: location.hostname,
+    //});
+    </script>
+    <script src="//unpkg.com/es6-shim@0.35.3/es6-shim.min.js"></script>
+    <script src="//unpkg.com/systemjs@0.19.47/dist/system-polyfills.js"></script>
+    <script src="//unpkg.com/angular2@2.0.0-beta.21/es6/dev/src/testing/shims_for_IE.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5-history-api/4.2.7/history.min.js"></script>
 </head>
 
 <body>
@@ -37,14 +54,7 @@
         };
         try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
         catch(e){window.attachEvent("onload", $buo_f)}
-        var ga = ga || undefined;
-        var _gaq = _gaq || [];
-        _gaq.push(['_setAccount', 'UA-3467930-19']);
-        (function() {
-            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-        })();
+
         function loaded() {
             $('#loader').fadeOut();
         }
