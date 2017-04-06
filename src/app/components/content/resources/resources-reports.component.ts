@@ -3,8 +3,8 @@ import { AppService } from '../../../services/app.service';
 
 @Component({
     selector: 'main-container.content',
-    templateUrl: './resources.component.html'
+    templateUrl: './resources-reports.component.html'
 })
-export class ResourcesComponent {
+export class ResourcesReportsComponent {
     constructor() {}
 }

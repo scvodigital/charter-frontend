@@ -56,7 +56,11 @@ export class AppComponent {
                         this.contentType = 'detail';
                     }
                 } else if (event.url.startsWith('/resources')) {
-                    this.contentType = 'other';
+                    if (event.url === '/resources') {
+                        this.contentType = 'other';
+                    } else {
+                        this.contentType = 'detail';
+                    }
                 } else if (event.url.startsWith('/signatories')) {
                     if (event.url.startsWith('/signatories/')) {
                         this.contentType = 'other';

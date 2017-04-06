@@ -481,11 +481,27 @@ main {
         }
     }
     .title,
+    .detail,
     .expand {
         p {
             font-size: 1.4rem;
             font-weight: 400;
             margin-bottom: 1rem;
+        }
+        dt,
+        dd {
+            font-size: 1.4rem;
+            font-weight: 400;
+        }
+    }
+    .resources {
+        h4 a {
+            color: $brand-typography;
+            opacity: 0.6;
+            .material-icons {
+                font-weight: bold;
+                font-size: 1.5rem;
+            }
         }
     }
     .expand {
@@ -561,14 +577,39 @@ main {
                 background-color: $brand-typography;
             }
         }
+        h4 a {
+            color: white !important;
+            text-decoration: underline;
+        }
         .content {
             margin-top: 2rem;
         }
+        dl {
+            width: 100%;
+            overflow: hidden;
+            padding: 0;
+            margin: 0 0 1rem;
+        }
+        dt {
+            float: left;
+            width: 50%;
+            padding: 0 2rem 0 0;
+            margin: 0;
+        }
+        dd {
+            float: left;
+            width: 50%;
+            padding: 0;
+            margin: 0;
+        }
+        dt,
+        dd,
         p {
             color: white;
-            padding: 1rem 0 0;
+            // padding: 1rem 0 0;
             a {
                 color: white;
+                text-decoration: underline;
             }
         }
         .expand {
@@ -634,16 +675,6 @@ main {
     }
     .skills h3 {
         margin: 0;
-    }
-    .resources {
-        h4 a {
-            color: $brand-typography;
-            opacity: 0.6;
-            .material-icons {
-                font-weight: bold;
-                font-size: 1.5rem;
-            }
-        }
     }
     .signatory-logo-background {
         p {
