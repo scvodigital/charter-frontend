@@ -568,6 +568,11 @@ main {
     .pledges h1 {
         margin-top: 10.4rem;
     }
+    .detail.title {
+        h2 {
+            margin-bottom: 2rem;
+        }
+    }
     .detail {
         h3 {
             padding-bottom: 0;
@@ -577,6 +582,7 @@ main {
                 background-color: $brand-typography;
             }
         }
+        h1 a,
         h4 a {
             color: white !important;
             text-decoration: underline;
@@ -770,7 +776,7 @@ main {
     }
 }
 .other main .title img {
-    margin: 0;
+    margin: 1rem 0;
 }
 
 .footer {
@@ -870,6 +876,9 @@ main {
                 font-size: 3.5rem;
                 line-height: 3.5rem;
             }
+            h2 {
+                font-size: 2.5rem;
+            }
             p, li, th, td {
                 font-size: 1.25rem;
             }
@@ -921,6 +930,9 @@ main {
         }
         h3 {
             font-size: 1.8rem;
+        }
+        h4 {
+            font-size: 1.5rem;
         }
     }
     main .signatories {
@@ -988,6 +1000,9 @@ main {
                 letter-spacing: inherit;
                 margin: 0;
             }
+            h2 {
+                font-size: 1.8rem;
+            }
             p, li, th, td {
                 font-size: 1.1rem;
                 margin-bottom: 0;
@@ -1043,6 +1058,14 @@ main {
         .resources {
             h3 {
                 font-size: 1.3rem;
+                margin-bottom: 0.1rem;
+            }
+            h4 {
+                font-size: 1.1rem;
+                margin-top: 0.5rem;
+                a .material-icons {
+                    font-size: 1rem;
+                }
             }
         }
         .detail .collapsible .collapsible-body {
