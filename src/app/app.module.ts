@@ -30,6 +30,10 @@ import { StoriesDetailComponent } from './components/content/stories/stories-det
 import { SignatoriesComponent } from './components/content/signatories/signatories.component';
 import { SignatoriesDetailComponent } from './components/content/signatories/signatories-detail.component';
 import { ResourcesComponent } from './components/content/resources/resources.component';
+import { ResourcesSupportComponent } from './components/content/resources/resources-support.component';
+import { ResourcesHelpOthersComponent } from './components/content/resources/resources-help-others.component';
+import { ResourcesReportsComponent } from './components/content/resources/resources-reports.component';
+import { ResourcesLogosComponent } from './components/content/resources/resources-logos.component';
 import { ContactUsComponent } from './components/content/static/contact.component';
 import { AccessibilityComponent } from './components/content/static/accessibility.component';
 import { PrivacyComponent } from './components/content/static/privacy.component';
@@ -67,6 +71,10 @@ export const firebaseConfig = {
     SignatoriesComponent,
     SignatoriesDetailComponent,
     ResourcesComponent,
+    ResourcesSupportComponent,
+    ResourcesHelpOthersComponent,
+    ResourcesReportsComponent,
+    ResourcesLogosComponent,
     ContactUsComponent,
     AccessibilityComponent,
     PrivacyComponent,
