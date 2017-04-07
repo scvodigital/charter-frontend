@@ -63,6 +63,7 @@ h1, h2, h3, h4, h5 {
 p a {
     color: $brand-typography;
     text-decoration: underline;
+    text-decoration-skip: ink;
 }
 
 .container-fluid {
@@ -486,6 +487,7 @@ main {
         p {
             font-size: 1.4rem;
             font-weight: 400;
+            margin-top: 1rem;
             margin-bottom: 1rem;
         }
         dt,
@@ -497,10 +499,15 @@ main {
     .resources {
         h4 a {
             color: $brand-typography;
-            opacity: 0.6;
+            text-decoration: underline;
+            text-decoration-skip: ink;
+            // opacity: 0.6;
             .material-icons {
                 font-weight: bold;
-                font-size: 1.5rem;
+                font-size: 2.2rem;
+                position: absolute;
+                margin-left: 0.5rem;
+                margin-top: 0.1rem;
             }
         }
     }
@@ -586,6 +593,7 @@ main {
         h4 a {
             color: white !important;
             text-decoration: underline;
+            text-decoration-skip: ink;
         }
         .content {
             margin-top: 2rem;
@@ -616,6 +624,7 @@ main {
             a {
                 color: white;
                 text-decoration: underline;
+                text-decoration-skip: ink;
             }
         }
         .expand {
@@ -797,6 +806,7 @@ main {
             a {
                 color: white !important;
                 text-decoration: underline;
+                text-decoration-skip: ink;
             }
         }
         .description p {
@@ -854,6 +864,12 @@ main {
     }
 }
 @media only screen and (max-width: 992px) {
+    .margin-top {
+        margin-top: 1.8rem;
+    }
+    .margin-bottom {
+        margin-bottom: 1.8rem;
+    }
     hr {
         margin: 2rem 0;
     }
@@ -920,10 +936,15 @@ main {
         .detail .collapsible .collapsible-body ul li {
             font-size: 1.25rem;
         }
+        .detail,
         .pledge {
             p {
                 font-size: 1.25rem;
             }
+        }
+        .resources h4 a .material-icons {
+            font-size: 1.5rem;
+            margin-left: 0.35rem;
         }
         h1 {
             font-size: 3rem;
@@ -983,6 +1004,12 @@ main {
 }
 
 @media only screen and (max-width: 600px) {
+    .margin-top {
+        margin-top: 1.5rem;
+    }
+    .margin-bottom {
+        margin-bottom: 1.5rem;
+    }
     .header-container {
         margin-bottom: 0;
     }
@@ -991,6 +1018,9 @@ main {
     }
     hr.pledges {
         margin: 4rem 0 0;
+    }
+    .primary-gradient main .title h1 {
+        margin-top: 1rem;
     }
     main {
         .title {
@@ -1049,10 +1079,14 @@ main {
                 font-size: 1.1rem;
             }
         }
+        .detail,
         .pledge {
             h3,
             p {
                 margin: 0;
+            }
+            p {
+                font-size: 1.1rem;
             }
         }
         .resources {
@@ -1065,6 +1099,7 @@ main {
                 margin-top: 0.5rem;
                 a .material-icons {
                     font-size: 1rem;
+                    margin-left: 0.2rem;
                 }
             }
         }
@@ -1072,6 +1107,18 @@ main {
             padding: 0.5rem 0 0 1.2rem;
             ul li {
                 font-size: 1.1rem;
+            }
+        }
+        .form-group {
+            input[type=text],
+            input[type=text].valid,
+            input[type=text].invalid,
+            input[type=text]:focus:not([readonly]),
+            input[type=search],
+            select,
+            select:focus {
+                font-size: 1rem;
+                padding: 0.2rem;
             }
         }
     }
