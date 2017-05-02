@@ -221,6 +221,7 @@ nav {
 }
 
 .side-nav {
+    display: none;
     left: auto;
     right: 0;
 }
@@ -869,6 +870,9 @@ main {
     }
 }
 @media only screen and (max-width: 992px) {
+    .side-nav {
+        display: block;
+    }
     .margin-top {
         margin-top: 1.8rem;
     }
