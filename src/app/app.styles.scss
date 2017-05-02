@@ -7,7 +7,12 @@
 @font-face {
     font-family: "Gilroy";
     font-weight: 700;
-    src: url("/app/assets/fonts/GilroyExtraBold.otf") format("opentype");
+  src: url('/app/assets/fonts/GilroyExtraBold.eot'); /* IE9 Compat Modes */
+  src: url('/app/assets/fonts/GilroyExtraBold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('/app/assets/fonts/GilroyExtraBold.woff2') format('woff2'), /* Super Modern Browsers */
+       url('/app/assets/fonts/GilroyExtraBold.woff') format('woff'), /* Pretty Modern Browsers */
+       url('/app/assets/fonts/GilroyExtraBold.ttf')  format('truetype'), /* Safari, Android, iOS */
+       url('/app/assets/fonts/GilroyExtraBold.svg#svgFontName') format('svg'); /* Legacy iOS */
 }
 
 // Brand colours
