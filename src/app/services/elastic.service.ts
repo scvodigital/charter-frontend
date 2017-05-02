@@ -73,7 +73,7 @@ export class ElasticService {
     getCount(): Promise<number> {
         return new Promise<number>((resolve, reject) => {
             this.getClient().then((client: any) => {
-                client.count({ index: 'charter-test' }).then((response) => {
+                client.count({ index: 'charter' }).then((response) => {
                     resolve(response.count);
                 }).catch((err) => {
                     console.error('Failed to get signatory count', err);
@@ -87,7 +87,7 @@ export class ElasticService {
         return new Promise<any>((resolve, reject) => {
             this.getClient().then((client: any) => {
                 var payload = {
-                    index: 'charter-test',
+                    index: 'charter',
                     type: 'signatory',
                     size: 12,
                     body: body
