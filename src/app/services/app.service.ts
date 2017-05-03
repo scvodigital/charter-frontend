@@ -2,7 +2,7 @@ import { Injectable, Type, Inject } from '@angular/core';
 import { Router, Route } from '@angular/router';
 import { Observable, Subject, Subscription, Observer } from 'rxjs/Rx';
 import * as _ from 'lodash';
-import { AngularFire, FirebaseListObservable, FirebaseObjectObservable } from 'angularfire2';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { AppComponent } from '../app.component';
 import { ElasticService } from './elastic.service';
 import { SlugifyPipe } from '../pipes/slugify.pipe';

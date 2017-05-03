@@ -1,21 +1,25 @@
-import { NgModule } from '@angular/core';
+import { BrowserModule, Title } from '@angular/platform-browser';
+import { getDOM } from '@angular/platform-browser/src/dom/dom_adapter';
+import { NgModule, Compiler } from '@angular/core';
+import { JitCompiler } from '@angular/compiler';
+import { FormsModule, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from "@angular/router";
-import { BrowserModule, Title } from '@angular/platform-browser';
-import { FormsModule, FormBuilder, ReactiveFormsModule } from '@angular/forms';
 
+import { AppComponent } from './app.component';
 import { rootRouterConfig } from "./app.routing";
 
-import { AngularFireModule } from 'angularfire2';
+/* 3rd-Party Modules */
+import { AngularFireModule } from "angularfire2";
 import { MaterializeDirective, MaterializeModule } from 'angular2-materialize';
 import { Angulartics2Module, Angulartics2GoogleAnalytics } from 'angulartics2';
+import { MarkdownToHtmlModule } from 'markdown-to-html-pipe';
 
 /* Services */
 import { AppService } from './services/app.service';
 import { ElasticService } from './services/elastic.service';
 
 /* Components */
-import { AppComponent } from './app.component';
 import { SiteComponent } from './common/base.component';
 import { MenuComponent } from './components/menu/menu.component';
 import { HomeComponent } from './components/content/static/home.component';
@@ -40,19 +44,13 @@ import { PrivacyComponent } from './components/content/static/privacy.component'
 import { TermsConditionsComponent } from './components/content/static/terms.component';
 
 /* Pipes */
-import { MarkdownToHtmlModule } from 'markdown-to-html-pipe';
 import { SlugifyPipe } from './pipes/slugify.pipe';
 
 /* Directives */
 // none
 
-/* Firebase */
-export const firebaseConfig = {
-  apiKey: "AIzaSyDMb8TAHk494HqI19vXo1M49Gm_t5GNowg",
-  authDomain: "digital-participation-charter.firebaseapp.com",
-  databaseURL: "https://digital-participation-charter.firebaseio.com",
-  storageBucket: "digital-participation-charter.appspot.com"
-}
+/* Configuration */
+import { firebaseConfig } from './configuration/firebase';
 
 @NgModule({
   declarations: [

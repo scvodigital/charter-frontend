@@ -4,7 +4,7 @@ import { Title } from '@angular/platform-browser';
 import { Location } from '@angular/common';
 
 import { Angulartics2GoogleAnalytics } from 'angulartics2';
-import { AngularFire, FirebaseListObservable, AngularFireAuth, AuthProviders, AuthMethods } from 'angularfire2';
+import { AngularFire, FirebaseListObservable } from 'angularfire2';
 
 import { AppService } from './services/app.service';
 
