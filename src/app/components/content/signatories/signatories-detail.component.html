@@ -12,15 +12,15 @@
         <div *ngIf="!signatory._source.sector && signatory._source.category">
             <p *ngIf="signatory._source.category"><strong>Category:</strong> {{signatory._source.category}}</p>
         </div>
-        <p *ngIf="signatory._source.website"><strong>Website:</strong> <a href="{{signatory._source.website}}">{{signatory._source.website}}</a></p>
-        <p *ngIf="signatory._source.blog"><strong>Blog:</strong> <a href="{{signatory._source.blog}}">{{signatory._source.blog}}</a></p>
-        <p *ngIf="signatory._source.twitter"><strong>Twitter:</strong> <a href="{{signatory._source.twitter}}">{{signatory._source.twitter}}</a></p>
-        <p *ngIf="signatory._source.facebook"><strong>Facebook:</strong> <a href="{{signatory._source.facebook}}">{{signatory._source.facebook}}</a></p>
+        <p *ngIf="signatory._source.website"><strong>Website:</strong> <a href="{{signatory._source.website | addHttp}}">{{signatory._source.website}}</a></p>
+        <p *ngIf="signatory._source.blog"><strong>Blog:</strong> <a href="{{signatory._source.blog | addHttp}}">{{signatory._source.blog}}</a></p>
+        <p *ngIf="signatory._source.twitter"><strong>Twitter:</strong> <a href="{{signatory._source.twitter | addHttp}}">{{signatory._source.twitter}}</a></p>
+        <p *ngIf="signatory._source.facebook"><strong>Facebook:</strong> <a href="{{signatory._source.facebook | addHttp}}">{{signatory._source.facebook}}</a></p>
         <!-- <small><pre>{{signatory._source | json}}</pre></small> -->
     </div>
     <div class="col hide-on-small-only m3 signatory-logo-background">
         <p *ngIf="signatory._source.logo">
-            <a *ngIf="signatory._source.website" href="{{signatory._source.website}}">
+            <a *ngIf="signatory._source.website" href="{{signatory._source.website | addHttp}}">
                 <img src="{{signatory._source.logo.Url}}" alt="{{signatory._source.organisation}}" class="responsive-img" />
             </a>
             <img *ngIf="!signatory._source.website" src="{{signatory._source.logo.Url}}" alt="{{signatory._source.organisation}}" class="responsive-img" />

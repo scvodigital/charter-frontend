@@ -45,6 +45,7 @@ import { TermsConditionsComponent } from './components/content/static/terms.comp
 
 /* Pipes */
 import { SlugifyPipe } from './pipes/slugify.pipe';
+import { AddHttpPipe } from './pipes/add-http.pipe';
 
 /* Directives */
 // none
@@ -77,7 +78,8 @@ import { firebaseConfig } from './configuration/firebase';
     AccessibilityComponent,
     PrivacyComponent,
     TermsConditionsComponent,
-    SlugifyPipe
+    SlugifyPipe,
+    AddHttpPipe
   ],
   imports: [
     BrowserModule,
