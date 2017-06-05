@@ -1,5 +1,4 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { AngularFire } from 'angularfire2';
 
 import { SiteComponent } from '../../../common/base.component';
 

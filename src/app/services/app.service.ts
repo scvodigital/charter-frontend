@@ -2,7 +2,6 @@ import { Injectable, Type, Inject } from '@angular/core';
 import { Router, Route } from '@angular/router';
 import { Observable, Subject, Subscription, Observer } from 'rxjs/Rx';
 import * as _ from 'lodash';
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
 import { AppComponent } from '../app.component';
 import { ElasticService } from './elastic.service';
 import { SlugifyPipe } from '../pipes/slugify.pipe';
@@ -14,7 +13,7 @@ export class AppService {
     public ready: boolean = false;
     public readySub: Subject<void> = new Subject<void>();
 
-    constructor(@Inject(AngularFire) public af: AngularFire, @Inject(ElasticService) public es: ElasticService) {
+    constructor(@Inject(ElasticService) public es: ElasticService) {
         this.loadSiteData();
     }
 
