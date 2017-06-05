@@ -7,7 +7,7 @@ export class AddHttpPipe implements PipeTransform {
 
     transform(value: any): any {
         if (value.indexOf('http://') !== 0 && value.indexOf('https://') !== 0)
-            return '//'+value;
+            return 'http://'+value;
         else
             return value;
     }
