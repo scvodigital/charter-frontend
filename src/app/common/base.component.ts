@@ -11,10 +11,6 @@ import { AppService } from '../services/app.service';
 export class SiteComponent {
     private sub: Subscription = null;
 
-    protected get af(){
-        return this.appService.af;
-    }
-
     protected get es(){
         return this.appService.es;
     }
