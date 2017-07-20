@@ -18,7 +18,7 @@ script:
   - npm run build
 
 after_script:
-  - firebase deploy --token ${FIREBASE_TOKEN}
+  - firebase deploy --token ${FIREBASE_TOKEN} --non-interactive
 
 notifications:
   slack: scvodigital:FIHvGycOWT1igQcfo1xwAEyj
