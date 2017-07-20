@@ -16,7 +16,7 @@ npm i
 ```
 npm start
 ```
-Navigate to [localhost:9000](http://localhost:9000). The app will automatically reload if you change any of the source files.
+Navigate to [localhost:9002](http://localhost:9002). The app will automatically reload if you change any of the source files.
 
 ## Running unit tests
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).

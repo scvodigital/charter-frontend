@@ -20,7 +20,7 @@
       "mobile": false,
       "styles": [
         "../node_modules/materialize-css/sass/materialize.scss",
-        "./app/app.styles.scss"
+        "app/app.styles.scss"
       ],
       "scripts": [
         "../node_modules/jquery/dist/jquery.js",
