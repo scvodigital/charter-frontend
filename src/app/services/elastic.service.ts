@@ -120,7 +120,10 @@ export class ElasticService {
             };
 
             if (parameters.query) {
-                body.query.bool.must.push({ "simple_query_string": { "query": parameters.query } })
+                body.query.bool.must.push({ "simple_query_string": {
+                    "query": parameters.query,
+                    "default_operator": "AND"
+                } })
             }
             if (parameters.sector) {
                 body.query.bool.must.push({ "term": { "sector-slug": parameters.sector } });
