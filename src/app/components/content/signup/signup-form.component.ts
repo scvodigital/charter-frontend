@@ -14,7 +14,7 @@ export class SignUpFormComponent {
                 // console.log('Post Message Event', event.data);
                 switch (event.data.event) {
                     case ('resize'):
-                        $('iframe[src*="' + event.origin + '"]').css('height', event.data.height+5);
+                        $('iframe[src*="' + event.origin + '"]').css('height', event.data.height + 60);
                         break;
                 }
             }

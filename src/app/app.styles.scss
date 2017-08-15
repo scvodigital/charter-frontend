@@ -335,6 +335,7 @@ nav .button-collapse {
     }
 }
 #content.signup-gradient {
+    padding-bottom: 1rem;
     background: $brand-signup;
     background: -moz-linear-gradient(top, $brand-signup 10%, $brand-primary 90%);
     background: -webkit-linear-gradient(top, $brand-signup 10%, $brand-primary 90%);
