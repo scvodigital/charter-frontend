@@ -4,6 +4,9 @@
 @import url(//fonts.googleapis.com/icon?family=Material+Icons);
 @import url(//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
 
+$roboto-font-path: "~materialize-css/dist/fonts/roboto/";
+@import "~materialize-css/sass/materialize";
+
 @font-face {
     font-family: "Gilroy";
     font-weight: 700;
