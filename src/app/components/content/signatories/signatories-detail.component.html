@@ -4,7 +4,7 @@
         <p *ngIf="signatory._source.missionStatement"><strong>Organisation statement:</strong> <span [innerHTML]="signatory._source.missionStatement | MarkdownToHtml"></span></p>
         <p *ngIf="signatory._source.description"><strong>Commitment to digital participation:</strong> <span [innerHTML]="signatory._source.description | MarkdownToHtml"></span></p>
         <div *ngIf="signatory._source.sector && signatory._source.category">
-            <p><strong>{{signatory._source.sector}} Category:</strong> {{signatory._source.category}}</p>
+            <p><strong>{{signatory._source.sector}} category:</strong> {{signatory._source.category}}</p>
         </div>
         <div *ngIf="signatory._source.sector && !signatory._source.category">
             <p *ngIf="signatory._source.sector"><strong>Sector:</strong> {{signatory._source.sector}}</p>

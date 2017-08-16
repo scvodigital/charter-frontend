@@ -19,7 +19,7 @@
             <h4><label for="sector" class="control-label">Sector</label></h4>
             <select class="browser-default" [(ngModel)]="sector">
                 <option value="">All sectors</option>
-                <option *ngFor="let term of sectors" [value]="term.term | slugify" [innerHTML]="term.term + ' [' + term.count + ']'"></option>
+                <option *ngFor="let term of sectors" [value]="term.term | slugify" [innerHTML]="term.term + ' (' + term.count + ')'"></option>
             </select>
         </div>
     </div>
@@ -29,7 +29,7 @@
             <select class="browser-default" [(ngModel)]="category">
                 <option value="" *ngIf="categories.length > 0">All categories</option>
                 <option value="" *ngIf="categories.length === 0" disabled>No categories</option>
-                <option *ngFor="let term of categories" [value]="term.term | slugify" [innerHTML]="term.term + ' [' + term.count + ']'"></option>
+                <option *ngFor="let term of categories" [value]="term.term | slugify" [innerHTML]="term.term + ' (' + term.count + ')'"></option>
             </select>
         </div>
     </div>
@@ -46,8 +46,8 @@
         <div class="form-group sort">
             <select class="browser-default" [(ngModel)]="sort">
                 <option value="signed">Date signed</option>
-                <option value="a-z">Alphabetical (A-Z)</option>
-                <option value="z-a">Alphabetical (Z-A)</option>
+                <option value="a-z">Alphabetical</option>
+                <!-- <option value="z-a">Alphabetical (z-a)</option> -->
             </select>
         </div>
     </div>

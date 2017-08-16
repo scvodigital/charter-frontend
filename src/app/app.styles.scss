@@ -4,6 +4,9 @@
 @import url(//fonts.googleapis.com/icon?family=Material+Icons);
 @import url(//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css);
 
+$roboto-font-path: "~materialize-css/dist/fonts/roboto/";
+@import "~materialize-css/sass/materialize";
+
 @font-face {
     font-family: "Gilroy";
     font-weight: 700;
@@ -332,6 +335,7 @@ nav .button-collapse {
     }
 }
 #content.signup-gradient {
+    padding-bottom: 1rem;
     background: $brand-signup;
     background: -moz-linear-gradient(top, $brand-signup 10%, $brand-primary 90%);
     background: -webkit-linear-gradient(top, $brand-signup 10%, $brand-primary 90%);
@@ -795,14 +799,21 @@ main {
 }
 
 .footer {
-    margin-top: 2rem;
+    background: rgb(55,71,79);
+    background: -moz-linear-gradient(top, rgba(55,71,79,1) 0%, rgba(38,50,56,1) 100%);
+    background: -webkit-linear-gradient(top, rgba(55,71,79,1) 0%,rgba(38,50,56,1) 100%);
+    background: linear-gradient(to bottom, rgba(55,71,79,1) 0%,rgba(38,50,56,1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#37474f', endColorstr='#263238',GradientType=0 );
+    padding-top: 2rem;
     font-family: "Open Sans", Helvetica, Arial, sans-serif;
     font-weight: 400;
     font-size: 1.03rem;
     .container-fluid {
         padding-top: 0.5rem;
-        margin-bottom: 3rem;
-        position: relative;
+        padding-bottom: 3rem;
+        .row {
+            position: relative;
+        }
         p {
             color: white;
             margin-bottom: 0;
