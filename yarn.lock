@@ -157,9 +157,9 @@
   version "0.9.42"
   resolved "https://registry.yarnpkg.com/@types/core-js/-/core-js-0.9.42.tgz#dd6da92cd7d5ab5ca0b4477524537c3e633b6bce"
 
-"@types/elasticsearch@5.0.14":
-  version "5.0.14"
-  resolved "https://registry.yarnpkg.com/@types/elasticsearch/-/elasticsearch-5.0.14.tgz#b05e03a1770ddf1139510cff6bd5f476fa927685"
+"@types/elasticsearch@5.0.15":
+  version "5.0.15"
+  resolved "https://registry.yarnpkg.com/@types/elasticsearch/-/elasticsearch-5.0.15.tgz#23a978fadca9f88ec66c10b14e846d73fd6409e0"
 
 "@types/headroom@0.7.30":
   version "0.7.30"
@@ -173,9 +173,9 @@
   version "3.2.11"
   resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-3.2.11.tgz#9119f91bb103b16ae8c4375b019a9b341b409f50"
 
-"@types/lodash@^4.14.72":
-  version "4.14.72"
-  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.72.tgz#f090cf6eb1fee1647a0efa1ebe18b0b78ed551c6"
+"@types/lodash@^4.14.73":
+  version "4.14.73"
+  resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.73.tgz#9837e47db8643ba5bcef2c7921f37d90f9c24213"
 
 "@types/marked@^0.0.27":
   version "0.0.27"
