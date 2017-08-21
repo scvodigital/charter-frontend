@@ -88,6 +88,7 @@ export class SignatoriesComponent {
         if(this.category){
             params.category = this.category;
         }
+        params.commitment_required = false;
         params.sort = this.sort || 'signed';
         this.router.navigate(['./signatories', params]);
     }
@@ -104,6 +105,7 @@ export class SignatoriesComponent {
                 query: params.query || '',
                 sector: params.sector || '',
                 category: params.category || '',
+                commitment_required: true,
                 page: !params.page ? 1 : parseInt(params.page),
                 sort: params.sort || 'signed'
             };

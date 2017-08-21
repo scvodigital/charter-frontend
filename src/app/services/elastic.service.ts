@@ -131,6 +131,9 @@ export class ElasticService {
             if (parameters.category) {
                 body.query.bool.must.push({ "term": { "category-slug": parameters.category } });
             }
+            if (parameters.commitment_required) {
+                body.query.bool.must.push({ "constant_score" : { "filter" : { "exists" : { "field" : "description" } } } });
+            }
 
             switch(parameters.sort) {
                 case('a-z'):
@@ -138,6 +141,9 @@ export class ElasticService {
                     break;
                 case('z-a'):
                     body.sort = { 'organisation-slug': { order: 'desc' } };
+                    break;
+                case('random'):
+                    body.query.bool.must.push({ "function_score": { "functions": [ { "random_score": { "seed": Math.random().toString(36).substring(7) } } ] } });
                     break;
                 default:
                     body.sort = { 'dateSigned': { order: 'desc' } };
@@ -205,9 +211,10 @@ export interface ISignatory {
 }
 
 export interface ISearchParameters {
-    query?: string,
-    sector?: string,
-    category?: string,
+    query?: string;
+    sector?: string;
+    category?: string;
+    commitment_required?: boolean;
     page?: number;
     sort?: string;
 }
