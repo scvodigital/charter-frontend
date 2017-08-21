@@ -9,7 +9,7 @@ export class ElasticService {
     public searchFilters: any = [];
 
     constructor() {
-        // console.log('ELASTIC SERVICE CONSTRUCTOR');
+        console.log('ELASTIC SERVICE CONSTRUCTOR');
     }
 
     static searchCompleted: Subject<ISearchParameters> = Subject.create();
@@ -152,7 +152,7 @@ export class ElasticService {
 
             var overrides: any = {
                 from: (parameters.page - 1) * 12,
-                size: parameters.size
+                size: 12
             }
 
             this.search(body, overrides).then(response => {
@@ -211,11 +211,10 @@ export interface ISignatory {
 }
 
 export interface ISearchParameters {
-    query?: string,
-    sector?: string,
-    category?: string,
+    query?: string;
+    sector?: string;
+    category?: string;
     commitment_required?: boolean;
-    size?: number;
     page?: number;
     sort?: string;
 }
