@@ -9,7 +9,7 @@ export class ElasticService {
     public searchFilters: any = [];
 
     constructor() {
-        console.log('ELASTIC SERVICE CONSTRUCTOR');
+        // console.log('ELASTIC SERVICE CONSTRUCTOR');
     }
 
     static searchCompleted: Subject<ISearchParameters> = Subject.create();
@@ -131,6 +131,9 @@ export class ElasticService {
             if (parameters.category) {
                 body.query.bool.must.push({ "term": { "category-slug": parameters.category } });
             }
+            if (parameters.commitment_required) {
+                body.query.bool.must.push({ "constant_score" : { "filter" : { "exists" : { "field" : "description" } } } });
+            }
 
             switch(parameters.sort) {
                 case('a-z'):
@@ -139,6 +142,9 @@ export class ElasticService {
                 case('z-a'):
                     body.sort = { 'organisation-slug': { order: 'desc' } };
                     break;
+                case('random'):
+                    body.query.bool.must.push({ "function_score": { "functions": [ { "random_score": { "seed": Math.random().toString(36).substring(7) } } ] } });
+                    break;
                 default:
                     body.sort = { 'dateSigned': { order: 'desc' } };
                     break;
@@ -146,7 +152,7 @@ export class ElasticService {
 
             var overrides: any = {
                 from: (parameters.page - 1) * 12,
-                size: 12
+                size: parameters.size
             }
 
             this.search(body, overrides).then(response => {
@@ -208,6 +214,8 @@ export interface ISearchParameters {
     query?: string,
     sector?: string,
     category?: string,
+    commitment_required?: boolean;
+    size?: number;
     page?: number;
     sort?: string;
 }
