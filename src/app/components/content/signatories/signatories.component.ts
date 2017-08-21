@@ -11,11 +11,9 @@ import { IHit, ISignatory, ISearchParameters } from '../../../services/elastic.s
 export class SignatoriesComponent {
     public hits: IHit<ISignatory>[] = [];
     public perPage: number = 12;
-    public signatoriesResultsTotal: number = -1;
-    public commitmentsResultsTotal: number = -1;
+    public resultsTotal: number = -1;
     public pageTotal: number = 0;
-    public signatoriesLoading: boolean = true;
-    public commitmentsLoading: boolean = true;
+    public loading: boolean = true;
     public totalSigned: number = null;
 
     private _parameters: ISearchParameters = null;
@@ -59,7 +57,6 @@ export class SignatoriesComponent {
     }
 
     public signatories: IHit<ISignatory>[];
-    public commitments: IHit<ISignatory>[];
 
     get sectors(): any[]{
         return this.appService.getTerms('sectors');
@@ -96,36 +93,6 @@ export class SignatoriesComponent {
         this.router.navigate(['./signatories', params]);
     }
 
-    public randomise(event, item) {
-        this.loadRandomCommitments();
-    }
-
-    private loadRandomCommitments() {
-        // Commitments
-        this.commitmentsLoading = true;
-        var params = {
-            query: '',
-            sector: '',
-            category: '',
-            page: 1,
-            size: 3,
-            commitment_required: true,
-            sort: 'random'
-        };
-        this.appService.es.doSearch(params).then((results) => {
-            this.commitments = results.hits;
-            this.commitmentsResultsTotal = results.total;
-            this.commitmentsLoading = false;
-        }).catch(err => {
-            console.error('Error loading commitments', params, err);
-            this.commitmentsLoading = false;
-        });
-    }
-
-    ngOnInit() {
-        this.loadRandomCommitments();
-    }
-
     onSiteLoaded() {
         var that = this;
         this.route.params.subscribe((params: any) => {
@@ -133,25 +100,23 @@ export class SignatoriesComponent {
                 this.totalSigned = count;
             });
 
-            // Search
-            this.signatoriesLoading = true;
+            this.loading = true;
             this.parameters = {
                 query: params.query || '',
                 sector: params.sector || '',
                 category: params.category || '',
-                size: this.perPage,
-                commitment_required: false,
+                commitment_required: true,
                 page: !params.page ? 1 : parseInt(params.page),
                 sort: params.sort || 'signed'
             };
             this.appService.es.doSearch(this.parameters).then((results) => {
                 this.signatories = results.hits;
-                this.signatoriesResultsTotal = results.total;
-                this.pageTotal = Math.ceil(this.signatoriesResultsTotal / this.perPage);
-                this.signatoriesLoading = false;
+                this.resultsTotal = results.total;
+                this.pageTotal = Math.ceil(this.resultsTotal / this.perPage);
+                this.loading = false;
             }).catch(err => {
                 console.error('Error searching', params, err);
-                this.signatoriesLoading = false;
+                this.loading = false;
             });
         });
     }
