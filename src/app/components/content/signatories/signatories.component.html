@@ -6,7 +6,7 @@
     </div>
 </div>
 
-<div class="row expand margin-bottom">
+<!-- <div class="row expand margin-bottom">
     <div class="col s12">
         <h2>
             Commitments to digital participation
@@ -15,31 +15,17 @@
     </div>
 </div>
 <div class="row expand signatories commitments" *ngFor="let signatory of commitments">
-    <!-- <div class="col s12 m2 l2">
-        <div class="inner logo">
-            <img src="{{signatory._source.logo.Url}}" alt="{{signatory._source.organisation}}" class="responsive-img resize-fit-center" />
-        </div>
-    </div> -->
-    <!-- <div class="col s12 m10 l10"> -->
     <p class="commitment">
         <strong>{{signatory._source.organisation}}:</strong>
         <span [innerHTML]="signatory._source.description | MarkdownToHtml | stripTags | shorten: 320: '&hellip;': true"></span>
         <a [routerLink]="['/signatories', signatory._source['organisation-slug']]">Find out more</a>
     </p>
-    <!-- </div> -->
-    <!-- <div class="col s12 m2 l3">
-        <div class="inner">
-            <a [routerLink]="['/signatories', signatory._source['organisation-slug']]" title="{{signatory._source.organisation}}" *ngIf="signatory._source.logo">
-                <img src="{{signatory._source.logo.Url}}" alt="{{signatory._source.organisation}}" class="responsive-img resize-fit-center" />
-            </a>
-        </div>
-    </div> -->
 </div>
 <div class="row description commitments">
     <div class="col s12 m8 offset-m2 l6 offset-l3">
         <a class="btn btn-primary" (click)="randomise()">Read more commitments</a>
     </div>
-</div>
+</div> -->
 
 <div class="row search margin-bottom">
     <div class="col s12" >
