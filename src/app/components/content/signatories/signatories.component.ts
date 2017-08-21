@@ -105,7 +105,7 @@ export class SignatoriesComponent {
                 query: params.query || '',
                 sector: params.sector || '',
                 category: params.category || '',
-                commitment_required: true,
+                commitment_required: false,
                 page: !params.page ? 1 : parseInt(params.page),
                 sort: params.sort || 'signed'
             };
