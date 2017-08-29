@@ -11,7 +11,7 @@
         "start": "ng serve -p 9002",
         "lint": "tslint \"src/**/*.ts\" --project src/tsconfig.json --type-check && tslint \"e2e/**/*.ts\" --project e2e/tsconfig.json --type-check",
         "test": "ng test",
-        "build": "rm -rf ./dist && ng build --prod --env=prod",
+        "build": "rm -rf ./dist && ng build -prod -e prod -pr false -aot false",
         "deploy": "npm run build && npm run firebase-deploy",
         "firebase-deploy": "firebase deploy --project digital-participation-charter",
         "pree2e": "webdriver-manager update --standalone false --gecko false",
