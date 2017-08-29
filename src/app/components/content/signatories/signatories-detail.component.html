@@ -19,32 +19,38 @@
         </p>
         <div *ngIf="signatory._source.sector && signatory._source.category">
             <p>
-                <strong>{{signatory._source.sector}} category:</strong> {{signatory._source.category}}
+                <strong>{{signatory._source.sector}} category:</strong>
+                {{signatory._source.category}}
             </p>
         </div>
         <div *ngIf="signatory._source.sector && !signatory._source.category">
             <p *ngIf="signatory._source.sector">
-                <strong>Sector:</strong> {{signatory._source.sector}}
+                <strong>Sector:</strong>
+                {{signatory._source.sector}}
             </p>
         </div>
         <div *ngIf="!signatory._source.sector && signatory._source.category">
             <p *ngIf="signatory._source.category">
-                <strong>Category:</strong> {{signatory._source.category}}
+                <strong>Category:</strong>
+                {{signatory._source.category}}
             </p>
         </div>
         <p *ngIf="signatory._source.website">
-            <strong>Website:</strong> <a href="{{signatory._source.website | addHttp}}">{{signatory._source.website}}</a>
+            <strong>Website:</strong>
+            <a href="{{signatory._source.website | addHttp}}">{{signatory._source.website}}</a>
         </p>
         <p *ngIf="signatory._source.blog">
-            <strong>Blog:</strong> <a href="{{signatory._source.blog | addHttp}}">{{signatory._source.blog}}</a>
+            <strong>Blog:</strong>
+            <a href="{{signatory._source.blog | addHttp}}">{{signatory._source.blog}}</a>
         </p>
         <p *ngIf="signatory._source.twitter">
-            <strong>Twitter:</strong> <a href="{{signatory._source.twitter | addHttp}}">{{signatory._source.twitter}}</a>
+            <strong>Twitter:</strong>
+            <a href="{{signatory._source.twitter | addHttp}}">{{signatory._source.twitter}}</a>
         </p>
         <p *ngIf="signatory._source.facebook">
-            <strong>Facebook:</strong> <a href="{{signatory._source.facebook | addHttp}}">{{signatory._source.facebook}}</a>
+            <strong>Facebook:</strong>
+            <a href="{{signatory._source.facebook | addHttp}}">{{signatory._source.facebook}}</a>
         </p>
-        <!-- <small><pre>{{signatory._source | json}}</pre></small> -->
     </div>
     <div class="col hide-on-small-only m3 signatory-logo-background">
         <p *ngIf="signatory._source.logo">

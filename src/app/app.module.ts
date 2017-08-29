@@ -46,6 +46,8 @@ import { TermsConditionsComponent } from './components/content/static/terms.comp
 /* Pipes */
 import { SlugifyPipe } from './pipes/slugify.pipe';
 import { AddHttpPipe } from './pipes/add-http.pipe';
+import { ShortenPipe } from './pipes/shorten.pipe';
+import { StripTagsPipe } from './pipes/strip-tags.pipe';
 
 /* Directives */
 // none
@@ -79,7 +81,9 @@ import { firebaseConfig } from './configuration/firebase';
     PrivacyComponent,
     TermsConditionsComponent,
     SlugifyPipe,
-    AddHttpPipe
+    AddHttpPipe,
+    ShortenPipe,
+    StripTagsPipe
   ],
   imports: [
     BrowserModule,
