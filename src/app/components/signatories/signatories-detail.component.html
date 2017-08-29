@@ -1,0 +1,76 @@
+<div class="row title signatory-detail">
+    <document-view *ngIf="signatory" #signatoryElement [document]="signatory" [viewPrefs]="['details']" (event)="viewEventHandler($event)" (redrawn)="viewRedrawHandler()"></document-view>
+
+    <div class="col s12">
+        <hr />
+    </div>
+</div>
+
+<!-- <div *ngFor="let signatory of signatories" class="row title signatory-detail">
+<div class="col s12 m9">
+    <h3>{{signatory._source.organisation}}</h3>
+
+    <p *ngIf="signatory._source.missionStatement">
+        <strong>Organisation statement:</strong>
+        <span [innerHTML]="signatory._source.missionStatement | MarkdownToHtml"></span>
+    </p>
+    <p *ngIf="signatory._source.description">
+        <strong>Commitment to digital participation:</strong>
+        <span [innerHTML]="signatory._source.description | MarkdownToHtml"></span>
+    </p>
+
+    <p *ngIf="signatory._source.supportOffered">
+        <strong>Support offered:</strong>
+        <span [innerHTML]="signatory._source.supportOffered | MarkdownToHtml"></span>
+    </p>
+    <p *ngIf="signatory._source.supportWanted">
+        <strong>Support wanted:</strong>
+        <span [innerHTML]="signatory._source.supportWanted | MarkdownToHtml"></span>
+    </p>
+
+    <div *ngIf="signatory._source.sector && signatory._source.category">
+        <p>
+            <strong>{{signatory._source.sector}} category:</strong>
+            {{signatory._source.category}}
+        </p>
+    </div>
+    <div *ngIf="signatory._source.sector && !signatory._source.category">
+        <p *ngIf="signatory._source.sector">
+            <strong>Sector:</strong>
+            {{signatory._source.sector}}
+        </p>
+    </div>
+    <div *ngIf="!signatory._source.sector && signatory._source.category">
+        <p *ngIf="signatory._source.category">
+            <strong>Category:</strong>
+            {{signatory._source.category}}
+        </p>
+    </div>
+
+    <p *ngIf="signatory._source.website">
+        <strong>Website:</strong>
+        <a href="{{signatory._source.website | addHttp}}">{{signatory._source.website}}</a>
+    </p>
+    <p *ngIf="signatory._source.blog">
+        <strong>Blog:</strong>
+        <a href="{{signatory._source.blog | addHttp}}">{{signatory._source.blog}}</a>
+    </p>
+    <p *ngIf="signatory._source.twitter">
+        <strong>Twitter:</strong>
+        <a href="{{signatory._source.twitter | addHttp}}">{{signatory._source.twitter}}</a>
+    </p>
+    <p *ngIf="signatory._source.facebook">
+        <strong>Facebook:</strong>
+        <a href="{{signatory._source.facebook | addHttp}}">{{signatory._source.facebook}}</a>
+    </p>
+</div>
+
+<div class="col hide-on-small-only m3 signatory-logo-background">
+    <p *ngIf="signatory._source.logo">
+        <a *ngIf="signatory._source.website" href="{{signatory._source.website | addHttp}}">
+            <img src="{{signatory._source.logo.Url}}" alt="{{signatory._source.organisation}}" class="responsive-img" />
+        </a>
+        <img *ngIf="!signatory._source.website" src="{{signatory._source.logo.Url}}" alt="{{signatory._source.organisation}}" class="responsive-img" />
+    </p>
+</div>
+</div> -->

@@ -9,8 +9,8 @@ import { SkillUpDetailComponent } from './components/content/skillup/skillup-det
 import { CharterComponent } from './components/content/static/charter.component';
 import { StoriesComponent } from './components/content/stories/stories.component';
 import { StoriesDetailComponent } from './components/content/stories/stories-detail.component';
-import { SignatoriesComponent } from './components/content/signatories/signatories.component';
-import { SignatoriesDetailComponent } from './components/content/signatories/signatories-detail.component';
+import { SignatoriesComponent } from './components/signatories/signatories.component';
+import { SignatoriesDetailComponent } from './components/signatories/signatories-detail.component';
 import { ResourcesComponent } from './components/content/resources/resources.component';
 import { ResourcesSupportComponent } from './components/content/resources/resources-support.component';
 import { ResourcesHelpOthersComponent } from './components/content/resources/resources-help-others.component';

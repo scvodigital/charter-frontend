@@ -169,11 +169,7 @@
   version "2.5.54"
   resolved "https://registry.yarnpkg.com/@types/jasmine/-/jasmine-2.5.54.tgz#a6b5f2ae2afb6e0307774e8c7c608e037d491c63"
 
-"@types/jquery@*":
-  version "3.2.11"
-  resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-3.2.11.tgz#9119f91bb103b16ae8c4375b019a9b341b409f50"
-
-"@types/jquery@3.2.12":
+"@types/jquery@*", "@types/jquery@3.2.12":
   version "3.2.12"
   resolved "https://registry.yarnpkg.com/@types/jquery/-/jquery-3.2.12.tgz#f496823108c3874c97c9a822e675a3926ee64b46"
 
@@ -297,6 +293,10 @@ alphanum-sort@^1.0.1, alphanum-sort@^1.0.2:
 amdefine@>=0.0.4, amdefine@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
+
+angular2-dynamic-component@1.6.1:
+  version "1.6.1"
+  resolved "https://registry.yarnpkg.com/angular2-dynamic-component/-/angular2-dynamic-component-1.6.1.tgz#e7fffacd4d2ef74e40cee821da72fadbeec60473"
 
 angular2-materialize@^15.1.9:
   version "15.1.9"
@@ -5452,6 +5452,10 @@ trim-right@^1.0.1:
 ts-helpers@1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/ts-helpers/-/ts-helpers-1.1.2.tgz#fc69be9f1f3baed01fb1a0ef8d4cfe748814d835"
+
+ts-metadata-helper@^0.0.4:
+  version "0.0.4"
+  resolved "https://registry.yarnpkg.com/ts-metadata-helper/-/ts-metadata-helper-0.0.4.tgz#665acedf4cb3cd62a6d773fa7f9afd4b02706d1c"
 
 ts-node@^3.3.0:
   version "3.3.0"

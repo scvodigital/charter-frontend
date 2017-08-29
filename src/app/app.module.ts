@@ -13,6 +13,7 @@ import { rootRouterConfig } from "./app.routing";
 import { AngularFireModule } from "angularfire2";
 import { MaterializeDirective, MaterializeModule } from 'angular2-materialize';
 import { Angulartics2Module, Angulartics2GoogleAnalytics } from 'angulartics2';
+import { DynamicComponentModule } from 'angular2-dynamic-component';
 import { MarkdownToHtmlModule } from 'markdown-to-html-pipe';
 
 /* Services */
@@ -31,8 +32,9 @@ import { SkillUpDetailComponent } from './components/content/skillup/skillup-det
 import { CharterComponent } from './components/content/static/charter.component';
 import { StoriesComponent } from './components/content/stories/stories.component';
 import { StoriesDetailComponent } from './components/content/stories/stories-detail.component';
-import { SignatoriesComponent } from './components/content/signatories/signatories.component';
-import { SignatoriesDetailComponent } from './components/content/signatories/signatories-detail.component';
+import { SignatoriesComponent } from './components/signatories/signatories.component';
+import { SignatoriesResultComponent } from './components/signatories/signatories-result.component';
+import { SignatoriesDetailComponent } from './components/signatories/signatories-detail.component';
 import { ResourcesComponent } from './components/content/resources/resources.component';
 import { ResourcesSupportComponent } from './components/content/resources/resources-support.component';
 import { ResourcesHelpOthersComponent } from './components/content/resources/resources-help-others.component';
@@ -54,6 +56,7 @@ import { StripTagsPipe } from './pipes/strip-tags.pipe';
 
 /* Configuration */
 import { firebaseConfig } from './configuration/firebase';
+import { DocumentViewComponent } from './components/document-view/document-view.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +73,7 @@ import { firebaseConfig } from './configuration/firebase';
     StoriesComponent,
     StoriesDetailComponent,
     SignatoriesComponent,
+    SignatoriesResultComponent,
     SignatoriesDetailComponent,
     ResourcesComponent,
     ResourcesSupportComponent,
@@ -80,6 +84,7 @@ import { firebaseConfig } from './configuration/firebase';
     AccessibilityComponent,
     PrivacyComponent,
     TermsConditionsComponent,
+    DocumentViewComponent,
     SlugifyPipe,
     AddHttpPipe,
     ShortenPipe,
@@ -93,6 +98,7 @@ import { firebaseConfig } from './configuration/firebase';
     AngularFireModule.initializeApp(firebaseConfig),
     Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
     ReactiveFormsModule,
+    DynamicComponentModule,
     MarkdownToHtmlModule,
     MaterializeModule
   ],
