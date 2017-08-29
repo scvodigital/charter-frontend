@@ -1,0 +1,1 @@
+<document-view *ngIf="signatory" #resultElement [document]="signatory" [viewPrefs]="['search-results']" (event)="viewEventHandler($event)" (redrawn)="viewRedrawHandler()"></document-view>

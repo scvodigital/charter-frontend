@@ -1,8 +1,12 @@
-import { Component, ElementRef } from '@angular/core';
+import { Component, ElementRef, ViewChild } from '@angular/core';
 import { Router, NavigationEnd, ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs/Rx';
-import { AppService } from '../../../services/app.service';
-import { IHit, ISignatory, ISearchParameters } from '../../../services/elastic.service';
+
+import { AppService } from '../../services/app.service';
+
+import { ISearchParameters, IHit } from '../../services/elastic.service';
+import { ISignatory } from '../../services/elastic.service.signatory';
+import { SignatoriesResultComponent } from './signatories-result.component';
 
 @Component({
     selector: 'main-container.content',
@@ -15,6 +19,14 @@ export class SignatoriesComponent {
     public pageTotal: number = 0;
     public loading: boolean = true;
     public totalSigned: number = null;
+
+    private signatoryDetails: ISignatory = null;
+    public get vacancy(): ISignatory {
+        return this.signatoryDetails;
+    }
+    public set signatory(value: ISignatory) {
+        this.signatoryDetails = value;
+    }
 
     private _parameters: ISearchParameters = null;
     public get parameters(): ISearchParameters {

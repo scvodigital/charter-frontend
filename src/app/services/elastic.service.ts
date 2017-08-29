@@ -2,14 +2,18 @@ import { Injectable, Inject } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Observer } from 'rxjs/Observer';
 import { Subject } from 'rxjs/Subject';
+import { ISignatory } from './elastic.service.signatory';
 import * as elasticsearch from 'elasticsearch';
 
 @Injectable()
 export class ElasticService {
+    public searchRestriction: any;
     public searchFilters: any = [];
+    public esIndex: string = 'web-content';
+    public esType: string = 'digital-charter-signatory';
 
     constructor() {
-        console.log('ELASTIC SERVICE CONSTRUCTOR');
+        // console.log('ELASTIC SERVICE CONSTRUCTOR');
     }
 
     static searchCompleted: Subject<ISearchParameters> = Subject.create();
@@ -17,7 +21,8 @@ export class ElasticService {
     public getClient() {
         return new Promise((resolve, reject) => {
             try {
-                var connectionString = 'https://readonly:onlyread@4c19757a0460c764d6e4712b0190cc21.eu-west-1.aws.found.io/';
+                // var connectionString = 'https://readonly:onlyread@4c19757a0460c764d6e4712b0190cc21.eu-west-1.aws.found.io/';
+                var connectionString = 'https://elastic:IFNTNxxwJqHWGMlSQi0zK0Dw@50896fdf5c15388f8976945e5582a856.eu-west-1.aws.found.io/';
                 // console.log(connectionString);
 
                 var client = new elasticsearch.Client({
@@ -36,34 +41,23 @@ export class ElasticService {
             this.getClient().then((client: any) => {
                 var payload = {
                     "aggs": {
-                        "sectors": {
-                            "terms": {
-                                "field": "sector-na",
-                                "order" : { "_term" : "desc" },
-                                "size": 0
-                            },
-                            "aggs": {
-                                "sector-categories": {
-                                    "terms": {
-                                        "field": "category-na",
-                                        "order" : { "_term" : "asc" },
-                                        "size": 0
-                                    }
-                                }
-                            }
-                        },
                         "categories": {
                             "terms": {
-                                "field": "category-na",
-                                "order" : { "_term" : "asc" },
-                                "size": 0
+                                "field": "category",
+                                "size": 10000
+                            }
+                        },
+                        "sectors": {
+                            "terms": {
+                                "field": "sector",
+                                "order": { "_term": "asc" },
+                                "size": 10000
                             }
                         }
-                    },
-                    "size": 0
+                    }
                 };
 
-                this.search(payload, { size: 0 }).then(response => {
+                this.search(payload, { size: 10000 }).then(response => {
                     resolve(response);
                 });
             });
@@ -73,7 +67,7 @@ export class ElasticService {
     getCount(): Promise<number> {
         return new Promise<number>((resolve, reject) => {
             this.getClient().then((client: any) => {
-                client.count({ index: 'charter' }).then((response) => {
+                client.count({ index: this.esIndex, type: this.esType }).then((response) => {
                     resolve(response.count);
                 }).catch((err) => {
                     console.error('Failed to get signatory count', err);
@@ -87,8 +81,8 @@ export class ElasticService {
         return new Promise<any>((resolve, reject) => {
             this.getClient().then((client: any) => {
                 var payload = {
-                    index: 'charter',
-                    type: 'signatory',
+                    index: this.esIndex,
+                    type: this.esType,
                     size: 12,
                     body: body
                 };
@@ -137,16 +131,16 @@ export class ElasticService {
 
             switch(parameters.sort) {
                 case('a-z'):
-                    body.sort = { 'organisation-slug': { order: 'asc' } };
+                    body.sort = { 'slug': { order: 'asc' } };
                     break;
                 case('z-a'):
-                    body.sort = { 'organisation-slug': { order: 'desc' } };
+                    body.sort = { 'slug': { order: 'desc' } };
                     break;
                 case('random'):
                     body.query.bool.must.push({ "function_score": { "functions": [ { "random_score": { "seed": Math.random().toString(36).substring(7) } } ] } });
                     break;
                 default:
-                    body.sort = { 'dateSigned': { order: 'desc' } };
+                    body.sort = { 'date_signed': { order: 'desc' } };
                     break;
             }
 
@@ -156,16 +150,25 @@ export class ElasticService {
             }
 
             this.search(body, overrides).then(response => {
+                // console.log(response.hits);
                 resolve(response.hits);
             }).catch(reject);
         });
     }
 
-    public getSignatory(slug: String): Promise<IHits<ISignatory>> {
+    public getSignatory(slug: String): Promise<ISignatory> {
         return new Promise((resolve, reject) => {
-            var body: any = {
-                filter: {
-                    term: { "organisation-slug": slug }
+            var body = {
+                query: {
+                    bool: {
+                        must: [
+                            {
+                                term: {
+                                    "slug": slug
+                                }
+                            }
+                        ]
+                    }
                 }
             };
 
@@ -174,11 +177,13 @@ export class ElasticService {
             }
 
             this.search(body, overrides).then(results => {
-                // console.log(results);
                 if (results.hits.total < 1) {
                     return reject(new Error('Signatory not found'));
                 }
-                resolve(results.hits);
+
+                var signatory: ISignatory = results.hits.hits[0]._source;
+
+                resolve(signatory);
             }).catch(reject);
         });
     }
@@ -201,13 +206,6 @@ export interface IHit<T> {
     _id: string;
     _score: number;
     _source: T[];
-}
-
-export interface ISignatory {
-    id: string;
-    title: string;
-    slug: string;
-    description: string;
 }
 
 export interface ISearchParameters {

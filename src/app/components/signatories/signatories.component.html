@@ -61,14 +61,18 @@
 
 <div class="row signatories" *ngIf="resultsTotal > 0 && !this.loading">
     <div *ngFor="let signatory of signatories" class="col s6 m4 l3">
+        <!-- <document-view *ngIf="signatory" #signatoryElement [document]="signatory" [viewPrefs]="['details']" (event)="viewEventHandler($event)" (redrawn)="viewRedrawHandler($event)"></document-view> -->
         <div class="inner">
+            <signatory-result [signatory]="signatory._source"></signatory-result>
+        </div>
+        <!-- <div class="inner">
             <a [routerLink]="['/signatories', signatory._source['organisation-slug']]" title="{{signatory._source.organisation}}" *ngIf="signatory._source.logo">
                 <img src="{{signatory._source.logo.Url}}" alt="{{signatory._source.organisation}}" class="responsive-img resize-fit-center" />
             </a>
             <a [routerLink]="['/signatories', signatory._source['organisation-slug']]" title="{{signatory._source.organisation}}" *ngIf="!signatory._source.logo">
                 {{signatory._source.organisation}}
             </a>
-        </div>
+        </div> -->
     </div>
     <!-- <div class="col s12">
         <hr class="nomargin" />
