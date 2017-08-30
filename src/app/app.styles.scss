@@ -298,9 +298,9 @@ nav .button-collapse {
 
 #content.primary {
     background: $brand-primary;
-    .page-header {
-        background: $brand-primary;
-    }
+    // .page-header {
+    //     background: $brand-primary;
+    // }
 }
 #content.primary-gradient {
     background: $brand-primary;
@@ -308,15 +308,15 @@ nav .button-collapse {
     background: -webkit-linear-gradient(top, $brand-primary 10%, $brand-charter 90%);
     background: linear-gradient(to bottom, $brand-primary 10%, $brand-charter 90%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-primary', endColorstr='$brand-charter',GradientType=0 );
-    .page-header {
-        background: $brand-primary;
-    }
+    // .page-header {
+    //     background: $brand-primary;
+    // }
 }
 #content.charter {
     background: $brand-charter;
-    .page-header {
-        background: $brand-charter;
-    }
+    // .page-header {
+    //     background: $brand-charter;
+    // }
 }
 #content.charter-gradient {
     background: $brand-charter;
@@ -330,9 +330,9 @@ nav .button-collapse {
 }
 #content.signup {
     background: $brand-signup;
-    .page-header {
-        background: $brand-signup;
-    }
+    // .page-header {
+    //     background: $brand-signup;
+    // }
 }
 #content.signup-gradient {
     padding-bottom: 1rem;
@@ -341,15 +341,15 @@ nav .button-collapse {
     background: -webkit-linear-gradient(top, $brand-signup 10%, $brand-primary 90%);
     background: linear-gradient(to bottom, $brand-signup 10%, $brand-primary 90%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-signup', endColorstr='$brand-primary',GradientType=0 );
-    .page-header {
-        background: $brand-signup;
-    }
+    // .page-header {
+    //     background: $brand-signup;
+    // }
 }
 #content.other {
     background: $brand-other;
-    .page-header {
-        background: $brand-other;
-    }
+    // .page-header {
+    //     background: $brand-other;
+    // }
 }
 #content.other-gradient {
     background: $brand-other;
@@ -357,15 +357,15 @@ nav .button-collapse {
     background: -webkit-linear-gradient(top, $brand-other 10%, $brand-skills 70%);
     background: linear-gradient(to bottom, $brand-other 10%, $brand-skills 70%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-other', endColorstr='$brand-skills',GradientType=0 );
-    .page-header {
-        background: $brand-other;
-    }
+    // .page-header {
+    //     background: $brand-other;
+    // }
 }
 #content.skills {
     background: $brand-skills;
-    .page-header {
-        background: $brand-skills;
-    }
+    // .page-header {
+    //     background: $brand-skills;
+    // }
 }
 #content.skills-gradient {
     background: $brand-skills;
@@ -373,9 +373,9 @@ nav .button-collapse {
     background: -webkit-linear-gradient(top, $brand-skills 10%, $brand-primary 80%);
     background: linear-gradient(to bottom, $brand-skills 10%, $brand-primary 80%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$brand-skills', endColorstr='$brand-primary',GradientType=0 );
-    .page-header {
-        background: $brand-skills;
-    }
+    // .page-header {
+    //     background: $brand-skills;
+    // }
 }
 
 main {
