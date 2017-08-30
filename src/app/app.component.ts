@@ -56,16 +56,12 @@ export class AppComponent {
                     }
                 } else if (event.url.startsWith('/resources')) {
                     if (event.url === '/resources') {
-                        this.contentType = 'other';
+                        this.contentType = 'other-gradient';
                     } else {
                         this.contentType = 'detail';
                     }
                 } else if (event.url.startsWith('/signatories')) {
-                    if (event.url.startsWith('/signatories/')) {
-                        this.contentType = 'other';
-                    } else {
-                        this.contentType = 'other-gradient';
-                    }
+                    this.contentType = 'other-gradient';
                 } else if (event.url.startsWith('/login')) {
                     this.contentType = 'signup-gradient';
                 } else {
