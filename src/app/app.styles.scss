@@ -1187,6 +1187,10 @@ main {
         }
     }
     main .signatories {
+        .inner a {
+          height: 7rem;
+          line-height: 7rem;
+        }
         .col:nth-child(3n + 1) {
             padding-left: 0;
             padding-right: 0;
