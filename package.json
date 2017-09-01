@@ -36,7 +36,7 @@
         "angular2-materialize": "^15.1.9",
         "angularfire2": "4.0.0-rc.2",
         "angulartics2": "2.3.0",
-        "core-js": "2.5.0",
+        "core-js": "2.5.1",
         "elasticsearch": "git+https://git@github.com/scvodigital/elasticsearch-js.git",
         "firebase": "4.3.0",
         "headroom.js": "0.9.4",
@@ -56,11 +56,11 @@
         "@angular/compiler-cli": "^4.3.6",
         "@types/core-js": "0.9.43",
         "@types/jasmine": "2.5.54",
-        "@types/node": "8.0.25",
+        "@types/node": "8.0.26",
         "codelyzer": "^3.1.2",
         "jasmine-core": "^2.8.0",
         "jasmine-spec-reporter": "^4.2.1",
-        "karma": "^1.7.0",
+        "karma": "^1.7.1",
         "karma-chrome-launcher": "^2.2.0",
         "karma-cli": "^1.0.1",
         "karma-jasmine": "^1.1.0",
@@ -68,7 +68,7 @@
         "protractor": "^5.1.2",
         "ts-node": "^3.3.0",
         "tslint": "^5.7.0",
-        "typescript": "^2.4.2"
+        "typescript": "^2.5.2"
     },
     "repository": {
         "type": "git",
