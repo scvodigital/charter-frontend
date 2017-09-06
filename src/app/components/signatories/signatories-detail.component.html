@@ -1,5 +1,5 @@
 <div class="row title signatory-detail">
-    <document-view *ngIf="signatory" #signatoryElement [document]="signatory" [viewPrefs]="['detail']" (event)="viewEventHandler($event)" (redrawn)="viewRedrawHandler()"></document-view>
+    <document-view *ngIf="signatory" #signatoryElement [document]="signatory" [viewPrefs]="['full']" (event)="viewEventHandler($event)" (redrawn)="viewRedrawHandler()"></document-view>
     <div class="col s12">
         <hr />
     </div>
