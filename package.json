@@ -41,7 +41,7 @@
         "firebase": "4.3.0",
         "headroom.js": "0.9.4",
         "jquery": "3.2.1",
-        "markdown-to-html-pipe": "1.2.2",
+        "markdown-to-html-pipe": "1.2.3",
         "marked": "^0.3.6",
         "materialize-css": "^0.100.2",
         "node-sass": "^4.5.3",
