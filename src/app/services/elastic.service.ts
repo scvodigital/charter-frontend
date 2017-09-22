@@ -9,7 +9,7 @@ import * as elasticsearch from 'elasticsearch';
 export class ElasticService {
     public searchRestriction: any;
     public searchFilters: any = [];
-    public esIndex: string = 'web-content';
+    public esIndex: string = 'web-content-production';
     public esType: string = 'digital-charter-signatory';
 
     constructor() {
