@@ -1,1 +1,1 @@
-<document-view *ngIf="signatory" #resultElement [document]="signatory" [viewPrefs]="['search-result-logo']" (event)="viewEventHandler($event)" (redrawn)="viewRedrawHandler()"></document-view>
+<document-view *ngIf="signatory" #resultElement [document]="signatory" [viewField]="'search_result_logo'" (event)="viewEventHandler($event)" (redrawn)="viewRedrawHandler()"></document-view>

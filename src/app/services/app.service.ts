@@ -37,24 +37,24 @@ export class AppService {
                     return;
                 }
 
-                var fields = { };
+                var fields = {};
                 var slugify = new SlugifyPipe();
 
                 Object.keys(response.aggregations).forEach((field) => {
                     fields[field] = [];
                     response.aggregations[field].buckets.forEach((bucket) => {
                         fields[field].push({
-                            term: bucket.key,
-                            count: bucket.doc_count
+                            "term": bucket.key,
+                            "count": bucket.doc_count
                         });
 
-                        if(bucket.hasOwnProperty('sector-categories')){
+                        if (bucket.hasOwnProperty('sector-categories')){
                             var subKey = slugify.transform(bucket.key) + '-categories';
                             fields[subKey] = [];
                             bucket['sector-categories'].buckets.forEach((subBucket) => {
                                 fields[subKey].push({
-                                    term: subBucket.key,
-                                    count: subBucket.doc_count
+                                    "term": subBucket.key,
+                                    "count": subBucket.doc_count
                                 })
                             });
                         }

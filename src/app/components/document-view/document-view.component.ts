@@ -9,7 +9,8 @@ import { AppService } from '../../services/app.service';
 })
 export class DocumentViewComponent implements OnInit {
     @Input('document') document: IDocument = null;
-    @Input('viewPrefs') viewPrefs: string[] = ['details'];
+    // @Input('viewPrefs') viewPrefs: string[] = ['details'];
+    @Input('viewField') viewField: string = 'full';
     @Output() event: EventEmitter<IViewEvent> = new EventEmitter();
     @Output() redrawn: EventEmitter<any> = new EventEmitter();
     html: string = '';
@@ -29,18 +30,7 @@ export class DocumentViewComponent implements OnInit {
     }
 
     ngOnInit() {
-        var html = '';
-        for(var v = 0; v < this.viewPrefs.length; v++){
-            var found = this.document.views.filter((view) => { return view.name === this.viewPrefs[v]; });
-            if(Array.isArray(found) && found.length > 0){
-                html = found[0].html;
-                break;
-            }
-        }
-
-        html = html.replace(/(href=\"|\')(\/.*?)(\"|\')/gi, '[routerLink]="[\'$2\']"');
-
-        this.html = html;
+        this.html = this.document[this.viewField].replace(/(href=\"|\')(\/.*?)(\"|\')/gi, '[routerLink]="[\'$2\']"');
     }
 
     emitEvent(event: string, ...args: any[]){
