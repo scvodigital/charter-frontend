@@ -12,21 +12,16 @@ export class ElasticService {
     public esIndex: string = 'web-content-production';
     public esType: string = 'digital-charter-signatory';
 
-    constructor() {
-        // console.log('ELASTIC SERVICE CONSTRUCTOR');
-    }
+    constructor() {}
 
     static searchCompleted: Subject<ISearchParameters> = Subject.create();
 
     public getClient() {
         return new Promise((resolve, reject) => {
             try {
-                var connectionString = 'https://readonly:onlyread@50896fdf5c15388f8976945e5582a856.eu-west-1.aws.found.io/';
-
                 var client = new elasticsearch.Client({
-                    host: connectionString
+                    host: 'https://readonly:onlyread@50896fdf5c15388f8976945e5582a856.eu-west-1.aws.found.io/'
                 });
-
                 resolve(client);
             } catch (err) {
                 reject(err);
@@ -38,6 +33,7 @@ export class ElasticService {
         return new Promise((resolve, reject) => {
             this.getClient().then((client: any) => {
                 var payload = {
+                    "_source": false,
                     "aggs": {
                         "categories": {
                             "terms": {
@@ -54,8 +50,7 @@ export class ElasticService {
                         }
                     }
                 };
-
-                this.search(payload, { size: 10000 }).then(response => {
+                this.search(payload, { "size": 0 }).then(response => {
                     resolve(response);
                 });
             });
@@ -79,10 +74,10 @@ export class ElasticService {
         return new Promise<any>((resolve, reject) => {
             this.getClient().then((client: any) => {
                 var payload = {
-                    index: this.esIndex,
-                    type: this.esType,
-                    size: 12,
-                    body: body
+                    "index": this.esIndex,
+                    "type": this.esType,
+                    "size": 12,
+                    "body": body
                 };
 
                 for (var p in overrides) {
@@ -104,51 +99,91 @@ export class ElasticService {
     public doSearch(parameters: ISearchParameters): Promise<IHits<ISignatory>> {
         return new Promise((resolve, reject) => {
             var body: any = {
-                query: {
-                    bool: {
-                        must: []
+                "_source": "search_result_logo",
+                "query": {
+                    "bool": {
+                        "must": []
                     }
                 }
             };
 
             if (parameters.query) {
-                body.query.bool.must.push({ "simple_query_string": {
-                    "query": parameters.query,
-                    "default_operator": "AND"
-                } })
+                body.query.bool.must.push({
+                    "simple_query_string": {
+                        "query": parameters.query,
+                        "default_operator": "AND"
+                    }
+                });
             }
             if (parameters.sector) {
-                body.query.bool.must.push({ "term": { "sector-slug": parameters.sector } });
+                body.query.bool.must.push({
+                    "term": {
+                        "sector-slug": parameters.sector
+                    }
+                });
             }
             if (parameters.category) {
-                body.query.bool.must.push({ "term": { "category-slug": parameters.category } });
+                body.query.bool.must.push({
+                    "term": {
+                        "category-slug": parameters.category
+                    }
+                });
             }
             if (parameters.commitment_required) {
-                body.query.bool.must.push({ "constant_score" : { "filter" : { "exists" : { "field" : "description" } } } });
+                body.query.bool.must.push({
+                    "constant_score": {
+                        "filter": {
+                            "exists": {
+                                "field": "description"
+                            }
+                        }
+                    }
+                });
             }
 
             switch(parameters.sort) {
                 case('a-z'):
-                    body.sort = { 'slug': { order: 'asc' } };
+                    body.sort = {
+                        'slug': {
+                            "order": 'asc'
+                        }
+                    };
                     break;
                 case('z-a'):
-                    body.sort = { 'slug': { order: 'desc' } };
+                    body.sort = {
+                        'slug': {
+                            "order": 'desc'
+                        }
+                    };
                     break;
                 case('random'):
-                    body.query.bool.must.push({ "function_score": { "functions": [ { "random_score": { "seed": Math.random().toString(36).substring(7) } } ] } });
+                    body.query.bool.must.push({
+                        "function_score": {
+                            "functions": [
+                                {
+                                    "random_score": {
+                                        "seed": Math.random().toString(36).substring(7)
+                                    }
+                                }
+                            ]
+                        }
+                    });
                     break;
                 default:
-                    body.sort = { 'date_signed': { order: 'desc' } };
+                    body.sort = {
+                        'date_signed': {
+                            "order": 'desc'
+                        }
+                    };
                     break;
             }
 
             var overrides: any = {
-                from: (parameters.page - 1) * 12,
-                size: 12
+                "from": (parameters.page - 1) * 12,
+                "size": 12
             }
 
             this.search(body, overrides).then(response => {
-                // console.log(response.hits);
                 resolve(response.hits);
             }).catch(reject);
         });
@@ -157,11 +192,11 @@ export class ElasticService {
     public getSignatory(slug: String): Promise<ISignatory> {
         return new Promise((resolve, reject) => {
             var body = {
-                query: {
-                    bool: {
-                        must: [
+                "query": {
+                    "bool": {
+                        "must": [
                             {
-                                term: {
+                                "term": {
                                     "slug": slug
                                 }
                             }
@@ -171,7 +206,8 @@ export class ElasticService {
             };
 
             var overrides: any = {
-                size: 1
+                "_source": "full",
+                "size": 1
             }
 
             this.search(body, overrides).then(results => {
