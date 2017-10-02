@@ -70,13 +70,14 @@ export class SignatoriesComponent {
 
     public signatories: IHit<ISignatory>[];
 
-    get sectors(): any[]{
+    get sectors(): any[] {
         return this.appService.getTerms('sectors');
     };
-    get categories(): any[]{
-        if(this.sector){
-            return this.appService.getTerms(this.sector + '-categories')
-        }else{
+    get categories(): any[] {
+        if (this.sector) {
+            return this.appService.getTerms('categories');
+            // return this.appService.getTerms(this.sector + '-categories')
+        } else {
             return this.appService.getTerms('categories');
         }
     };
