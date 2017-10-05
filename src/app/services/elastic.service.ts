@@ -35,16 +35,15 @@ export class ElasticService {
                 var payload = {
                     "_source": false,
                     "aggs": {
-                        "categories": {
-                            "terms": {
-                                "field": "category",
-                                "size": 10000
-                            }
-                        },
                         "sectors": {
                             "terms": {
                                 "field": "sector",
-                                "order": { "_term": "asc" },
+                                "size": 10000
+                            }
+                        },
+                        "categories": {
+                            "terms": {
+                                "field": "category",
                                 "size": 10000
                             }
                         }

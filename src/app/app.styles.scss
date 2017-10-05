@@ -102,6 +102,9 @@ hr {
     margin-top: 3rem;
     margin-bottom: 0;
 }
+.margin-bottom-none {
+    margin-bottom: 0 !important;
+}
 
 nav {
     height: 9rem;
@@ -722,6 +725,11 @@ main {
             margin: 0 0 1rem;
         }
     }
+    .digital-charter-signatory {
+        h4 {
+            margin-bottom: 0.5rem;
+        }
+    }
     .signatories {
         margin: 0 0.75rem;
         .commitment {
@@ -732,7 +740,6 @@ main {
                      -o-animation: fadein 0.5s; /* Opera < 12.1 */
                         animation: fadein 0.5s;
         }
-
 
         @keyframes fadein {
             from { opacity: 0; }
