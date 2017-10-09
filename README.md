@@ -1,6 +1,6 @@
-# Scotland's Digital Participation Charter (public frontend) [![Build Status](https://travis-ci.org/scvodigital/charter-frontend.svg?branch=master)](https://travis-ci.org/scvodigital/charter-frontend)
+# Scotland's Digital Participation Charter (public frontend) [![Build Status](https://travis-ci.org/scvodigital/charter-frontend.svg?branch=release)](https://travis-ci.org/scvodigital/charter-frontend)
 
-[![Dependency Status](https://david-dm.org/scvodigital/charter-frontend/master.svg)](https://david-dm.org/scvodigital/charter-frontend/master) [![devDependency Status](https://david-dm.org/scvodigital/charter-frontend/master/dev-status.svg)](https://david-dm.org/scvodigital/charter-frontend/master#info=devDependencies)
+[![Dependency Status](https://david-dm.org/scvodigital/charter-frontend/release.svg)](https://david-dm.org/scvodigital/charter-frontend/release) [![devDependency Status](https://david-dm.org/scvodigital/charter-frontend/release/dev-status.svg)](https://david-dm.org/scvodigital/charter-frontend/release#info=devDependencies)
 
 This is the repository for the website of Scotland's Digital Participation Charter, it contains the codebase for the public website. Deployment instructions are detailed below.
 
