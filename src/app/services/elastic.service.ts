@@ -98,7 +98,7 @@ export class ElasticService {
     public doSearch(parameters: ISearchParameters): Promise<IHits<ISignatory>> {
         return new Promise((resolve, reject) => {
             var body: any = {
-                "_source": "search_result_logo",
+                "_source": "rendered.search_result_logo",
                 "query": {
                     "bool": {
                         "must": []
@@ -205,7 +205,7 @@ export class ElasticService {
             };
 
             var overrides: any = {
-                "_source": "full",
+                "_source": "rendered.full",
                 "size": 1
             }
 

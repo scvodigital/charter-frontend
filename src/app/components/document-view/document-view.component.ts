@@ -30,7 +30,7 @@ export class DocumentViewComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.html = this.document[this.viewField].replace(/(href=\"|\')(\/.*?)(\"|\')/gi, '[routerLink]="[\'$2\']"');
+        this.html = this.document.rendered[this.viewField].replace(/(href=\"|\')(\/.*?)(\"|\')/gi, '[routerLink]="[\'$2\']"');
     }
 
     emitEvent(event: string, ...args: any[]){
