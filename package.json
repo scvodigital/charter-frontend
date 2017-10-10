@@ -8,7 +8,7 @@
     "angular-cli": {},
     "scripts": {
         "ng": "ng",
-        "start": "ng serve -p 9002",
+        "start": "ng serve -p 9040",
         "lint": "tslint \"src/**/*.ts\" --project src/tsconfig.json --type-check && tslint \"e2e/**/*.ts\" --project e2e/tsconfig.json --type-check",
         "test": "ng test",
         "build": "rm -rf ./dist && ng build -prod -e prod -pr false -aot false",
